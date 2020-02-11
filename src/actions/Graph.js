@@ -28,14 +28,19 @@ export const fetchData = () => {
       const location = location_list[i];
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
+        console.log(e);
         const data = JSON.parse(e.data);
-        if(data.img === undefined){
+        const img = data.img_data;
+        if(img === undefined){
           dispatch(updateImage(null, location, true));
         } else {
-          dispatch(updateImage(data.img, location, false));
+          dispatch(updateImage(img, location, false));
         }
-        for(let i = 0; i < data.time.length; i++){
-          const time = data.time[i];
+        if(data.datetime === undefined){
+          continue;
+        }
+        for(let i = 0; i < data.datetime.length; i++){
+          const time = data.datetime[i];
           const count = data.count[i];
           if(time === undefined || count === undefined){
             dispatch(receiveData({}, location, true));
