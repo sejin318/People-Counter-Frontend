@@ -2,9 +2,9 @@ import fetchJsonp from 'fetch-jsonp';
 import { replace } from 'react-router-redux';
 
 const API_URL = {
-  "south-gate": 'http://localhost:5000/realtime/south',
-  "north-gate": 'http://localhost:5000/realtime/north',
-  "barn-b": 'http://localhost:5000/realtime/barn',
+  "south-gate": 'http://52.220.34.115:5000/realtime/south',
+  "north-gate": 'http://52.220.34.115:5000/realtime/north',
+  "barn-b": 'http://52.220.34.115:5000/realtime/barn',
 };
 const location_list = ['south-gate', 'north-gate', 'barn-b'];
 
