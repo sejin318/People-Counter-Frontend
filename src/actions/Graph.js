@@ -36,16 +36,15 @@ export const fetchData = () => {
         } else {
           dispatch(updateImage(img, location, false));
         }
-        if(data.datetime === undefined){
-          continue;
-        }
-        for(let i = 0; i < data.datetime.length; i++){
-          const time = data.datetime[i];
-          const count = data.count[i];
-          if(time === undefined || count === undefined){
-            dispatch(receiveData({}, location, true));
-          } else {
-            dispatch(receiveData({ time: time, count: count }, location, false));
+        if(data.datetime !== undefined){
+          for(let i = 0; i < data.datetime.length; i++){
+            const time = data.datetime[i];
+            const count = data.count[i];
+            if(time === undefined || count === undefined){
+              dispatch(receiveData({}, location, true));
+            } else {
+              dispatch(receiveData({ time: time, count: count }, location, false));
+            }
           }
         }
       }
