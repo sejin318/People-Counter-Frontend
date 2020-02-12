@@ -35,8 +35,8 @@ export const fetchData = () => {
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
           const img = data.img_data;
-          const time = data.datetime[i];
-          const count = data.count[i];
+          const time = data.datetime;
+          const count = data.count;
           if(img === undefined){
             dispatch(updateImage(null, location, true));
           } else {
