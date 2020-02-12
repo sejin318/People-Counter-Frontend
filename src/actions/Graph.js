@@ -29,6 +29,8 @@ export const fetchData = () => {
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
         console.log(e);
+        const message = `{ data: ${e.data} }`; 
+        console.log(message);
         const data_list = JSON.parse(`{ data: ${e.data} }`).data;
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
