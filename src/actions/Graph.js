@@ -29,25 +29,24 @@ export const fetchData = () => {
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
         console.log(e);
-        const data = JSON.parse(e.data);
-        const img = data.img_data;
-        if(img === undefined){
-          dispatch(updateImage(null, location, true));
-        } else {
-          dispatch(updateImage(img, location, false));
-        }
-        if(data.datetime !== undefined && data.count !== undefined){
-          for(let i = 0; i < data.datetime.length; i++){
-            const time = data.datetime[i];
-            const count = data.count[i];
-            if(time !== undefined && count !== undefined){
-              dispatch(receiveData({ time: time, count: count }, location, false));
-            } else {
-              dispatch(receiveData({}, location, true));
-            }
+        const data_list = JSON.parse({{ e.data }});
+        for(let i = 0; i < data.length; i++){
+          const data = data_list[i];
+          const img = data.img_data;
+          const time = data.datetime[i];
+          const count = data.count[i];
+          if(img === undefined){
+            dispatch(updateImage(null, location, true));
+          } else {
+            dispatch(updateImage(img, location, false));
+          }
+          if(data.datetime !== undefined && data.count !== undefined){
+            dispatch(receiveData({ time: time, count: count }, location, false));
+          } else {
+            dispatch(receiveData({}, location, true));
           }
         }
-      }
+      };
     }
   };
 };
