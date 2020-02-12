@@ -29,7 +29,7 @@ export const fetchData = () => {
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
         console.log(e);
-        const data_list = JSON.parse({{ e.data }});
+        const data_list = JSON.parse("{{ e.data }}"");
         for(let i = 0; i < data.length; i++){
           const data = data_list[i];
           const img = data.img_data;
