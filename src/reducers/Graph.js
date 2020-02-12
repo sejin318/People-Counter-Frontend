@@ -1,9 +1,9 @@
 
 const initialState = {
   data: {
-    "barn-b": [...Array(60).keys()].map(() => ({ time: 0, count: 10})),
-    "south-gate": [...Array(60).keys()].map(() => ({ time: 0, count: 20})),
-    "north-gate": [...Array(60).keys()].map(() => ({ time: 0, count: 30})),
+    "barn-b": [...Array(60).keys()].map(() => ({ time: 0, count: 0})),
+    "south-gate": [...Array(60).keys()].map(() => ({ time: 0, count: 0})),
+    "north-gate": [...Array(60).keys()].map(() => ({ time: 0, count: 0})),
   },
   img: {
     "barn-b": null,
