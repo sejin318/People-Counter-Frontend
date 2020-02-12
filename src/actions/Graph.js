@@ -30,7 +30,7 @@ export const fetchData = () => {
       eventSource.onmessage = e => {
         console.log(e);
         const data_list = JSON.parse("{{ e.data }}");
-        for(let i = 0; i < data.length; i++){
+        for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
           const img = data.img_data;
           const time = data.datetime[i];
