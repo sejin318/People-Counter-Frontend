@@ -72,7 +72,7 @@ export const fetchData = () => {
           const img = data.img_data;
           const time = data.datetime;
           const count = data.count;
-          if(img === undefined){ka
+          if(img === undefined){
             dispatch(updateImage(null, location, true));
           } else {
             dispatch(updateImage(img, location, false));
