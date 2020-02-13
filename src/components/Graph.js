@@ -8,6 +8,14 @@ export default class Graph extends React.Component {
     this.props.onMount();
   }
 
+  componentWillUpdate() {
+    console.log("component will update at: ", new Date());
+  }
+
+  componentDidUpdate(prevProp, prevState){
+    console.log("component updated at: ", new Date());
+  }
+
   render() {
     const { location, data } = this.props;
     console.log(data);
