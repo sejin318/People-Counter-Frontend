@@ -30,8 +30,8 @@ export default class Graph extends React.Component {
           <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
           <h4>Current Count: {data[data.length-1].count}</h4>
           <Line
-          width={size.width*0.5+'px !important'}
-          height={size.height*0.3+'px !important'}
+          width={200}
+          height={200}
           data={{
             labels: data.map((item) => (
               item.time == null ?
@@ -62,12 +62,23 @@ export default class Graph extends React.Component {
               }
             ]
           }}
-          options={{ responsive: true, maintainAspectRatio: false }} />
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+           }} />
           </MDBContainer>
           </div>
         );
       }
     }
+
     </WindowSize>
   );
 }
