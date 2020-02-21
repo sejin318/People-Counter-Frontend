@@ -31,7 +31,7 @@ export default class Graph extends React.Component {
           <h4>Current Count: {data[data.length-1].count}</h4>
           <Line
           width={200}
-          height={200}
+          height={150}
           data={{
             labels: data.map((item) => (
               item.time == null ?
@@ -69,15 +69,9 @@ export default class Graph extends React.Component {
               yAxes: [{
                 ticks: {
                   beginAtZero: true,
-                  stepSize: 10 // this did not work as expected
+                  stepSize: 1 // this did not work as expected
                 }
               }],
-              xAxes: [{
-                ticks: {
-                  autoSkip: false,
-                  stepSize: 10 // this did not work as expected
-                }
-              }]
             }
           }} />
           </MDBContainer>

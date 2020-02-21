@@ -13,7 +13,7 @@ export default class Image extends React.Component {
           return (
             <div>
               <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-              <img width={size.width*0.5} height={size.height*0.5} src={`data:image/jpeg;base64,${img}`} />
+              <img width={size.width*0.6} height={size.height*0.4} src={`data:image/jpeg;base64,${img}`} />
             </div>
           );
         }
