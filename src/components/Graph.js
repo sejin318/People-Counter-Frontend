@@ -1,8 +1,8 @@
 import React from 'react';
 import { Line } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
-import { sizing, spacing, positions } from '@material-ui/system';
-import styled, { ThemeProvider } from 'styled-components';
+import { compose, sizing, spacing, positions } from '@material-ui/system';
+import { styled } from '@material-ui/core/styles';
 
 export default class Graph extends React.Component {
   componentWillMount() {
@@ -19,8 +19,13 @@ export default class Graph extends React.Component {
 
   render() {
     const { location, data } = this.props;
-    const Box = styled.div`${sizing}${spacing}${positions}`;
-
+    const Box = styled('div')(
+      compose(
+        sizing,
+        spacing,
+        positions
+      ),
+    );
     return (
       <div>
       <Box
