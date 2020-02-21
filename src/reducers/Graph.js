@@ -68,7 +68,7 @@ export default (state = initialState, action) => {
         ...state,
         data: {
           ...state.data,
-          ["location"]: [...state.data.location]
+          location: [...state.data.location]
         }
       };
 
