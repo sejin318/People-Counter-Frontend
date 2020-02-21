@@ -31,7 +31,7 @@ export default class Graph extends React.Component {
           <h4>Current Count: {data[data.length-1].count}</h4>
           <Line
           width={size.width*0.5}
-          height={size.height*0.5}
+          height={size.height*0.3}
           data={{
             labels: data.map((item) => (
               item.time == null ?
@@ -52,7 +52,7 @@ export default class Graph extends React.Component {
                 pointBorderColor: "rgb(35, 26, 136)",
                 pointBackgroundColor: "rgb(255, 255, 255)",
                 pointBorderWidth: 10,
-                pointHoverRadius: 5,
+                pointHoverRadius: 20,
                 pointHoverBackgroundColor: "rgb(0, 0, 0)",
                 pointHoverBorderColor: "rgba(220, 220, 220, 1)",
                 pointHoverBorderWidth: 2,
