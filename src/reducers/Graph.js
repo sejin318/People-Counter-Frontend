@@ -23,16 +23,16 @@ export default (state = initialState, action) => {
     //       ...state.data
     //     }
     //   };
-    case 'UPDATE_IMAGE':
-      return action.payload.error
-        ? { ...state, error: true }
-        : {
-            ...state,
-            img: {
-              ...state.img,
-              [action.payload.location]: action.payload.data
-            }
-          };
+    // case 'UPDATE_IMAGE':
+    //   return action.payload.error
+    //     ? { ...state, error: true }
+    //     : {
+    //         ...state,
+    //         img: {
+    //           ...state.img,
+    //           [action.payload.location]: action.payload.data
+    //         }
+    //       };
 
     case 'RECEIVE_DATA':
       const location = action.payload.location;

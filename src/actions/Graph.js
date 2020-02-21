@@ -33,12 +33,13 @@ export const fetchData = () => {
 
     // format is yyyy-mm-dd-hh:mm:ss
     function toDate(timeString){
-      const y = parseInt(timeString.substring(0, 4));
-      const m = parseInt(timeString.substring(5, 7));
-      const d = parseInt(timeString.substring(8, 10));
-      const h = parseInt(timeString.substring(11, 13));
-      const mm = parseInt(timeString.substring(14, 16));
-      const s = parseInt(timeString.substring(17, 19));
+      const y = parseInt(timeString.substring(6, 10));
+      const m = parseInt(timeString.substring(0, 2));
+      const d = parseInt(timeString.substring(3, 5));
+      const h = parseInt(timeString.substring(12, 14));
+      const mm = parseInt(timeString.substring(15, 17));
+      // const s = parseInt(timeString.substring(17, 19));
+      const s = 0;
       return new Date(y, m, d, h, mm, s);
     }
 
