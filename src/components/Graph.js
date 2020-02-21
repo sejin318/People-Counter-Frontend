@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import { compose, sizing, spacing, positions } from '@material-ui/system';
 import { styled } from '@material-ui/core/styles';
-import Media from 'react-media';
+import WindowSize, { useWindowSize } from "@reach/window-size";
 
 export default class Graph extends React.Component {
   componentWillMount() {
