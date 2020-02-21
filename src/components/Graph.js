@@ -1,6 +1,8 @@
 import React from 'react';
 import { Line } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
+import { positions } from '@material-ui/system';
+import { sizing } from '@material-ui/system';
 
 export default class Graph extends React.Component {
   componentWillMount() {
@@ -20,7 +22,7 @@ export default class Graph extends React.Component {
     console.log(data);
     return (
       <div>
-      <MDBContainer>
+      <MDBContainer width="50%">
       <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
       <h4>Current Count: {data[data.length-1].count}</h4>
       <Line data={{
