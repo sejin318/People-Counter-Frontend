@@ -23,6 +23,7 @@ export default class Graph extends React.Component {
       <div>
       <MDBContainer>
       <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
+      <h4>Current Count: {data[data.length-1].count}</h4>
       <Line data={{
         labels: data.map((item, i) => (item.time)),
         datasets: [

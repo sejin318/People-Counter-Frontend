@@ -8,64 +8,35 @@ const API_URL = {
   "barn-b": 'http://52.220.34.115:5000/realtime/barn',
 };
 const location_list = ['south-gate', 'north-gate', 'barn-b'];
+//
+// const startRequest = () => ({
+//   type: 'START_REQUEST',
+// });
 
-const startRequest = () => ({
-  type: 'START_REQUEST',
-});
+// const initData = (data, location, error) => ({ // show the waiting symbol until the data fully loads //
+//   type: 'INIT_DATA',
+//   payload: { data, location, error },
+// });
 
 const receiveData = (data, location, error) => ({
   type: 'RECEIVE_DATA',
   payload: { data, location, error },
 });
 
-const updateImage = (data, location, error) => ({
-  type: 'UPDATE_IMAGE',
-  payload: { data, location, error }
-});
+// const updateImage = (data, location, error) => ({
+//   type: 'UPDATE_IMAGE',
+//   payload: { data, location, error }
+// });
 
 export const fetchData = () => {
   return async (dispatch, getState) => {
     // initializing the data
-    // for(let i = 0; i < location_list.length; i++){
-    //   const location = location_list[i];
-    //   const init_url = location.replace('realtime', 'init');
-    //   axios.get(init_url)
-    //   .then( (e) => {
-    //     console.log("response", e);
-    //     const data_list = JSON.parse(`{ "data": ${e.data} }`).data;
-    //     for(let i = 0; i < data_list.length; i++){
-    //       const data = data_list[i];
-    //       const img = data.img_data;
-    //       const time = data.datetime;
-    //       const count = data.count;
-    //       if(img === undefined){
-    //         dispatch(updateImage(null, location, true));
-    //       } else {
-    //         dispatch(updateImage(img, location, false));
-    //       }
-    //       if(data.datetime !== undefined && data.count !== undefined){
-    //         dispatch(receiveData({ time: time, count: count }, location, false));
-    //       } else {
-    //         dispatch(receiveData({}, location, true));
-    //       }
-    //     }
-    //   })
-    //   .catch( (error) => {
-    //     console.log(error);
-    //   });
-    // }
-
-
-
-    // realtime updating data
     for(let i = 0; i < location_list.length; i++){
       const location = location_list[i];
-      const eventSource = new EventSource(API_URL[location]);
-      eventSource.onmessage = e => {
-        console.log("message received at: ", new Date())
-        console.log(e);
-        const message = `{ "data": ${e.data} }`;
-        console.log(message);
+      const init_url = location.replace('realtime', 'init');
+      axios.get(init_url)
+      .then( (e) => {
+        console.log("response", e);
         const data_list = JSON.parse(`{ "data": ${e.data} }`).data;
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
@@ -81,6 +52,44 @@ export const fetchData = () => {
             dispatch(receiveData({ time: time, count: count }, location, false));
           } else {
             dispatch(receiveData({}, location, true));
+          }
+        }
+      })
+      .catch( (error) => {
+        console.log(error);
+      });
+    }
+
+    function toDate(timeString){
+      // format is yyyy-mm-dd-hh:mm:ss
+      const y = parseInt(timeString.substring(0, 4));
+      const m = parseInt(timeString.substring(5, 7));
+      const d = parseInt(timeString.substring(8, 10));
+      const h = parseInt(timeString.substring(11, 13));
+      const m = parseInt(timeString.substring(14, 16));
+      const s = parseInt(timeString.substring(17, 19));
+      return new Date(y, m, d, h, m, s);
+    }
+
+    // realtime updating data
+    for(let i = 0; i < location_list.length; i++){
+      const location = location_list[i];
+      const eventSource = new EventSource(API_URL[location]);
+      eventSource.onmessage = e => {
+        console.log("message received at: ", new Date())
+        console.log(e);
+        const message = `{ "data": ${e.data} }`;
+        console.log(message);
+        const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
+        for(let i = 0; i < data_list.length; i++){
+          const data = data_list[i];
+          const img = data.img_data;
+          const time = toDate(data.datetime);
+          const count = data.count;
+          if(img === undefined || time === undefined || count === undefined){
+            dispatch(receiveData(null, location, null, true));
+          } else {
+            dispatch(receiveData({ time: time, count: count, img: img}, location, false));
           }
         }
       };
