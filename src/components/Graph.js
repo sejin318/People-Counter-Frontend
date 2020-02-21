@@ -72,10 +72,9 @@ export default class Graph extends React.Component {
                 }
               }],
               xAxes: [{
-                type: 'time',
                 ticks: {
-                  autoSkip: true,
-                  maxTicksLimit: 1
+                  autoSkip: false,
+                  maxTicksLimit: 10
                 }
               }]
             }
