@@ -66,13 +66,20 @@ export default class Graph extends React.Component {
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }],
+              xAxes: [{
+                type: 'time',
+                ticks: {
+                  autoSkip: true,
+                  maxTicksLimit: 1
+                }
+              }]
             }
-           }} />
+          }} />
           </MDBContainer>
           </div>
         );
