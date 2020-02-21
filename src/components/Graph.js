@@ -1,8 +1,7 @@
 import React from 'react';
 import { Line } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
-import { positions } from '@material-ui/system';
-import { sizing } from '@material-ui/system';
+import { sizing, spacing, positions } from '@material-ui/system';
 
 export default class Graph extends React.Component {
   componentWillMount() {
@@ -19,9 +18,13 @@ export default class Graph extends React.Component {
 
   render() {
     const { location, data } = this.props;
-    console.log(data);
+    const Box = styled.div`${sizing}${spacing}${positions}`;
+
     return (
       <div>
+      <Box
+        width="50%"
+      >
       <MDBContainer width="50%">
       <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
       <h4>Current Count: {data[data.length-1].count}</h4>
@@ -57,6 +60,7 @@ export default class Graph extends React.Component {
       }}
       options={{ responsive: true }} />
       </MDBContainer>
+      </Box>
       </div>
     )
   }
