@@ -2,6 +2,7 @@ import React from 'react';
 import { Line } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 import { sizing, spacing, positions } from '@material-ui/system';
+import styled, { ThemeProvider } from 'styled-components';
 
 export default class Graph extends React.Component {
   componentWillMount() {
