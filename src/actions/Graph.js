@@ -62,7 +62,7 @@ export const fetchData = () => {
           if(img === undefined || time === undefined || count === undefined){
             dispatch(receiveData(null, location, null, true));
           } else {
-            dispatch(receiveData({ time: time, count: count, img: img}, location, false));
+            dispatch(receiveData({ time: time, count: parseInt(count), img: img}, location, false));
           }
         }
       })
