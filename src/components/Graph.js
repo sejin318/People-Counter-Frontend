@@ -25,8 +25,8 @@ export default class Graph extends React.Component {
       <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
       <h4>Current Count: {data[data.length-1].count}</h4>
       <Line
-      width={100}
-      height={50}
+      width="50%"
+      height="50%"
       data={{
         labels: data.map((item) => (
           item.time == null ?
