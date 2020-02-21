@@ -49,10 +49,10 @@ export const fetchData = () => {
       axios.get(init_url)
       .then( (e) => {
         console.log("response", e);
-        console.log(JSON.parse(e.data));
-        console.log(JSON.parse(e.data).data)
+        console.log(e.data);
+        console.log(e.data.data);
         const data_list = JSON.parse(e.data).data;
-        // console.log(data_list); 
+        // console.log(data_list);
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
           const img = data.img_data;
