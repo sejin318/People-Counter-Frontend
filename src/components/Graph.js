@@ -68,13 +68,14 @@ export default class Graph extends React.Component {
             scales: {
               yAxes: [{
                 ticks: {
-                  beginAtZero: true
+                  beginAtZero: true,
+                  stepSize: 10 // this did not work as expected
                 }
               }],
               xAxes: [{
                 ticks: {
                   autoSkip: false,
-                  maxTicksLimit: 10
+                  stepSize: 10 // this did not work as expected
                 }
               }]
             }
