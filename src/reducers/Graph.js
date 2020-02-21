@@ -68,7 +68,7 @@ export default (state = initialState, action) => {
         ...state,
         data: {
           ...state.data,
-          ["location"]: Object.assign({}, state.data.location)
+          ["location"]: [].concat(state.data.location)
         }
       };
         // Object.assign({}, state);
