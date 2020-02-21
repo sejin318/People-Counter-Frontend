@@ -30,6 +30,18 @@ const receiveData = (data, location, error) => ({
 
 export const fetchData = () => {
   return async (dispatch, getState) => {
+
+    // format is yyyy-mm-dd-hh:mm:ss
+    function toDate(timeString){
+      const y = parseInt(timeString.substring(0, 4));
+      const m = parseInt(timeString.substring(5, 7));
+      const d = parseInt(timeString.substring(8, 10));
+      const h = parseInt(timeString.substring(11, 13));
+      const mm = parseInt(timeString.substring(14, 16));
+      const s = parseInt(timeString.substring(17, 19));
+      return new Date(y, m, d, h, mm, s);
+    }
+
     // initializing the data
     for(let i = 0; i < location_list.length; i++){
       const location = location_list[i];
@@ -41,34 +53,18 @@ export const fetchData = () => {
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
           const img = data.img_data;
-          const time = data.datetime;
+          const time = toDate(data.datetime);
           const count = data.count;
-          if(img === undefined){
-            dispatch(updateImage(null, location, true));
+          if(img === undefined || time === undefined || count === undefined){
+            dispatch(receiveData(null, location, null, true));
           } else {
-            dispatch(updateImage(img, location, false));
-          }
-          if(data.datetime !== undefined && data.count !== undefined){
-            dispatch(receiveData({ time: time, count: count }, location, false));
-          } else {
-            dispatch(receiveData({}, location, true));
+            dispatch(receiveData({ time: time, count: count, img: img}, location, false));
           }
         }
       })
       .catch( (error) => {
         console.log(error);
       });
-    }
-
-    function toDate(timeString){
-      // format is yyyy-mm-dd-hh:mm:ss
-      const y = parseInt(timeString.substring(0, 4));
-      const m = parseInt(timeString.substring(5, 7));
-      const d = parseInt(timeString.substring(8, 10));
-      const h = parseInt(timeString.substring(11, 13));
-      const mm = parseInt(timeString.substring(14, 16));
-      const s = parseInt(timeString.substring(17, 19));
-      return new Date(y, m, d, h, mm, s);
     }
 
     // realtime updating data
