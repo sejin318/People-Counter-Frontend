@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Line } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 
@@ -26,8 +25,8 @@ export default class Graph extends React.Component {
       <h4>Current Count: {data[data.length-1].count}</h4>
       <Line data={{
         labels: data.map((item) => (
-          item === null ?
-          null : 
+          item == null ?
+          null :
           item.time.getHours() + ':' + item.time.getMinutes())
         ),
         datasets: [

@@ -1,5 +1,3 @@
-import fetchJsonp from 'fetch-jsonp';
-import { replace } from 'react-router-redux';
 import axios from 'axios';
 
 const API_URL = {

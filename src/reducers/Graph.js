@@ -44,7 +44,7 @@ export default (state = initialState, action) => {
         for(; i < list.length; i++){
           if(list[i].time > time){
             break;
-          } else if(list[i].time == time){
+          } else if(list[i].time === time){
             return -1;
           }
         }
@@ -53,7 +53,7 @@ export default (state = initialState, action) => {
 
       const index = find_index(state.data[location], data);
 
-      if (action.payload.error || index == -1){
+      if (action.payload.error || index === -1){
         return {
           ...state
         };
@@ -61,7 +61,7 @@ export default (state = initialState, action) => {
 
       state.data[location].splice(index, 0, { time: data.time, count: data.count });
       state.data[location].splice(0, 1);
-      if(index == state.data[location].length){
+      if(index === state.data[location].length){
         state.img[location] = data.img;
       }
       return {
