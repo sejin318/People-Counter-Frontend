@@ -19,18 +19,8 @@ export default class Graph extends React.Component {
 
   render() {
     const { location, data } = this.props;
-    const Box = styled('div')(
-      compose(
-        sizing,
-        spacing,
-        positions
-      ),
-    );
     return (
       <div>
-      <Box
-        width="50%"
-      >
       <MDBContainer width="50%">
       <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
       <h4>Current Count: {data[data.length-1].count}</h4>
@@ -70,7 +60,6 @@ export default class Graph extends React.Component {
       }}
       options={{ responsive: true }} />
       </MDBContainer>
-      </Box>
       </div>
     )
   }
