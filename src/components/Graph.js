@@ -30,8 +30,8 @@ export default class Graph extends React.Component {
           <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
           <h4>Current Count: {data[data.length-1].count}</h4>
           <Line
-          width={size.width*0.5}
-          height={size.height*0.3}
+          width={size.width*0.5+'px !important'}
+          height={size.height*0.3+'px !important'}
           data={{
             labels: data.map((item) => (
               item.time == null ?
@@ -52,8 +52,8 @@ export default class Graph extends React.Component {
                 pointBorderColor: "rgb(35, 26, 136)",
                 pointBackgroundColor: "rgb(255, 255, 255)",
                 pointBorderWidth: 10,
-                pointHoverRadius: 20,
-                pointHoverBackgroundColor: "rgb(0, 0, 0)",
+                pointHoverRadius: 12,
+                pointHoverBackgroundColor: "rgb(255, 0, 0)",
                 pointHoverBorderColor: "rgba(220, 220, 220, 1)",
                 pointHoverBorderWidth: 2,
                 pointRadius: 1,
