@@ -45,7 +45,7 @@ export const fetchData = () => {
     // initializing the data
     for(let i = 0; i < location_list.length; i++){
       const location = location_list[i];
-      const init_url = location.replace('realtime', 'init');
+      const init_url = API_URL[location].replace('realtime', 'init');
       axios.get(init_url)
       .then( (e) => {
         console.log("response", e);
