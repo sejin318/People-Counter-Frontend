@@ -64,9 +64,7 @@ export default (state = initialState, action) => {
       if(index === state.data[location].length){
         state.img[location] = data.img;
       }
-      return {
-        ...state
-      };
+      return Object.assign({}, state); 
 
     default:
       return state;
