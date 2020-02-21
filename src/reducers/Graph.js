@@ -64,8 +64,13 @@ export default (state = initialState, action) => {
       if(index === state.data[location].length){
         state.img[location] = data.img;
       }
-      return JSON.parse(JSON.stringify(state));
-        // Object.assign({}, state);
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          ["location"]: [...state.data.location]
+        }
+      };
 
     default:
       return state;
