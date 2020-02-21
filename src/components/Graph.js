@@ -21,13 +21,12 @@ export default class Graph extends React.Component {
     const { location, data } = this.props;
     return (
       <div>
-      <MDBContainer width="50%">
+      <MDBContainer>
       <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
       <h4>Current Count: {data[data.length-1].count}</h4>
       <Line
       width={100}
       height={50}
-      options={{ maintainAspectRatio: false }}
       data={{
         labels: data.map((item) => (
           item.time == null ?
@@ -58,7 +57,7 @@ export default class Graph extends React.Component {
           }
         ]
       }}
-      options={{ responsive: true }} />
+      options={{ responsive: true, maintainAspectRatio: false }} />
       </MDBContainer>
       </div>
     )
