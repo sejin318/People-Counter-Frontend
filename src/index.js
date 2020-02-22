@@ -7,7 +7,6 @@ import App from './App';
 import createStore from './createStore';
 
 const history = createBrowserHistory();
-
 const store = createStore(history);
 
 ReactDOM.render(
