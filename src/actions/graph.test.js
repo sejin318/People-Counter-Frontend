@@ -17,8 +17,8 @@ describe('Actions', () => {  test('receiveData Action', () => {
       error: false
     };
     const store = mockStore();
-    const result = actions.receiveData(...data);
-    const expected = {
+    // const result = actions.receiveData(...data);
+    const expected = [{
       type: 'RECEIVE_DATA',
       payload: {
         data: {
@@ -29,8 +29,9 @@ describe('Actions', () => {  test('receiveData Action', () => {
         location: 'south-gate',
         error: false,
       },
-    };
-    return store.dispatch(actions.receiveData(...data)).then(() => {
+    }];
+    return store.dispatch(actions.receiveData(...data))
+    .then(() => {
       expect(store.getActions()).toEqual(expected);
     });
     expect(result).toEqual(expected);
