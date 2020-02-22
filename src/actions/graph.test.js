@@ -1,4 +1,4 @@
-import actions from './Graph';
+import * as actions from './Graph';
 
 describe('Actions', () => {  test('receiveData Action', () => {
     const data = {
