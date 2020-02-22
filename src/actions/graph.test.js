@@ -30,7 +30,7 @@ describe('Actions', () => {  test('receiveData Action', () => {
         error: false,
       },
     }];
-    return store.dispatch(actions.receiveData(...data))
+    return store.dispatch(receiveData(...data))
     .then(() => {
       expect(store.getActions()).toEqual(expected);
     });
