@@ -16,7 +16,7 @@ const location_list = ['south-gate', 'north-gate', 'barn-b'];
 //   payload: { data, location, error },
 // });
 
-export const receiveData = (data, location, error) => ({
+const receiveData = (data, location, error) => ({
   type: 'RECEIVE_DATA',
   payload: { data, location, error },
 });
@@ -26,7 +26,7 @@ export const receiveData = (data, location, error) => ({
 //   payload: { data, location, error }
 // });
 
-export const fetchData = () => {
+const fetchData = () => {
   return async (dispatch, getState) => {
 
     // format is yyyy-mm-dd-hh:mm:ss
@@ -94,3 +94,8 @@ export const fetchData = () => {
     }
   };
 };
+
+export default {
+  fetchData,
+  receiveData
+}

@@ -1,4 +1,4 @@
-import { receiveData } from './Graph';
+import actions from './Graph';
 
 describe('Actions', () => {  test('receiveData Action', () => {
     const data = {
@@ -23,7 +23,7 @@ describe('Actions', () => {  test('receiveData Action', () => {
         error: false,
       },
     };
-
-    expect(receiveData(...data)).toEqual(expected);
+    const result = actions.receiveData(...data);
+    expect(result).toEqual(expected);
   });
 });
