@@ -23,6 +23,7 @@ describe('Actions', () => {  test('receiveData Action', () => {
         error: false,
       },
     };
+    console.log(actions.receiveData); 
     const result = actions.receiveData(...data);
     expect(result).toEqual(expected);
   });
