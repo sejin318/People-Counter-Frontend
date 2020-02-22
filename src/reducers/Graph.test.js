@@ -35,7 +35,7 @@ describe('tasks Reducer', () => {
     };
     const action = {
       type: 'RECEIVE_DATA',
-      payload: { data: { time: new Date(2000, 01, 01, 12, 9, 0), count: 100, img: null }, location: 'south-gate', error: false },
+      payload: { data: { time: new Date(2000, 1, 1, 12, 9, 0), count: 100, img: null }, location: 'south-gate', error: false },
     };
     const result = reducer(state, action);
     const expected = {
