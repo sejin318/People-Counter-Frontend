@@ -14,19 +14,21 @@ describe('Actions', () => {
   test('receiveData Action', () => {
     const data = {
       data: {
-        time: '2019-02-20-12:46',
-        count: 10
+        time: new Date(2000, 01, 01, 12, 0, 0),
+        count: 10,
+        img: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII='
       },
       location: 'south-gate',
       error: false
     };
-    const result = actions.receiveData(data);
+    const result = actions.receiveData(...data);
     const expected = {
       type: 'RECEIVE_DATA',
       payload: {
         data: {
-          time: '2019-02-20-12:46',
-          count: 10
+          time: new Date(2000, 01, 01, 12, 0, 0),
+          count: 10,
+          img: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII='
         },
         location: 'south-gate',
         error: false,
