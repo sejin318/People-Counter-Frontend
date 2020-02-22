@@ -16,7 +16,7 @@ const location_list = ['south-gate', 'north-gate', 'barn-b'];
 //   payload: { data, location, error },
 // });
 
-const receiveData = (data, location, error) => ({
+export const receiveData = (data, location, error) => ({
   type: 'RECEIVE_DATA',
   payload: { data, location, error },
 });

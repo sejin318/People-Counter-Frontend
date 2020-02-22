@@ -22,9 +22,9 @@ describe('tasks Reducer', () => {
   test('RECEIVE_DATA action', () => {
     const state = {
       data: {
-        "barn-b": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 01, 01, 12, 0, 0), count: index })),
-        "south-gate": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 01, 01, 12, 2*index, 0), count: index })),
-        "north-gate": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 01, 01, 12, 0, 0), count: index })),
+        "barn-b": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 1, 1, 12, 0, 0), count: index })),
+        "south-gate": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 1, 1, 12, 2*index, 0), count: index })),
+        "north-gate": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 1, 1, 12, 0, 0), count: index })),
       },
       img: {
         "barn-b": null,
