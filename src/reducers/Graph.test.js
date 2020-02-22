@@ -17,8 +17,10 @@ describe('tasks Reducer', () => {
       },
       error: false
     };
-    expect(result).toEequal(expected);
+    expect(result.equals(expected)).toBe(true);
   });
+
+
   test('RECEIVE_DATA action', () => {
     const state = {
       data: {
