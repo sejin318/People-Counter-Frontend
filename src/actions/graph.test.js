@@ -1,10 +1,4 @@
 import { receiveData } from './Graph';
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
-
 
 describe('Actions', () => {  test('receiveData Action', () => {
     const data = {
@@ -16,7 +10,6 @@ describe('Actions', () => {  test('receiveData Action', () => {
       location: 'south-gate',
       error: false
     };
-    const store = mockStore();
     // const result = actions.receiveData(...data);
     const expected = {
       type: 'RECEIVE_DATA',
@@ -30,10 +23,7 @@ describe('Actions', () => {  test('receiveData Action', () => {
         error: false,
       },
     };
-    return store.dispatch(receiveData(...data))
-    .then(() => {
-      expect(store.getActions()).toEqual(expected);
-    });
-    // expect(result).toEqual(expected);
+
+    expect(receiveData(...data)).toEqual(expected);
   });
 });
