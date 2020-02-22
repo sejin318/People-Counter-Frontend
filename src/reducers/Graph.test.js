@@ -41,7 +41,7 @@ describe('tasks Reducer', () => {
     const expected = {
       data: {
         "barn-b": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 1, 1, 12, 0, 0), count: index })),
-        "south-gate": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 1, 1, 12, index < 4 ? 2*index+2 : (index > 4 ? 2*index: 9), 0), count: index })),
+        "south-gate": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 1, 1, 12, index < 4 ? 2*index+2 : (index > 4 ? 2*index: 9), 0), count: index < 4 ? index+1 : index > 4 ? index : 100 })),
         "north-gate": [...Array(10).keys()].map((index) => ({ time: new Date(2000, 1, 1, 12, 0, 0), count: index })),
       },
       img: {

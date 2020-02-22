@@ -1,4 +1,4 @@
-import actions from './Graph';
+import { receiveData } from './Graph';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 
