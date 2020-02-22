@@ -55,8 +55,6 @@
     "redux-mock-store": "^1.5.4"
   },
   "jest": {
-    "setupFiles": [
-      "./__test__/configJSDom.js"
-    ]
+    
   }
 }
