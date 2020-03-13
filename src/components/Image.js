@@ -8,22 +8,24 @@ export default class Image extends React.Component {
 
 
   componentDidMount() {
-    console.log("image component mounted"); 
+    console.log("image component mounted");
     // const {segment, box} = this.props;
     const { dispatch } = this.props;
     const canvas = this.refs.canvas;
     const img = this.refs.image
     dispatch(setCanvas(canvas));
-    const ctx = canvas.getContext("2d")
-    img.onload = () => {
-      ctx.scale(.25, .25);
-      ctx.drawImage(img, 0, 0);
-      // for(let i = 0; i < box; i++){
-      //   const point = box[i];
-      //   ctx.strokeRect(point[0], point[1], point[2]-point[0], point[3]-point[1]);
-      // }
-      ctx.strokeRect(10, 10, 100, 100);
-    }
+    const ctx = canvas.getContext("2d");
+    ctx.scale(.25, .25);
+
+    // img.onload = () => {
+    //   ctx.scale(.25, .25);
+    //   ctx.drawImage(img, 0, 0);
+    //   // for(let i = 0; i < box; i++){
+    //   //   const point = box[i];
+    //   //   ctx.strokeRect(point[0], point[1], point[2]-point[0], point[3]-point[1]);
+    //   // }
+    //   ctx.strokeRect(10, 10, 100, 100);
+    // }
   }
 
   componentDidUpdate() {
