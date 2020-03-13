@@ -2,7 +2,7 @@ import React from 'react';
 import WindowSize, { useWindowSize } from "@reach/window-size";
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas } from '../actions/Image';
+import { setCanvas, addBox } from '../actions/Image';
 export default class Image extends React.Component {
 
 
@@ -54,7 +54,7 @@ export default class Image extends React.Component {
         <canvas ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
         {buttons.map((data) => (
-          <Button style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+          <Button onclick={() => addBox(this.props.canvas)} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
             {data}
           </Button>
         ))}

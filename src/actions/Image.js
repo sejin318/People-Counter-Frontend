@@ -4,3 +4,8 @@ export function setCanvas(canvas) {
     canvas: canvas
   };
 }
+
+export function addBox(canvas) {
+  const ctx = canvas.getContext("2d")
+  ctx.fillRect(110, 110, 100, 100);
+}
