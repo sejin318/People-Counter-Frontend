@@ -18,30 +18,31 @@ export default class Image extends React.Component {
     img.onload = () => {
       ctx.scale(.25, .25);
       ctx.drawImage(img, 0, 0);
-      for(let i = 0; i < box; i++){
-        const point = box[i];
-        ctx.strokeRect(point[0], point[1], point[2]-point[0], point[3]-point[1]);
-      }
-    }
-  }
-
-  componentDidUpdate() {
-    const {segment, box} = this.props;
-    const canvas = this.refs.canvas;
-    const img = this.refs.image
-    const ctx = canvas.getContext("2d")
-    img.onload = () => {
-      ctx.scale(.25, .25);
-      ctx.drawImage(img, 0, 0);
       // for(let i = 0; i < box; i++){
       //   const point = box[i];
       //   ctx.strokeRect(point[0], point[1], point[2]-point[0], point[3]-point[1]);
       // }
-      for(let i = 0; i < box; i++){
-          ctx.strokeRect(10, 10, 100, 100);
-      }
+      ctx.strokeRect(10, 10, 100, 100);
     }
-    
+  }
+
+  componentDidUpdate() {
+    // const {segment, box} = this.props;
+    // const canvas = this.refs.canvas;
+    // const img = this.refs.image
+    // const ctx = canvas.getContext("2d")
+    // img.onload = () => {
+    //   ctx.scale(.25, .25);
+    //   ctx.drawImage(img, 0, 0);
+    //   for(let i = 0; i < box; i++){
+    //     const point = box[i];
+    //     ctx.strokeRect(point[0], point[1], point[2]-point[0], point[3]-point[1]);
+    //   }
+    //   for(let i = 0; i < box; i++){
+    //       ctx.strokeRect(10, 10, 100, 100);
+    //   }
+    // }
+
   }
 
 
