@@ -10,29 +10,16 @@ const initialState = {
     "south-gate": null,
     "north-gate": null
   },
+  bbox: {
+    "barn-b": [],
+    "south-gate": [],
+    "north-gate": []
+  },
   error: false
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    // 요청을 시작할 때 상태 리셋
-    // case 'START_REQUEST':
-    //   return {
-    //     ...state,
-    //     data: {
-    //       ...state.data
-    //     }
-    //   };
-    // case 'UPDATE_IMAGE':
-    //   return action.payload.error
-    //     ? { ...state, error: true }
-    //     : {
-    //         ...state,
-    //         img: {
-    //           ...state.img,
-    //           [action.payload.location]: action.payload.data
-    //         }
-    //       };
 
     case 'RECEIVE_DATA':
       const location = action.payload.location;
@@ -63,12 +50,13 @@ export default (state = initialState, action) => {
       state.data[location].splice(0, 1);
       if(index === state.data[location].length){
         state.img[location] = data.img;
+        state.bbox[location] = data.bbox;
       }
       return {
         ...state,
         data: {
           ...state.data,
-          [location]: [...state.data[location]]
+          [location]: [...state.data[location]] // why not simply return {...state} ?
         }
       };
 

@@ -6,25 +6,11 @@ const API_URL = {
   "barn-b": 'http://52.220.34.115:5000/realtime/barn',
 };
 const location_list = ['south-gate', 'north-gate', 'barn-b'];
-//
-// const startRequest = () => ({
-//   type: 'START_REQUEST',
-// });
-
-// const initData = (data, location, error) => ({ // show the waiting symbol until the data fully loads //
-//   type: 'INIT_DATA',
-//   payload: { data, location, error },
-// });
 
 export const receiveData = (data, location, error) => ({
   type: 'RECEIVE_DATA',
   payload: { data, location, error },
 });
-
-// const updateImage = (data, location, error) => ({
-//   type: 'UPDATE_IMAGE',
-//   payload: { data, location, error }
-// });
 
 export const fetchData = () => {
   return async (dispatch, getState) => {
@@ -84,10 +70,11 @@ export const fetchData = () => {
           const img = data.img_data;
           const time = toDate(data.datetime);
           const count = data.count;
+          const bbox = data.bbox;
           if(img === undefined || time === undefined || count === undefined){
             dispatch(receiveData(null, location, null, true));
           } else {
-            dispatch(receiveData({ time: time, count: count, img: img}, location, false));
+            dispatch(receiveData({ time: time, count: count, img: img, bbox: bbox }, location, false));
           }
         }
       };
