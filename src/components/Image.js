@@ -53,11 +53,11 @@ export default class Image extends React.Component {
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
         <canvas ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
-        {buttons.map((data) => {
+        {buttons.map((data) => {(
           <Button style={{ marginLeft : 20 }} variant="contained" color="tertiary">
             {data}
           </Button>
-        })}
+        )})}
       </div>
     );
   }
