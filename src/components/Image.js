@@ -8,7 +8,7 @@ export default class Image extends React.Component {
 
 
   componentDidMount() {
-
+    console.log("image component mounted"); 
     // const {segment, box} = this.props;
     const { dispatch } = this.props;
     const canvas = this.refs.canvas;
