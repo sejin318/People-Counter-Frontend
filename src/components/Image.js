@@ -2,7 +2,7 @@ import React from 'react';
 import WindowSize, { useWindowSize } from "@reach/window-size";
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas } from '../actions/canvas';
+import { setCanvas } from '../actions/Image';
 export default class Image extends React.Component {
 
 
