@@ -34,9 +34,10 @@ export function setCanvas(canvas) {
 export function resetCanvas(canvas, img){
   // const img_elem = <img src={`data:image/jpeg;base64,${img}`} />
   const ctx = canvas.getContext("2d");
-  img_elem.onload = () => {
-    ctx.drawImage(img, 0, 0);
-  }
+  ctx.drawImage(img, 0, 0);
+  // img_elem.onload = () => {
+  //   ctx.drawImage(img, 0, 0);
+  // }
 }
 
 export function addBox(canvas) {
