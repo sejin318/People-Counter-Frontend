@@ -14,7 +14,7 @@ const initialState = {
     }
   ],
   buttons: {
-    "south-gate": ['queue 1', 'queue 2', 'queue3'],
+    "south-gate": ['queue 1', 'queue 2', 'queue 3'],
     "north-gate": ['queue 1', 'queue 2'],
     "barn-b": ['area 1', 'area 2', 'area'],
   },
