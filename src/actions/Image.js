@@ -50,7 +50,7 @@ export function drawRegion(canvas, coordinates, bbox=[[0, 0, 330, 580]]){ // coo
   for(let i = 0; i < bbox.length; i++){
     let cross_count = 0;
     for(let j = 0; j < coordinates-2; j+=2){
-      if(intersect(coordinates[j], coordinates[j+1], coordinates[j+2], coordinates[j+3], ...bbox[i])){
+      if(intersect(coordinates[j]*1024/3840, coordinates[j+1]*1024/3840, coordinates[j+2]*1024/3840, coordinates[j+3]*1024/3840, ...bbox[i])){
         cross_count++;
       }
     }
