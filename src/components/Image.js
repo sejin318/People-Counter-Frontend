@@ -29,8 +29,8 @@ export default class Image extends React.Component {
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
         <canvas ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
-        {buttons.map((data) => (
-          <Button onClick={() => drawRegion(canvas, regions)} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        {buttons.map((index, data) => (
+          <Button onClick={() => drawRegion(canvas, regions[index])} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
             {data}
           </Button>
         ))}
