@@ -1,3 +1,27 @@
+function intersect(
+    v1x1, v1y1, v1x2, v1y2,
+    v2x1, v2y1, v2x2, v2y2
+) {
+    var d1, d2;
+    var a1, a2, b1, b2, c1, c2;
+    a1 = v1y2 - v1y1;
+    b1 = v1x1 - v1x2;
+    c1 = (v1x2 * v1y1) - (v1x1 * v1y2);
+    d1 = (a1 * v2x1) + (b1 * v2y1) + c1;
+    d2 = (a1 * v2x2) + (b1 * v2y2) + c1;
+    if (d1 > 0 && d2 > 0) return false;
+    if (d1 < 0 && d2 < 0) return false;
+    a2 = v2y2 - v2y1;
+    b2 = v2x1 - v2x2;
+    c2 = (v2x2 * v2y1) - (v2x1 * v2y2);
+    d1 = (a2 * v1x1) + (b2 * v1y1) + c2;
+    d2 = (a2 * v1x2) + (b2 * v1y2) + c2;
+    if (d1 > 0 && d2 > 0) return false;
+    if (d1 < 0 && d2 < 0) return false;
+    if ((a1 * b2) - (a2 * b1) == 0.0f) return false;
+    return true;
+}
+
 export function setCanvas(canvas) {
   return {
     type: 'SET_CANVAS',
@@ -6,13 +30,13 @@ export function setCanvas(canvas) {
 }
 
 export function addBox(canvas) {
-  console.log("addBox called!!!!!!!!!!!!!!!!!!!!!!!");
+  // console.log("addBox called!!!!!!!!!!!!!!!!!!!!!!!");
   const ctx = canvas.getContext("2d");
   ctx.fillRect(110, 110, 100, 100);
 }
 
-export function drawRegion(canvas, coordinates){ // coordinates as an array of x,y coordinates (1d)
-  console.log('coordinate is', coordinates);
+export function drawRegion(canvas, coordinates, bbox){ // coordinates as an array of x,y coordinates (1d)
+  // console.log('coordinate is', coordinates);
   const ctx = canvas.getContext("2d");
   // ctx.globalAlpha = 0.2;
   ctx.beginPath();
@@ -22,6 +46,19 @@ export function drawRegion(canvas, coordinates){ // coordinates as an array of x
   }
   ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
   ctx.fill();
+  let total = 0;
+  for(let i = 0; i < bbox; i++){
+    let cross_count = 0;
+    for(let j = 0; j < coordinates-2; j+=2){
+      if(intersect(coordinates[j], coordinates[j+1], coordinates[j+2], coordinates[j+3], ...bbox[i])){
+        cross_count++;
+      }
+    }
+    if(cross_count & 1){
+      total++;
+    }
+  }
+  console.log('total is', total); 
   // ctx.globalAlpha = 1;
 
   // ctx.moveTo(0, 0);
