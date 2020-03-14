@@ -21,6 +21,14 @@ export default class Image extends React.Component {
     }
   }
 
+  updateCanvas(data){
+    const canvas = this.refs.canvas;
+    const img = this.refs.image
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    drawRegion(canvas, data);
+  }
+
 
 
   render() {
@@ -32,7 +40,7 @@ export default class Image extends React.Component {
         <canvas width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
         {buttons.map((data) => (
-          <Button onClick={function(){resetCanvas(canvas, this.refs.image); drawRegion(canvas, regions[data]); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+          <Button onClick={() => this.updateCanvas(data)} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
             {data}
           </Button>
         ))}
