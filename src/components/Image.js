@@ -14,7 +14,7 @@ export default class Image extends React.Component {
     const img = this.refs.image
     dispatch(setCanvas(canvas));
     const ctx = canvas.getContext("2d");
-    ctx.scale(.25, .25);
+    // ctx.scale(.25, .25);
     img.onload = () => {
       ctx.drawImage(img, 0, 0);
     }
