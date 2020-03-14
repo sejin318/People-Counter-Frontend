@@ -6,7 +6,8 @@ import * as actions from '../actions/Image';
 const mapStateToProps = (state, ownProps) => ({
   img: state.Graph.img[ownProps.location],
   buttons: state.commons.buttons[ownProps.location],
-  canvas: state.canvas.canvas
+  canvas: state.canvas.canvas, 
+  regions: state.commons.regions[ownProps.location]
 });
 
 
