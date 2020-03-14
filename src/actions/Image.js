@@ -18,7 +18,7 @@ function intersect(
     d2 = (a2 * v1x2) + (b2 * v1y2) + c2;
     if (d1 > 0 && d2 > 0) return false;
     if (d1 < 0 && d2 < 0) return false;
-    if ((a1 * b2) - (a2 * b1) == 0.0f) return false;
+    if ((a1 * b2) - (a2 * b1) == 0.0) return false;
     return true;
 }
 
@@ -58,7 +58,7 @@ export function drawRegion(canvas, coordinates, bbox){ // coordinates as an arra
       total++;
     }
   }
-  console.log('total is', total); 
+  console.log('total is', total);
   // ctx.globalAlpha = 1;
 
   // ctx.moveTo(0, 0);
