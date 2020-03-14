@@ -54,6 +54,9 @@ export function drawRegion(canvas, coordinates, bbox=[[0, 0, 330, 580]]){ // coo
         cross_count++;
       }
     }
+    if(intersect(coordinates[0]*1024/3840, coordinates[1]*1024/3840, coordinates[coordinates.length-2]*1024/3840, coordinates[coordinates.length-1]*1024/3840, ...bbox[i])){
+      cross_count++;
+    }
     if(cross_count & 1){
       total++;
     }
