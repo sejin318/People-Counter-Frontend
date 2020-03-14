@@ -1,3 +1,5 @@
+import React from 'react';
+
 function intersect(
     v1x1, v1y1, v1x2, v1y2,
     v2x1, v2y1, v2x2, v2y2
