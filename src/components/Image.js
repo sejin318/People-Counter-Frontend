@@ -16,6 +16,7 @@ export default class Image extends React.Component {
     const ctx = canvas.getContext("2d");
     // ctx.scale(.25, .25);
     img.onload = () => {
+      console.log('width and height of image is: ', img.width, img.height); 
       ctx.drawImage(img, 0, 0);
     }
   }
