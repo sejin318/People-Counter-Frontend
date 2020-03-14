@@ -19,7 +19,7 @@ const initialState = {
     "barn-b": ['area 1', 'area 2', 'area'],
   },
   regions: {
-    south: {
+    "south-gate": {
       'queue 1': [
         11.6279296875,
         1534.8056640625,
@@ -77,10 +77,10 @@ const initialState = {
         1189.1514629948379
       ]
     },
-    north: {
+    "north-gate": {
 
     },
-    barn: {
+    "barn-b": {
 
     }
   }
