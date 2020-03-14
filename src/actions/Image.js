@@ -25,9 +25,9 @@ export function drawRegion(canvas, coordinates){ // coordinates as an array of x
   // ctx.globalAlpha = 1;
 
   ctx.moveTo(0, 0);
-  ctx.lineTo(480, 0);
-  ctx.lineTo(480, 270);
-  ctx.lineTo(0, 270);
+  ctx.lineTo(960, 0);
+  ctx.lineTo(960, 540);
+  ctx.lineTo(0, 540);
   ctx.fillStyle = 'rgba(255, 0, 0, 0.5)';
   ctx.fill();
 }
