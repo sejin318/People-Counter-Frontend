@@ -11,11 +11,11 @@ export default class Graph extends React.Component {
   }
 
   componentWillUpdate() {
-    console.log("component will update at: ", new Date());
+    // console.log("component will update at: ", new Date());
   }
 
   componentDidUpdate(prevProp, prevState){
-    console.log("component updated at: ", new Date());
+    // console.log("component updated at: ", new Date());
   }
 
   render() {
@@ -23,7 +23,7 @@ export default class Graph extends React.Component {
     return (
       <WindowSize>
       { function(size){
-        console.log(size);
+        // console.log(size);
         return (
           <div>
           <MDBContainer>

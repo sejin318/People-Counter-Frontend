@@ -33,9 +33,9 @@ export const fetchData = () => {
       const init_url = API_URL[location].replace('realtime', 'init');
       axios.get(init_url)
       .then( (e) => {
-        console.log("response", e);
-        console.log(e.data);
-        console.log(e.data.data);
+        // console.log("response", e);
+        // console.log(e.data);
+        // console.log(e.data.data);
         const data_list = e.data.data;
         // console.log(data_list);
         for(let i = 0; i < data_list.length; i++){
@@ -60,10 +60,10 @@ export const fetchData = () => {
       const location = location_list[i];
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
-        console.log("message received at: ", new Date())
-        console.log(e);
+        // console.log("message received at: ", new Date())
+        // console.log(e);
         const message = `{ "data": ${e.data} }`;
-        console.log(message);
+        // console.log(message);
         const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
