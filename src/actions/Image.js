@@ -35,11 +35,11 @@ export function addBox(canvas) {
   ctx.fillRect(110, 110, 100, 100);
 }
 
-export function drawRegion(canvas, coordinates, bbox=[[330, 580, 330, 580]], img){ // coordinates as an array of x,y coordinates (1d)
+export function drawRegion(canvas, coordinates, bbox=[[330, 580, 330, 580]], obj){ // coordinates as an array of x,y coordinates (1d)
   // console.log('coordinate is', coordinates);
   const ctx = canvas.getContext("2d");
   // ctx.globalAlpha = 0.2;
-  ctx.drawImage(img, 0, 0);
+  ctx.drawImage(obj.refs.image, 0, 0);
   ctx.beginPath();
   ctx.moveTo(coordinates[0], coordinates[1]);
   for(let i = 2; i < coordinates.length; i+=2){
