@@ -51,14 +51,14 @@ export function drawRegion(canvas, coordinates, bbox=[[330, 580, 330, 580]]){ //
     let cross_count = 0;
     bbox_x = (bbox[i][0]+bbox[i][2])/2;
     bbox_y = (bbox[i][1]+bbox[i][3])/2;
-    for(let j = 0; j < coordinates-2; j+=2){
+    for(let j = 0; j < coordinates.length-2; j+=2){
       if(intersect(coordinates[j]*1024/3840, coordinates[j+1]*768/2160, coordinates[j+2]*1024/3840, coordinates[j+3]*768/2160, 0, 0, bbox_x, bbox_y)){
         console.log('intersection occurred at:', coordinates[j]*1024/3840, coordinates[j+1]*768/2160, coordinates[j+2]*1024/3840, coordinates[j+3]*768/2160);
         cross_count++;
       }
     }
     if(intersect(coordinates[0]*1024/3840, coordinates[1]*768/2160, coordinates[coordinates.length-2]*1024/3840, coordinates[coordinates.length-1]*768/2160, 0, 0, bbox_x, bbox_y)){
-      console.log('intersection occurred at:', coordinates[j]*1024/3840, coordinates[j+1]*768/2160, coordinates[j+2]*1024/3840, coordinates[j+3]*768/2160);
+      console.log('intersection occurred at:', coordinates[0]*1024/3840, coordinates[1]*768/2160, coordinates[coordinates.length-2]*1024/3840, coordinates[coordinates.length-1]*768/2160);
       cross_count++;
     }
     if(cross_count & 1){
