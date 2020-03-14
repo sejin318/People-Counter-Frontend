@@ -23,14 +23,14 @@ export default class Image extends React.Component {
 
 
   render() {
-    const { location, img, buttons, canvas, region } = this.props;
+    const { location, img, buttons, canvas, regions } = this.props;
     return (
       <div>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
         <canvas ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
         {buttons.map((data) => (
-          <Button onClick={() => drawRegion(canvas, )} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+          <Button onClick={() => drawRegion(canvas, regions)} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
             {data}
           </Button>
         ))}
