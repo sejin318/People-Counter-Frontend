@@ -35,7 +35,7 @@ export function addBox(canvas) {
   ctx.fillRect(110, 110, 100, 100);
 }
 
-export function drawRegion(canvas, coordinates, bbox){ // coordinates as an array of x,y coordinates (1d)
+export function drawRegion(canvas, coordinates, bbox=[[0, 0, 330, 580]]){ // coordinates as an array of x,y coordinates (1d)
   // console.log('coordinate is', coordinates);
   const ctx = canvas.getContext("2d");
   // ctx.globalAlpha = 0.2;
@@ -47,7 +47,7 @@ export function drawRegion(canvas, coordinates, bbox){ // coordinates as an arra
   ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
   ctx.fill();
   let total = 0;
-  for(let i = 0; i < bbox; i++){
+  for(let i = 0; i < bbox.length; i++){
     let cross_count = 0;
     for(let j = 0; j < coordinates-2; j+=2){
       if(intersect(coordinates[j], coordinates[j+1], coordinates[j+2], coordinates[j+3], ...bbox[i])){
