@@ -17,7 +17,7 @@ export default class Image extends React.Component {
     // ctx.scale(.25, .25);
     img.onload = () => {
       console.log('width and height of image is: ', img.width, img.height);
-      ctx.drawImage(img, 0, 0, 2000, 1000, 0, 0, 1024, 768);
+      ctx.drawImage(img, 0, 0);
     }
   }
 
