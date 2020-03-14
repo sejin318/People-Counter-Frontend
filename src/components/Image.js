@@ -24,6 +24,7 @@ export default class Image extends React.Component {
 
   render() {
     const { location, img, buttons, canvas, regions } = this.props;
+    console.log(regions); 
     return (
       <div>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
