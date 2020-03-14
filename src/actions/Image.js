@@ -12,6 +12,7 @@ export function addBox(canvas) {
 }
 
 export function drawRegion(canvas, coordinates){ // coordinates as an array of x,y coordinates (1d)
+  console.log('coordinate is', coordinates); 
   const ctx = canvas.getContext("2d");
   ctx.globalAlpha = 0.2;
   ctx.beginPath();
