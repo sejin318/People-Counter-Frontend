@@ -60,6 +60,7 @@ export function drawRegion(canvas, coordinates, bbox=[[0, 0, 330, 580]]){ // coo
     if(cross_count & 1){
       total++;
     }
+    console.log('cross count is', cross_count); 
   }
   console.log('total is', total);
   // ctx.globalAlpha = 1;
