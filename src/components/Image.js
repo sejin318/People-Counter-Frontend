@@ -44,10 +44,11 @@ export default class Image extends React.Component {
         <canvas width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
         {buttons.map((data) => (
-          <Button onClick={() => this.updateCanvas(regions[data])} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+          <Button onClick={() => this.updateCanvas(regions[data])} className="button" variant="contained" color="tertiary">
             {data}
           </Button>
         ))}
+        <Button onClick={() => this.resetCanvas()} className="button" variant="contained" color="tertiary"/>
       </div>
     );
   }
