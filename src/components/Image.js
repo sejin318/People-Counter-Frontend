@@ -54,7 +54,7 @@ export default class Image extends React.Component {
   // }
 
 
-    customDrawing(e, canvas, openDrawing, lines){
+    customDrawing(e, canvas, openDrawing, lines) {
     const { dispatch } = this.props;
     console.log('custom drawing called', openDrawing);
     const rect = canvas.getBoundingClientRect();
@@ -64,7 +64,7 @@ export default class Image extends React.Component {
     ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
     if(!openDrawing){
       console.log("opendrawing false! ");
-      dispatch(start_drawing);
+      dispatch(start_drawing());
       ctx.beginPath();
       ctx.moveTo(x, y);
     } else {
