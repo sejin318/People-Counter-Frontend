@@ -31,7 +31,7 @@ export function setCanvas(canvas) {
   };
 }
 
-export function drawRegion(canvas, coordinates, bbox=[[330, 580, 330, 580]]){
+export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
   const ctx = canvas.getContext("2d");
   ctx.beginPath();
   ctx.moveTo(coordinates[0], coordinates[1]);
@@ -58,6 +58,8 @@ export function drawRegion(canvas, coordinates, bbox=[[330, 580, 330, 580]]){
     }
   }
   ctx.font = "20px Arial";
-  ctx.fillText("People Count: "+total, 850, 25);
-  ctx.strokeRect(840, 15, 100, 50);
+  ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+  ctx.fillText("People Count: "+total, 850, 30);
+  ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+  ctx.strokeRect(840, 15, 200, 50);
 }
