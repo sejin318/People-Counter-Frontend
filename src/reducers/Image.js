@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     // state.openDrawing = true;
     return {
       openDrawing: true,
-      lines: [...state.lines];
+      lines: [...state.lines]
     };
 
     case 'ADD_LINE':
