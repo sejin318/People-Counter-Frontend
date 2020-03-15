@@ -53,12 +53,13 @@ export default class Image extends React.Component {
   //   customDrawing(e, canvas, openDrawing, lines, dispatch);
   // }
 
+  //onClick={(e) => customDrawing(e, canvas, openDrawing, lines, this.props.dispatch)}
   render() {
     const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
     return (
       <div>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-        <canvas onClick={(e) => customDrawing(e, canvas, openDrawing, lines, this.props.dispatch)} width="1024" height="768" ref="canvas" className="canvas" />
+        <canvas width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
         {buttons.map((data) => (
           <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
