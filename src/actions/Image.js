@@ -44,7 +44,7 @@ export function customDrawing(e, canvas, openDrawing, lines, dispatch){
 }
 
 function start_drawing(){
-  console.log("start_drawing called!"); 
+  console.log("start_drawing called!");
   return {
     type: 'START_DRAWING',
   };

@@ -7,13 +7,15 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'START_DRAWING': {
+      console.log('reducer says start drawing');
       // state.openDrawing = true;
       return {
-        openDrawing: true,  
+        openDrawing: true,
         ...state
       };
     }
     case 'ADD_LINE': {
+      console.log('reducer says add line');
       const x = action.payload.x;
       const y = action.payload.y;
       state.lines.push(x);
@@ -21,6 +23,7 @@ export default (state = initialState, action) => {
       return {...state};
     }
     case 'RESET': {
+      console.log('reducer says reset'); 
       state.lines = [];
       return {...state};
     }
