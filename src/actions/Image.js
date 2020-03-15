@@ -59,7 +59,7 @@ export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710
   }
   ctx.font = "20px Arial";
   ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-  ctx.fillText("People Count: "+total, 850, 30);
+  ctx.fillText("People Count: "+total, 850, 40);
   ctx.fillStyle = 'rgba(0, 0, 0, 1)';
-  ctx.strokeRect(840, 15, 200, 50);
+  ctx.strokeRect(840, 15, 170, 50);
 }
