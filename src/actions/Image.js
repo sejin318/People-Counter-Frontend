@@ -25,7 +25,7 @@ function intersect(
 }
 
 export function customDrawing(e, canvas, openDrawing, lines, dispatch){
-  console.log('custom drawing called'); 
+  console.log('custom drawing called', openDrawing); 
   const rect = canvas.getBoundingClientRect();
   const x = e.clientX - rect.left;
   const y = e.clientY - rect.top;
