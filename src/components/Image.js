@@ -17,12 +17,12 @@ export default class Image extends React.Component {
     }
   }
 
-  componentShouldUpdate(nextProps, nextState){
-    if(nextProps.location == this.props.location && nextProps.img == this.props.img){
-      return false;
-    }
-    return true;
-  }
+  // componentShouldUpdate(nextProps, nextState){
+  //   if(nextProps.location == this.props.location && nextProps.img == this.props.img){
+  //     return false;
+  //   }
+  //   return true;
+  // }
 
   componentDidUpdate() {
     const canvas = this.refs.canvas;
