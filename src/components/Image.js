@@ -49,7 +49,8 @@ export default class Image extends React.Component {
   }
 
   userDraw(e){
-    customDrawing(e, canvas, openDrawing, lines, dispatch); 
+    const { canvas, openDrawing, lines } = this.props;
+    customDrawing(e, canvas, openDrawing, lines, dispatch);
   }
 
   render() {
