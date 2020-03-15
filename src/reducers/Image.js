@@ -5,6 +5,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log("Image reducer called??"); 
   switch (action.type) {
     case 'START_DRAWING': {
       console.log('reducer says start drawing');
@@ -23,7 +24,7 @@ export default (state = initialState, action) => {
       return {...state};
     }
     case 'RESET': {
-      console.log('reducer says reset'); 
+      console.log('reducer says reset');
       state.lines = [];
       return {...state};
     }
