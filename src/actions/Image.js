@@ -84,5 +84,6 @@ export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710
   ctx.fillStyle = 'rgba(255, 0, 0, 1)';
   ctx.fillText("People Count: "+total, 850, 40);
   ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+  ctx.lineWidth = 3;
   ctx.strokeRect(840, 15, 170, 40);
 }

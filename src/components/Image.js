@@ -63,7 +63,7 @@ export default class Image extends React.Component {
     console.log('x and y are: ', x, y);
     const ctx = canvas.getContext("2d");
     ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 5;
     if(!openDrawing){
       console.log("opendrawing false! ");
       dispatch(start_drawing());
