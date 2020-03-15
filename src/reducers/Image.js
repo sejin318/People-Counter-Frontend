@@ -7,8 +7,11 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'START_DRAWING': {
-      state.openDrawing = true;
-      return {...state};
+      // state.openDrawing = true;
+      return {
+        openDrawing: true,  
+        ...state
+      };
     }
     case 'ADD_LINE': {
       const x = action.payload.x;
