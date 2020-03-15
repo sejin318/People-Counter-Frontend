@@ -1,7 +1,7 @@
 const initialState = {
   openDrawing: false,
   lines: [
-  ];
+  ]
 };
 
 export default (state = initialState, action) => {
