@@ -21,5 +21,8 @@ export default (state = initialState, action) => {
       state.lines = [];
       return {...state};
     }
+    default: {
+      return state;
+    }
   }
 }
