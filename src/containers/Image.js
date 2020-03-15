@@ -17,4 +17,4 @@ const mapStateToProps = (state, ownProps) => ({
 // });
 
 
-export default connect(mapDispatchToProps)(Image);
+export default connect(mapStateToProps)(Image);
