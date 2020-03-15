@@ -56,12 +56,14 @@ export default class Image extends React.Component {
 
     customDrawing(e, canvas, openDrawing, lines) {
     const { dispatch } = this.props;
-    console.log('custom drawing called', openDrawing);
+    // console.log('custom drawing called', openDrawing);
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+    console.log('x and y are: ', x, y);
     const ctx = canvas.getContext("2d");
     ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+    ctx.lineWidth = 10;
     if(!openDrawing){
       console.log("opendrawing false! ");
       dispatch(start_drawing());
