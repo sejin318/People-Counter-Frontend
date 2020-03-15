@@ -12,9 +12,9 @@ const mapStateToProps = (state, ownProps) => ({
   lines: state.Image.lines
 });
 
-const mapDispatchToProps = dispatch => ({
+// const mapDispatchToProps = dispatch => ({
+//
+// });
 
-});
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(Image);
+export default connect(mapDispatchToProps)(Image);
