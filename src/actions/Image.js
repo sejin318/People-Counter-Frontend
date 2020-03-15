@@ -24,33 +24,14 @@ function intersect(
     return true;
 }
 
-export function customDrawing(e, canvas, openDrawing, lines, dispatch){
-  console.log('custom drawing called', openDrawing);
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const ctx = canvas.getContext("2d");
-  ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
-  if(!openDrawing){
-    console.log("opendrawing false! ");
-    dispatch(start_drawing);
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-  } else {
-    console.log("opendrawing true!");
-    dispatch(add_line(x, y));
-    ctx.lineTo(x, y);
-  }
-}
-
-function start_drawing(){
+export function start_drawing(){
   console.log("start_drawing called!");
   return {
     type: 'START_DRAWING',
   };
 }
 
-function add_line(x, y){
+export function add_line(x, y){
   return {
     type: 'ADD_LINE',
     payload: {
@@ -60,7 +41,7 @@ function add_line(x, y){
   };
 }
 
-function reset_line(){
+export function reset_line(){
   return {
     type: 'RESET'
   };
