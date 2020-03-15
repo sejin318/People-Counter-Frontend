@@ -25,18 +25,20 @@ function intersect(
 }
 
 export function customDrawing(e, canvas, openDrawing, lines, dispatch){
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  const ctx = canvas.getContext("2d");
-  ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
-  if(!openDrawing){
-    dispatch(start_drawing);
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-  } else {
-    dispatch(add_line(x, y));
-    ctx.lineTo(x, y);
+  return (dispatch, getState) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const ctx = canvas.getContext("2d");
+    ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+    if(!openDrawing){
+      dispatch(start_drawing);
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+    } else {
+      dispatch(add_line(x, y));
+      ctx.lineTo(x, y);
+    }  
   }
 }
 
