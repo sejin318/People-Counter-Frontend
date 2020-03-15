@@ -19,6 +19,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log('graph reducer called!'); 
   switch (action.type) {
 
     case 'RECEIVE_DATA':

@@ -69,11 +69,11 @@ export default class Image extends React.Component {
       dispatch(start_drawing());
       ctx.beginPath();
       ctx.moveTo(x, y);
-      ctx.lineTo(2*x, 2*y);
     } else {
       console.log("opendrawing true!");
       dispatch(add_line(x, y));
       ctx.lineTo(x, y);
+      ctx.stroke();
     }
   }
 
