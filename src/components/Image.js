@@ -1,8 +1,7 @@
 import React from 'react';
-import WindowSize, { useWindowSize } from "@reach/window-size";
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas, drawRegion } from '../actions/Image';
+import { setCanvas, drawRegion, customDrawing } from '../actions/Image';
 export default class Image extends React.Component {
 
 
@@ -14,7 +13,22 @@ export default class Image extends React.Component {
     dispatch(setCanvas(canvas));
     const ctx = canvas.getContext("2d");
     img.onload = () => {
-      // console.log('width and height of image is: ', img.width, img.height);
+      ctx.drawImage(img, 0, 0);
+    }
+  }
+
+  componentShouldUpdate(nextProps, nextState){
+    if(nextProps.location == this.props.location && nextProps.img == this.props.img){
+      return false;
+    }
+    return true;
+  }
+
+  componentDidUpdate() {
+    const canvas = this.refs.canvas;
+    const img = this.refs.image
+    const ctx = canvas.getContext("2d");
+    img.onload = () => {
       ctx.drawImage(img, 0, 0);
     }
   }
@@ -34,14 +48,12 @@ export default class Image extends React.Component {
     ctx.drawImage(img, 0, 0);
   }
 
-
-
   render() {
-    const { location, img, buttons, canvas, regions } = this.props;
+    const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
     return (
       <div>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-        <canvas width="1024" height="768" ref="canvas" className="canvas" />
+        <canvas onClick={(e) => customDrawing(e, canvas, openDrawing, lines, dispatch)} width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
         {buttons.map((data) => (
           <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">

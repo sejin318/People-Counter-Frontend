@@ -24,6 +24,44 @@ function intersect(
     return true;
 }
 
+export function customDrawing(e, canvas, openDrawing, lines, dispatch){
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const ctx = canvas.getContext("2d");
+  ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+  if(!openDrawing){
+    dispatch(start_drawing);
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+  } else {
+    dispatch(add_line(x, y));
+    ctx.lineTo(x, y);
+  }
+}
+
+function start_drawing(){
+  return {
+    type: 'START_DRAWING',
+  };
+}
+
+function add_line(x, y){
+  return {
+    type: 'ADD_LINE',
+    payload: {
+      x: x,
+      y: y
+    }
+  };
+}
+
+function reset_line(){
+  return {
+    type: 'RESET'
+  };
+}
+
 export function setCanvas(canvas) {
   return {
     type: 'SET_CANVAS',
@@ -60,6 +98,6 @@ export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710
   ctx.font = "20px Arial";
   ctx.fillStyle = 'rgba(255, 0, 0, 1)';
   ctx.fillText("People Count: "+total, 850, 40);
-  ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+  ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
   ctx.strokeRect(840, 15, 170, 40);
 }
