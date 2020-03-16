@@ -119,7 +119,7 @@ export default class Image extends React.Component {
     const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch } = this.props;
     var define_start = false;
     var button;
-    if(!openDrawing){
+    if(lock){
       button = (
         <Button onClick={() => dispatch(unlock())} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
