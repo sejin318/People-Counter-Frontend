@@ -1,7 +1,7 @@
 import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line } from '../actions/Image';
+import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, custom_drawing } from '../actions/Image';
 export default class Image extends React.Component {
 
 
@@ -77,7 +77,7 @@ export default class Image extends React.Component {
   //   }
   // }
 
-  finishDrawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
+  finish_drawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
     const { dispatch } = this.props;
     const ctx = canvas.getContext("2d");
     ctx.beginPath();
@@ -121,13 +121,13 @@ export default class Image extends React.Component {
     var button;
     if(!openDrawing){
       button = (
-        <Button onClick={(e) => {this.customDrawing(e, canvas, openDrawing, lines, dispatch); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {this.custom_drawing(e, canvas, openDrawing, lines, dispatch); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
     } else {
       button = (
-        <Button onClick={() => {this.finishDrawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={() => {this.finish_drawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         End Region
         </Button>
       )

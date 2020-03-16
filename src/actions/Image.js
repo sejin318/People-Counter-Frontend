@@ -54,7 +54,7 @@ export function setCanvas(canvas) {
   };
 }
 
-customDrawing(e, canvas, openDrawing, lines, dispatch) {
+export function custom_drawing(e, canvas, openDrawing, lines, dispatch) {
   // const { dispatch } = this.props;
   // console.log('custom drawing called', openDrawing);
   const rect = canvas.getBoundingClientRect();
