@@ -118,6 +118,20 @@ export default class Image extends React.Component {
   render() {
     const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
     var define_start = false;
+    var button;
+    if(define_start){
+      button = (
+        <Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        Define Region
+        </Button>
+      );
+    } else {
+      button = (
+        <Button onClick={() => {define_start = false; this.resetCanvas(canvas); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        End Region
+        </Button>
+      )
+    }
     return (
       <div>
       <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
@@ -128,15 +142,7 @@ export default class Image extends React.Component {
         {data}
         </Button>
       ))}
-      {define_start === false ? (
-        <Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
-        Define Region
-        </Button>) : (
-          <Button onClick={() => {define_start = false; this.resetCanvas(canvas); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
-          End Region
-          </Button>
-        );
-      }
+      {button}
       <Button onClick={() => this.resetCanvas()} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
       Reset
       </Button>
