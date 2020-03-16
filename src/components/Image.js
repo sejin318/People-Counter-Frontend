@@ -119,7 +119,7 @@ export default class Image extends React.Component {
     const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
     var define_start = false;
     var button;
-    if(define_start){
+    if(!define_start){
       button = (
         <Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
