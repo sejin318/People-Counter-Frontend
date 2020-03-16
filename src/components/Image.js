@@ -77,7 +77,7 @@ export default class Image extends React.Component {
     }
   }
 
-  finishDrawing(canvas, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
+  finishDrawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
     const { dispatch } = this.props;
     const ctx = canvas.getContext("2d");
     ctx.beginPath();
@@ -127,7 +127,7 @@ export default class Image extends React.Component {
       );
     } else {
       button = (
-        <Button onClick={() => {define_start = false; this.resetCanvas(canvas); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={() => {define_start = false; this.finishDrawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
