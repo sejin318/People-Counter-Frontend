@@ -117,6 +117,7 @@ export default class Image extends React.Component {
 
   render() {
     const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch } = this.props;
+    console.log('lock is', lock); 
     var define_start = false;
     var button;
     if(lock){
