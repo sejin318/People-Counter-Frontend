@@ -2,7 +2,7 @@ import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
 import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, unlock } from '../actions/Image';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
+import { ButtonGroup } from '@material-ui/core';
 export default class Image extends React.Component {
 
 
