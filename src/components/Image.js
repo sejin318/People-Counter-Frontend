@@ -117,7 +117,7 @@ export default class Image extends React.Component {
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     ctx.fillText("People Count: "+total, 850, 40);
     ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.strokeRect(840, 15, 170, 40);
   }
 
@@ -127,13 +127,13 @@ export default class Image extends React.Component {
     var button;
     if(lock){
       button = (
-        <Button onClick={(e) => {this.resetCanvas(); dispatch(unlock());}} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {this.resetCanvas(); dispatch(unlock());}} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
     } else {
       button = (
-        <Button onClick={() => {this.finishDrawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={() => {this.finishDrawing(canvas, lines); }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
@@ -148,7 +148,7 @@ export default class Image extends React.Component {
               color="primary"
               aria-label="vertical contained primary button group"
               variant="contained"
-              style={{position:"relative", top:-300}}
+              style={{position:"relative", top:-200}}
             >
       {buttons.map((data) => (
         <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
