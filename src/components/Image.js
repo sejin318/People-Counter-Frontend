@@ -56,7 +56,7 @@ export default class Image extends React.Component {
 
   customDrawing(e, canvas, openDrawing, lines, lock) {
     if(lock){
-      return; 
+      return;
     }
     const { dispatch } = this.props;
     // console.log('custom drawing called', openDrawing);
@@ -119,7 +119,7 @@ export default class Image extends React.Component {
   }
 
   render() {
-    const { location, img, buttons, canvas, regions, openDrawing, lines, lock } = this.props;
+    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch } = this.props;
     var define_start = false;
     var button;
     if(lock){
