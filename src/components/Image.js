@@ -2,6 +2,7 @@ import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
 import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, unlock } from '../actions/Image';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 export default class Image extends React.Component {
 
 
@@ -142,6 +143,12 @@ export default class Image extends React.Component {
       <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
       <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
       <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
+      <ButtonGroup
+              orientation="vertical"
+              color="primary"
+              aria-label="vertical contained primary button group"
+              variant="contained"
+            >
       {buttons.map((data) => (
         <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
         {data}
@@ -151,6 +158,7 @@ export default class Image extends React.Component {
       <Button onClick={() => this.resetCanvas()} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
       Reset
       </Button>
+      </ButtonGroup>
       </div>
     );
   }
