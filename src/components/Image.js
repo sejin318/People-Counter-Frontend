@@ -1,7 +1,7 @@
 import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, custom_drawing, unlock } from '../actions/Image';
+import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line } from '../actions/Image';
 export default class Image extends React.Component {
 
 
@@ -54,30 +54,30 @@ export default class Image extends React.Component {
   // }
 
 
-  // customDrawing(e, canvas, openDrawing, lines, dispatch) {
-  //   const { dispatch } = this.props;
-  //   // console.log('custom drawing called', openDrawing);
-  //   const rect = canvas.getBoundingClientRect();
-  //   const x = e.clientX - rect.left;
-  //   const y = e.clientY - rect.top;
-  //   // console.log('x and y are: ', x, y);
-  //   const ctx = canvas.getContext("2d");
-  //   ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
-  //   ctx.lineWidth = 5;
-  //   if(!openDrawing){
-  //     console.log("opendrawing false! ");
-  //     dispatch(start_drawing());
-  //   } else {
-  //     console.log("opendrawing true!");
-  //     dispatch(add_line(x, y));
-  //     ctx.beginPath();
-  //     ctx.moveTo(lines[lines.length-2], lines[lines.length-1]);
-  //     ctx.lineTo(x, y);
-  //     ctx.stroke();
-  //   }
-  // }
+  customDrawing(e, canvas, openDrawing, lines) {
+    const { dispatch } = this.props;
+    // console.log('custom drawing called', openDrawing);
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    // console.log('x and y are: ', x, y);
+    const ctx = canvas.getContext("2d");
+    ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+    ctx.lineWidth = 5;
+    if(!openDrawing){
+      console.log("opendrawing false! ");
+      dispatch(start_drawing());
+    } else {
+      console.log("opendrawing true!");
+      dispatch(add_line(x, y));
+      ctx.beginPath();
+      ctx.moveTo(lines[lines.length-2], lines[lines.length-1]);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    }
+  }
 
-  finish_drawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
+  finishDrawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
     const { dispatch } = this.props;
     const ctx = canvas.getContext("2d");
     ctx.beginPath();
@@ -116,19 +116,18 @@ export default class Image extends React.Component {
   }
 
   render() {
-    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch } = this.props;
-    console.log('lock is', lock); 
+    const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
     var define_start = false;
     var button;
-    if(lock){
+    if(!openDrawing){
       button = (
-        <Button onClick={() => dispatch(unlock())} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {this.customDrawing(e, canvas, openDrawing, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
     } else {
       button = (
-        <Button onClick={() => {this.finish_drawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={() => {this.finishDrawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
@@ -136,7 +135,7 @@ export default class Image extends React.Component {
     return (
       <div>
       <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-      <canvas onClick={(e) => {if(!lock){this.customDrawing(e, canvas, openDrawing, lines, this.props.dispatch);}}} width="1024" height="768" ref="canvas" className="canvas" />
+      <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines)} width="1024" height="768" ref="canvas" className="canvas" />
       <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
       {buttons.map((data) => (
         <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">

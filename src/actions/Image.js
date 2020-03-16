@@ -54,36 +54,6 @@ export function setCanvas(canvas) {
   };
 }
 
-export function unlock(){
-  console.log('unlock action creator'); 
-  return {
-    type: 'UNLOCK_DRAWING'
-  };
-}
-
-export function custom_drawing(e, canvas, openDrawing, lines, dispatch) {
-  // const { dispatch } = this.props;
-  // console.log('custom drawing called', openDrawing);
-  const rect = canvas.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  // console.log('x and y are: ', x, y);
-  const ctx = canvas.getContext("2d");
-  ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
-  ctx.lineWidth = 5;
-  if(!openDrawing){
-    console.log("opendrawing false! ");
-    dispatch(start_drawing());
-  } else {
-    console.log("opendrawing true!");
-    dispatch(add_line(x, y));
-    ctx.beginPath();
-    ctx.moveTo(lines[lines.length-2], lines[lines.length-1]);
-    ctx.lineTo(x, y);
-    ctx.stroke();
-  }
-}
-
 export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
   const ctx = canvas.getContext("2d");
   ctx.beginPath();
