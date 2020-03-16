@@ -81,6 +81,7 @@ export default class Image extends React.Component {
   }
 
   finishDrawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
+    this.resetCanvas(); 
     const { dispatch } = this.props;
     const ctx = canvas.getContext("2d");
     ctx.beginPath();

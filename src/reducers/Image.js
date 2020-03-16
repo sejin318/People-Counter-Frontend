@@ -40,7 +40,7 @@ export default (state = initialState, action) => {
     return {
       openDrawing: false,
       lines: [],
-      lock: false
+      lock: true
     };
 
     default:
