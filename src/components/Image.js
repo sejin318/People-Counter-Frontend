@@ -67,11 +67,11 @@ export default class Image extends React.Component {
     if(!openDrawing){
       console.log("opendrawing false! ");
       dispatch(start_drawing());
-      ctx.beginPath();
-      ctx.moveTo(x, y);
     } else {
       console.log("opendrawing true!");
       dispatch(add_line(x, y));
+      ctx.beginPath();
+      ctx.moveTo(lines[lines.length-2], lines[lines.length-1]);
       ctx.lineTo(x, y);
       ctx.stroke();
     }
@@ -119,15 +119,15 @@ export default class Image extends React.Component {
     const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
     var define_start = false;
     var button;
-    if(!define_start){
+    if(!openDrawing){
       button = (
-        <Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {this.customDrawing(e, canvas, openDrawing, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
     } else {
       button = (
-        <Button onClick={() => {define_start = false; this.finishDrawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={() => {this.finishDrawing(canvas, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
