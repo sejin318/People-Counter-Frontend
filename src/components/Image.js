@@ -121,13 +121,13 @@ export default class Image extends React.Component {
     var button;
     if(define_start){
       button = (
-        <Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
     } else {
       button = (
-        <Button onClick={() => {define_start = false; this.resetCanvas(canvas); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={() => {define_start = false; this.resetCanvas(canvas); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
