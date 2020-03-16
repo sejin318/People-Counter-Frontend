@@ -1,6 +1,6 @@
 import React from 'react';
 
-function intersect(
+export function intersect(
     v1x1, v1y1, v1x2, v1y2,
     v2x1, v2y1, v2x2, v2y2
 ) {
@@ -63,6 +63,8 @@ export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710
   }
   ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
   ctx.fill();
+  ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
+  ctx.stroke();
   let total = 0;
   for(let i = 0; i < bbox.length; i++){
     let cross_count = 0;

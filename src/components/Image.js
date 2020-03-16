@@ -1,7 +1,7 @@
 import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas, drawRegion, start_drawing, add_line } from '../actions/Image';
+import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line } from '../actions/Image';
 export default class Image extends React.Component {
 
 
@@ -60,7 +60,7 @@ export default class Image extends React.Component {
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    console.log('x and y are: ', x, y);
+    // console.log('x and y are: ', x, y);
     const ctx = canvas.getContext("2d");
     ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
     ctx.lineWidth = 5;
@@ -77,8 +77,47 @@ export default class Image extends React.Component {
     }
   }
 
+  finishDrawing(canvas, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
+    const { dispatch } = this.props;
+    const ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(lines[0], lines[1]);
+    for(let i = 2; i < lines.length; i+=2){
+      ctx.lineTo(lines[i], lines[i+1]);
+    }
+    ctx.fillStyle = 'rgba(0, 0, 255, 0.3)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
+    ctx.stroke();
+    let total = 0;
+    for(let i = 0; i < bbox.length; i++){
+      let cross_count = 0;
+      let bbox_x = (bbox[i][0]+bbox[i][2])/2;
+      let bbox_y = (bbox[i][1]+bbox[i][3])/2;
+      for(let j = 0; j < coordinates.length-2; j+=2){
+        if(intersect(lines[j], lines[j+1], lines[j+2], lines[j+3], 0, 0, bbox_x, bbox_y)){
+          cross_count++;
+        }
+      }
+      if(intersect(lines[0], lines[1], lines[lines.length-2], lines[lines.length-1], 0, 0, bbox_x, bbox_y)){
+        cross_count++;
+      }
+      if(cross_count & 1){
+        total++;
+      }
+    }
+    dispatch(reset_line()); 
+    ctx.font = "20px Arial";
+    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    ctx.fillText("People Count: "+total, 850, 40);
+    ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(840, 15, 170, 40);
+  }
+
   render() {
     const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
+    var define_start = false;
     return (
       <div>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
@@ -89,6 +128,14 @@ export default class Image extends React.Component {
             {data}
           </Button>
         ))}
+        {define_start === false ?
+          (<Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+            Define Region
+          </Button>) :
+          (<Button onClick={() => {define_start = false; this.resetCanvas(canvas); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+            Define Region
+          </Button>)
+        }
         <Button onClick={() => this.resetCanvas()} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
           Reset
         </Button>
