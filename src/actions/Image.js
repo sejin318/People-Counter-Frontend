@@ -54,6 +54,12 @@ export function setCanvas(canvas) {
   };
 }
 
+function unlock(){
+  return {
+    type: 'UNLOCK_DRAWING'
+  }; 
+}
+
 export function custom_drawing(e, canvas, openDrawing, lines, dispatch) {
   // const { dispatch } = this.props;
   // console.log('custom drawing called', openDrawing);
