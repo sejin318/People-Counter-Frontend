@@ -1,7 +1,7 @@
 import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line } from '../actions/Image';
+import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, unlock } from '../actions/Image';
 export default class Image extends React.Component {
 
 
@@ -54,7 +54,10 @@ export default class Image extends React.Component {
   // }
 
 
-  customDrawing(e, canvas, openDrawing, lines) {
+  customDrawing(e, canvas, openDrawing, lines, lock) {
+    if(lock){
+      return; 
+    }
     const { dispatch } = this.props;
     // console.log('custom drawing called', openDrawing);
     const rect = canvas.getBoundingClientRect();
@@ -116,12 +119,12 @@ export default class Image extends React.Component {
   }
 
   render() {
-    const { location, img, buttons, canvas, regions, openDrawing, lines } = this.props;
+    const { location, img, buttons, canvas, regions, openDrawing, lines, lock } = this.props;
     var define_start = false;
     var button;
-    if(!openDrawing){
+    if(lock){
       button = (
-        <Button onClick={(e) => {this.customDrawing(e, canvas, openDrawing, lines); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {dispatch(unlock());}} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
@@ -135,7 +138,7 @@ export default class Image extends React.Component {
     return (
       <div>
       <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-      <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines)} width="1024" height="768" ref="canvas" className="canvas" />
+      <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
       <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
       {buttons.map((data) => (
         <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
