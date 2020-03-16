@@ -121,7 +121,7 @@ export default class Image extends React.Component {
     var button;
     if(!openDrawing){
       button = (
-        <Button onClick={(e) => {this.custom_drawing(e, canvas, openDrawing, lines, dispatch); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {custom_drawing(e, canvas, openDrawing, lines, dispatch); }} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
