@@ -54,6 +54,12 @@ export function setCanvas(canvas) {
   };
 }
 
+export function unlock(){
+  return {
+    type: 'UNLOCK'
+  };
+}
+
 export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
   const ctx = canvas.getContext("2d");
   ctx.beginPath();
