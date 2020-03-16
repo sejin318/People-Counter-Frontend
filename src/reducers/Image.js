@@ -9,6 +9,7 @@ export default (state = initialState, action) => {
   console.log("Image reducer called??");
   switch (action.type) {
     case 'UNLOCK_DRAWING':
+    console.log('unlock reducer');
     return {
       lock: false,
       ...state

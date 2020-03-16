@@ -55,6 +55,7 @@ export function setCanvas(canvas) {
 }
 
 export function unlock(){
+  console.log('unlock action creator'); 
   return {
     type: 'UNLOCK_DRAWING'
   };
