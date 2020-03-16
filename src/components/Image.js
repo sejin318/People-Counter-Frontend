@@ -70,6 +70,7 @@ export default class Image extends React.Component {
     if(!openDrawing){
       console.log("opendrawing false! ");
       dispatch(start_drawing());
+      dispatch(add_line(x, y));
     } else {
       console.log("opendrawing true!");
       dispatch(add_line(x, y));
@@ -81,7 +82,7 @@ export default class Image extends React.Component {
   }
 
   finishDrawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
-    this.resetCanvas(); 
+    this.resetCanvas();
     const { dispatch } = this.props;
     const ctx = canvas.getContext("2d");
     ctx.beginPath();
@@ -125,7 +126,7 @@ export default class Image extends React.Component {
     var button;
     if(lock){
       button = (
-        <Button onClick={(e) => {dispatch(unlock());}} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        <Button onClick={(e) => {this.resetCanvas(); dispatch(unlock());}} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
