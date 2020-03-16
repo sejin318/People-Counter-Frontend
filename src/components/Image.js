@@ -148,6 +148,7 @@ export default class Image extends React.Component {
               color="primary"
               aria-label="vertical contained primary button group"
               variant="contained"
+              style={{position:relative, top:-300}}
             >
       {buttons.map((data) => (
         <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
@@ -155,7 +156,7 @@ export default class Image extends React.Component {
         </Button>
       ))}
       {button}
-      <Button onClick={() => this.resetCanvas()} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+      <Button onClick={() => this.resetCanvas()} variant="contained" color="tertiary">
       Reset
       </Button>
       </ButtonGroup>
