@@ -54,7 +54,7 @@ export default class Image extends React.Component {
   // }
 
 
-    customDrawing(e, canvas, openDrawing, lines) {
+  customDrawing(e, canvas, openDrawing, lines) {
     const { dispatch } = this.props;
     // console.log('custom drawing called', openDrawing);
     const rect = canvas.getBoundingClientRect();
@@ -106,7 +106,7 @@ export default class Image extends React.Component {
         total++;
       }
     }
-    dispatch(reset_line()); 
+    dispatch(reset_line());
     ctx.font = "20px Arial";
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     ctx.fillText("People Count: "+total, 850, 40);
@@ -120,25 +120,26 @@ export default class Image extends React.Component {
     var define_start = false;
     return (
       <div>
-        <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-        <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines)} width="1024" height="768" ref="canvas" className="canvas" />
-        <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
-        {buttons.map((data) => (
-          <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
-            {data}
-          </Button>
-        ))}
-        {define_start === false ?
-          (<Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
-            Define Region
-          </Button>) :
-          (<Button onClick={() => {define_start = false; this.resetCanvas(canvas); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
-            Define Region
-          </Button>)
-        }
-        <Button onClick={() => this.resetCanvas()} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
-          Reset
+      <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
+      <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines)} width="1024" height="768" ref="canvas" className="canvas" />
+      <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
+      {buttons.map((data) => (
+        <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
+        {data}
         </Button>
+      ))}
+      {define_start === false ? (
+        <Button onClick={(e) => {define_start = true; this.customDrawing(e, canvas, openDrawing, lines); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+        Define Region
+        </Button>) : (
+          <Button onClick={() => {define_start = false; this.resetCanvas(canvas); } style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+          End Region
+          </Button>
+        );
+      }
+      <Button onClick={() => this.resetCanvas()} style={{ marginLeft : 20 }} variant="contained" color="tertiary">
+      Reset
+      </Button>
       </div>
     );
   }
