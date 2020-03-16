@@ -54,10 +54,10 @@ export function setCanvas(canvas) {
   };
 }
 
-function unlock(){
+export function unlock(){
   return {
     type: 'UNLOCK_DRAWING'
-  }; 
+  };
 }
 
 export function custom_drawing(e, canvas, openDrawing, lines, dispatch) {
