@@ -27,7 +27,6 @@ export default class Graph extends React.Component {
         <h4>Current Count: {data[data.length-1].count}</h4>
         <Line
         width={200}
-        height={150}
         data={{
           labels: data.map((item) => (
             item.time == null ?
