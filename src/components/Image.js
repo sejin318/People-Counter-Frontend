@@ -140,26 +140,26 @@ export default class Image extends React.Component {
     }
     return (
       <div>
-      <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-      <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
-      <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
-      <ButtonGroup
-              orientation="vertical"
-              color="primary"
-              aria-label="vertical contained primary button group"
-              variant="contained"
-              style={{position:"relative", top:-200}}
-            >
-      {buttons.map((data) => (
-        <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
-        {data}
-        </Button>
-      ))}
-      {button}
-      <Button onClick={() => this.resetCanvas()} variant="contained" color="tertiary">
-      Reset
-      </Button>
-      </ButtonGroup>
+        <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
+        <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
+        <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
+        <ButtonGroup
+          orientation="vertical"
+          color="primary"
+          aria-label="vertical contained primary button group"
+          variant="contained"
+          style={{position:"relative", bottom:200}}
+        >
+          {buttons.map((data) => (
+            <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
+            {data}
+            </Button>
+          ))}
+          {button}
+          <Button onClick={() => this.resetCanvas()} variant="contained" color="tertiary">
+          Reset
+          </Button>
+        </ButtonGroup>
       </div>
     );
   }
