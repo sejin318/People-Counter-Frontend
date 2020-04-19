@@ -8,10 +8,8 @@ export default function Buttons({ categories }) {
   return (
     <div>
       {categories.map(item => (
-        <Button style={{ marginLeft : 20 }} variant="contained" color="tertiary">
-          <Link to={to(item)} style={{ color: 'black', textDecoration: 'none' }}>
-            {item.name}
-          </Link>
+        <Button style={{ marginLeft : 20 }} variant="contained" color="tertiary" href={to(item)}>
+          {item.name}
         </Button>
       ))}
     </div>

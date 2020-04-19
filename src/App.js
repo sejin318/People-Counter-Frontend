@@ -17,9 +17,9 @@ class App extends Component {
           <AppBar style={{  }}>
             <Toolbar>
               <Typography type="title" color="inherit">
-              <h1>
+              <h2>
               HKUST People Counting Application
-              </h1>
+              </h2>
               </Typography>
               <Buttons />
             </Toolbar>
