@@ -24,7 +24,7 @@ class App extends Component {
               <Buttons />
             </Toolbar>
           </AppBar>
-          <div style={{ marginTop: 30, padding: 20}}>
+          <div style={{ marginTop: 60, padding: 20}}>
             <Switch>
               <Route exact path="/" render={() => (<Redirect to="/main/south-gate" />)} />
               <Route

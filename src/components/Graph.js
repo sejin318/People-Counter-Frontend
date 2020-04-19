@@ -59,7 +59,7 @@ export default class Graph extends React.Component {
         }}
         options={{
           responsive: true,
-          maintainAspectRatio: false,
+          maintainAspectRatio: true,
           scales: {
             yAxes: [{
               ticks: {
