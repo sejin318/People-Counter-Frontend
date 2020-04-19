@@ -8,7 +8,7 @@ export default function Buttons({ categories }) {
   return (
     <div>
       {categories.map(item => (
-        <Button component={Link} style={{ marginLeft : 20 }} variant="contained" color="tertiary" to={to(item)}>
+        <Button component={Link} style={{ marginLeft : 20 }} variant="contained" raised color="tertiary" to={to(item)}>
             {item.name}
         </Button>
       ))}
