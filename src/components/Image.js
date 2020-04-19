@@ -139,7 +139,7 @@ export default class Image extends React.Component {
       )
     }
     return (
-      <div>
+      <div style={{position:"relative"}}>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
         <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
@@ -148,7 +148,7 @@ export default class Image extends React.Component {
           color="primary"
           aria-label="vertical contained primary button group"
           variant="contained"
-          style={{position:"relative", bottom:200}}
+          style={{position:"absolute", bottom:0}}
         >
           {buttons.map((data) => (
             <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
