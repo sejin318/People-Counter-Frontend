@@ -64,11 +64,11 @@ export const fetchData = () => {
         console.log('message received is', e);
         const message = e.data;
         const data_list = JSON.parse(message);
-        // const data_list = JSON.parse({"data": message}).data; 
+        // const data_list = JSON.parse({"data": message}).data;
         // const message = `{ "data": ${e.data} }`;
         // console.log(message);
         // const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
-        const data_list = message.data;
+        // const data_list = message.data;
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
           const img = data.img_data;
