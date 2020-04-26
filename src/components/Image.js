@@ -17,14 +17,7 @@ export default class Image extends React.Component {
       ctx.drawImage(img, 0, 0);
     }
   }
-
-  // componentShouldUpdate(nextProps, nextState){
-  //   if(nextProps.location == this.props.location && nextProps.img == this.props.img){
-  //     return false;
-  //   }
-  //   return true;
-  // }
-
+  
   componentDidUpdate() {
     const canvas = this.refs.canvas;
     const img = this.refs.image
@@ -48,12 +41,6 @@ export default class Image extends React.Component {
     const ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
   }
-
-  // userDraw(e){
-  //   const { canvas, openDrawing, lines } = this.props;
-  //   customDrawing(e, canvas, openDrawing, lines, dispatch);
-  // }
-
 
   customDrawing(e, canvas, openDrawing, lines, lock) {
     if(lock){
