@@ -31,15 +31,22 @@ class App extends Component {
                 path="/main/:location"
                 render={
                   function({ match }){
-                    return (
-                      <div>
-                        <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
-                        <Divider style={{marginTop:50}}/>
-                        {match.params.location == 'south-gate' ?
-                        <Image location={match.params.location} /> :
-                        }
-                      </div>
-                    )
+                    if(match.param.location == 'south-gate'){
+                      return (
+                        <div>
+                          <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
+                          <Divider style={{marginTop:50}}/>
+                          <Image location={match.params.location} />
+                        </div>
+                      )
+                    } else {
+                      return (
+                        <div>
+                          <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
+                          <Divider style={{marginTop:50}}/>
+                        </div>
+                      )
+                    }
                   }
                 }
               />
