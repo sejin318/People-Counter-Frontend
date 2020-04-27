@@ -17,7 +17,7 @@ export default class Image extends React.Component {
       ctx.drawImage(img, 0, 0);
     }
   }
-  
+
   componentDidUpdate() {
     const canvas = this.refs.canvas;
     const img = this.refs.image
@@ -129,7 +129,7 @@ export default class Image extends React.Component {
       <div style={{position:"relative"}}>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
         <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
-        <img ref="image" src={`data:image/jpeg;base64,${img}`} className="hidden" />
+        <img ref="image" src="./south gate img downsampled.jpg" className="hidden" />
         <ButtonGroup
           orientation="vertical"
           color="primary"

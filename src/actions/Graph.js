@@ -37,6 +37,7 @@ export const fetchData = () => {
         // console.log(e.data);
         // console.log(e.data.data);
         const data_list = e.data.data;
+
         // console.log(data_list);
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
@@ -64,6 +65,8 @@ export const fetchData = () => {
         console.log('message received is', e);
         const message = e.data;
         const data_list = JSON.parse(message);
+        // const data_list = e.data.data; if the e is entirely json format throughout
+
         // const data_list = JSON.parse({"data": message}).data;
         // const message = `{ "data": ${e.data} }`;
         // console.log(message);
