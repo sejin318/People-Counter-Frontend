@@ -31,7 +31,7 @@ class App extends Component {
                 path="/main/:location"
                 render={
                   function({ match }){
-                    if(match.param.location == 'south-gate'){
+                    if(match.params.location == 'south-gate'){
                       return (
                         <div>
                           <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
