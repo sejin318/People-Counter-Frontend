@@ -91,7 +91,7 @@ export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710
   ctx.font = "20px Arial";
   ctx.fillStyle = 'rgba(255, 0, 0, 1)';
   ctx.fillText("People Count: "+total, 850, 40);
-  ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+  ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
   ctx.lineWidth = 2;
   ctx.strokeRect(840, 15, 170, 40);
 }

@@ -35,9 +35,11 @@ class App extends Component {
                       <div>
                         <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
                         <Divider style={{marginTop:50}}/>
-                        <Image location={match.params.location} />
+                        {match.params.location == 'south-gate' ?
+                        <Image location={match.params.location} /> : {}
+                        }
                       </div>
-                    );
+                    )
                   }
                 }
               />
