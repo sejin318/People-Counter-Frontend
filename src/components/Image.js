@@ -129,7 +129,7 @@ export default class Image extends React.Component {
       <div style={{position:"relative"}}>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
         <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
-        <img ref="image" src="./south gate img downsampled.jpg" className="hidden" />
+        <img ref="image" src={require('./south gate img downsampled.jpeg')} className="hidden" />
         <ButtonGroup
           orientation="vertical"
           color="primary"
