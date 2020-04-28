@@ -52,6 +52,8 @@ export default (state = initialState, action) => {
       const index = find_index(state.data[location], data);
       if(duplicate(state.data[location], data)){
         console.log('duplicate found!');
+      } else {
+        console.log('no duplicate found!'); 
       }
       if (action.payload.error || index === -1){
         return {
@@ -60,7 +62,7 @@ export default (state = initialState, action) => {
       }
 
       state.data[location].splice(index, 0, { time: data.time, count: data.count });
-      state.bbox[location].splice(index, 0, { time: data.time, count: data.count });
+      state.bbox[location].splice(index, 0, data.bbox);
       state.data[location].splice(0, 1);
       state.bbox[location].splice(0, 1);
       if(index === state.data[location].length){
