@@ -27,12 +27,12 @@ export default class Image extends React.Component {
     }
   }
 
-  updateCanvas(data){
+  updateCanvas(data, bbox){
     const canvas = this.refs.canvas;
     const img = this.refs.image
     const ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
-    drawRegion(canvas, data);
+    drawRegion(canvas, data, bbox);
   }
 
   resetCanvas(){
@@ -69,7 +69,7 @@ export default class Image extends React.Component {
     }
   }
 
-  finishDrawing(canvas, lines, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
+  finishDrawing(canvas, lines, bbox){
     this.resetCanvas();
     const { dispatch } = this.props;
     const ctx = canvas.getContext("2d");
@@ -120,7 +120,7 @@ export default class Image extends React.Component {
       );
     } else {
       button = (
-        <Button onClick={() => {this.finishDrawing(canvas, lines); }} variant="contained" color="tertiary">
+        <Button onClick={() => {this.finishDrawing(canvas, lines, bbox); }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
@@ -138,7 +138,7 @@ export default class Image extends React.Component {
           style={{position:"absolute", bottom:0}}
         >
           {buttons.map((data) => (
-            <Button onClick={() => this.updateCanvas(regions[data])} variant="contained" color="tertiary">
+            <Button onClick={() => this.updateCanvas(regions[data], bbox)} variant="contained" color="tertiary">
             {data}
             </Button>
           ))}
