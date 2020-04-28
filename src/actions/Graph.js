@@ -67,13 +67,13 @@ export const fetchData = () => {
         // const message = e.data.data;
         console.log('e.data is', e.data)
         console.log('e.data.data is', e.data.data)
-        const data_list = JSON.parse(message);
+        // const data_list = JSON.parse(message);
         // const data_list = e.data.data; if the e is entirely json format throughout
 
         // const data_list = JSON.parse({"data": message}).data;
         // const message = `{ "data": ${e.data} }`;
         // console.log(message);
-        // const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
+        const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
         // const data_list = message.data;
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
