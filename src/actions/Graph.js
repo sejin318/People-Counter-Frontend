@@ -22,7 +22,7 @@ export const fetchData = () => {
       const d = parseInt(timeString.substring(3, 5));
       const h = parseInt(timeString.substring(12, 14));
       const mm = parseInt(timeString.substring(15, 17));
-      const s = parseInt(timeString.substring(17, 19));
+      const s = parseInt(timeString.substring(18, 20));
       // const s = 0;
       return new Date(y, m, d, h, mm, s);
     }
