@@ -83,6 +83,7 @@ export const fetchData = () => {
           const time = toDate(data.datetime);
           const count = data.count;
           const bbox = data.bbox;
+          console.log('bbox is', bbox); 
           if(time === undefined || count === undefined){
             dispatch(receiveData(null, location, true));
           } else {

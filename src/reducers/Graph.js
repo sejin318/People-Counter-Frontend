@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
       const location = action.payload.location;
       const data = action.payload.data;
 
-      console.log('bbox is', state.bbox[location]); 
+      // console.log('bbox is', state.bbox[location]);
 
       function find_index(list, item){
         const time = item.time;
@@ -41,7 +41,7 @@ export default (state = initialState, action) => {
         return i;
       }
 
-      console.log('graph storage is: ', state.data[location]);
+      // console.log('graph storage is: ', state.data[location]);
 
       const index = find_index(state.data[location], data);
       // if(duplicate(state.data[location], data)){
