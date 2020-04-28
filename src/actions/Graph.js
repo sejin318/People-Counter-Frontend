@@ -22,8 +22,8 @@ export const fetchData = () => {
       const d = parseInt(timeString.substring(3, 5));
       const h = parseInt(timeString.substring(12, 14));
       const mm = parseInt(timeString.substring(15, 17));
-      // const s = parseInt(timeString.substring(17, 19));
-      const s = 0;
+      const s = parseInt(timeString.substring(17, 19));
+      // const s = 0;
       return new Date(y, m, d, h, mm, s);
     }
 
@@ -73,8 +73,9 @@ export const fetchData = () => {
         // const data_list = JSON.parse({"data": message}).data;
         // const message = `{ "data": ${e.data} }`;
         // console.log(message);
-        const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
+        // const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
         // const data_list = message.data;
+        const data_list = e.data;
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
           const img = data.img_data;
