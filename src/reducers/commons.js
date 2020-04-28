@@ -14,7 +14,7 @@ const initialState = {
     }
   ],
   buttons: {
-    "south-gate": ['queue 1', 'queue 2', 'queue 3', 'queue 4'],
+    "south-gate": ['11 Minibus', '11B Minibus', '91 Bus', '91P Bus'],
     "north-gate": ['queue 1', 'queue 2'],
     "barn-b": ['area 1', 'area 2', 'area'],
   },
@@ -38,7 +38,7 @@ const initialState = {
       'queue 3': [
         308, 348,
         463, 373,
-        627, 404, 
+        627, 404,
         762, 394,
         836, 383,
         836, 351,
