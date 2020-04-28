@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
       const location = action.payload.location;
       const data = action.payload.data;
 
-      // console.log('bbox is', state.bbox[location]);
+      console.log('bbox is', state.bbox[location]);
 
       function find_index(list, item){
         const time = item.time;
@@ -64,7 +64,6 @@ export default (state = initialState, action) => {
       state.bbox[location].splice(0, 1);
       if(index === state.data[location].length){
         state.img[location] = data.img;
-        state.bbox[location] = data.bbox;
       }
       return {
         ...state,
