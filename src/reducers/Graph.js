@@ -26,15 +26,7 @@ export default (state = initialState, action) => {
       const location = action.payload.location;
       const data = action.payload.data;
 
-      function duplicate(list, item){
-        const time = item.time;
-        for(let i = 0; i < list.length; i++){
-          if((list[i].time - time) == 0){
-            return true;
-          }
-        }
-        return false;
-      }
+      console.log('bbox is', state.bbox[location]); 
 
       function find_index(list, item){
         const time = item.time;
