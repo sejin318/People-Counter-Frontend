@@ -19,7 +19,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log('graph reducer called!');
+  // console.log('graph reducer called!');
   switch (action.type) {
 
     case 'RECEIVE_DATA':
@@ -51,7 +51,7 @@ export default (state = initialState, action) => {
 
       const index = find_index(state.data[location], data);
       if(duplicate(state.data[location], data)){
-        console.log('duplicate found!'); 
+        console.log('duplicate found!');
       }
       if (action.payload.error || index === -1){
         return {
