@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
       function duplicate(list, item){
         const time = item.time;
         for(let i = 0; i < list.length; i++){
-          if(list[i].time == time){
+          if((list[i].time - time) == 0){
             return true;
           }
         }
@@ -42,21 +42,24 @@ export default (state = initialState, action) => {
         for(; i < list.length; i++){
           if(list[i].time > time){
             break;
-          } else if(list[i].time === time){
+          } else if((list[i].time - time) == 0){
             return -1;
           }
         }
         return i;
       }
 
-      console.log('graph storage is: ', state.data[location]); 
+      console.log('graph storage is: ', state.data[location]);
 
       const index = find_index(state.data[location], data);
-      if(duplicate(state.data[location], data)){
-        console.log('duplicate found!');
-      } else {
-        // console.log('no duplicate found!');
-      }
+      // if(duplicate(state.data[location], data)){
+      //   console.log('duplicate found!');
+      //   return {
+      //     ...state
+      //   }
+      // } else {
+      //   // console.log('no duplicate found!');
+      // }
       if (action.payload.error || index === -1){
         return {
           ...state
