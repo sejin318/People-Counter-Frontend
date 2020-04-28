@@ -103,13 +103,13 @@ export default class Image extends React.Component {
     ctx.font = "20px Arial";
     ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     ctx.fillText("People Count: "+total, 850, 40);
-    ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
     ctx.lineWidth = 2;
     ctx.strokeRect(840, 15, 170, 40);
   }
 
   render() {
-    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch } = this.props;
+    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox } = this.props;
     var define_start = false;
     var button;
     if(lock){

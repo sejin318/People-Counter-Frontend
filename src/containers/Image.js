@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => ({
   regions: state.commons.regions[ownProps.location],
   openDrawing: state.Image.openDrawing,
   lines: state.Image.lines,
-  lock: state.Image.lock
+  lock: state.Image.lock,
+  bbox: state.Graph.bbox[ownProps.location]
 });
 
 export default connect(mapStateToProps)(Image);

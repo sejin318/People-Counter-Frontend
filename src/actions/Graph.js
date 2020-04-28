@@ -44,10 +44,11 @@ export const fetchData = () => {
           const img = data.img_data;
           const time = toDate(data.datetime);
           const count = data.count;
-          if(img === undefined || time === undefined || count === undefined){
-            dispatch(receiveData(null, location, null, true));
+          const bbox = data.bbox;
+          if(time === undefined || count === undefined){
+            dispatch(receiveData(null, location, true));
           } else {
-            dispatch(receiveData({ time: time, count: parseInt(count), img: img}, location, false));
+            dispatch(receiveData({ time: time, count: count, img: img, bbox: bbox }, location, false));
           }
         }
       })
@@ -62,8 +63,9 @@ export const fetchData = () => {
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
         // console.log("message received at: ", new Date())
-        console.log('message received is', e);
-        const message = e.data;
+        // console.log('message received is', e);
+        const message = e.data.data;
+        console.log(message)
         const data_list = JSON.parse(message);
         // const data_list = e.data.data; if the e is entirely json format throughout
 
@@ -78,8 +80,8 @@ export const fetchData = () => {
           const time = toDate(data.datetime);
           const count = data.count;
           const bbox = data.bbox;
-          if(img === undefined || time === undefined || count === undefined){
-            dispatch(receiveData(null, location, null, true));
+          if(time === undefined || count === undefined){
+            dispatch(receiveData(null, location, true));
           } else {
             dispatch(receiveData({ time: time, count: count, img: img, bbox: bbox }, location, false));
           }

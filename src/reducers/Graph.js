@@ -19,7 +19,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log('graph reducer called!'); 
+  console.log('graph reducer called!');
   switch (action.type) {
 
     case 'RECEIVE_DATA':
@@ -48,7 +48,9 @@ export default (state = initialState, action) => {
       }
 
       state.data[location].splice(index, 0, { time: data.time, count: data.count });
+      state.bbox[location].splice(index, 0, { time: data.time, count: data.count });
       state.data[location].splice(0, 1);
+      state.bbox[location].splice(0, 1);
       if(index === state.data[location].length){
         state.img[location] = data.img;
         state.bbox[location] = data.bbox;
