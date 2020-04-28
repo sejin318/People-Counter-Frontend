@@ -78,6 +78,7 @@ export const fetchData = () => {
         const data_list = e.data;
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
+          console.log('data is', data);
           const img = data.img_data;
           const time = toDate(data.datetime);
           const count = data.count;
