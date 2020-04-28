@@ -3,7 +3,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log('canvas called!');
+  // console.log('canvas called!');
   switch(action.type) {
     case 'SET_CANVAS':
       return { ...state, canvas: action.canvas };

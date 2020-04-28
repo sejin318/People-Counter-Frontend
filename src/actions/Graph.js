@@ -65,8 +65,8 @@ export const fetchData = () => {
         // console.log("message received at: ", new Date())
         // console.log('message received is', e);
         // const message = e.data.data;
-        console.log('e.data is', e.data)
-        console.log('e.data.data is', e.data.data)
+        // console.log('e.data is', e.data)
+        // console.log('e.data.data is', e.data.data)
         // const data_list = JSON.parse(message);
         // const data_list = e.data.data; if the e is entirely json format throughout
 
@@ -78,7 +78,7 @@ export const fetchData = () => {
         const data_list = JSON.parse(e.data);
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
-          console.log('data is', data);
+          // console.log('data is', data);
           const img = data.img_data;
           const time = toDate(data.datetime);
           const count = data.count;

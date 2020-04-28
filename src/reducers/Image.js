@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log("Image reducer called??");
+  // console.log("Image reducer called??");
   switch (action.type) {
     case 'UNLOCK':
     console.log('unlock reducer');
@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       lock: false
     }
     case 'START_DRAWING':
-    console.log('reducer says start drawing');
+    // console.log('reducer says start drawing');
     // state.openDrawing = true;
     return {
       ...state,
@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
     };
 
     case 'ADD_LINE':
-    console.log('reducer says add line');
+    // console.log('reducer says add line');
     let arr = [...state.lines];
     const x = action.payload.x;
     const y = action.payload.y;
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
     };
 
     case 'RESET':
-    console.log('reducer says reset');
+    // console.log('reducer says reset');
     return {
       openDrawing: false,
       lines: [],

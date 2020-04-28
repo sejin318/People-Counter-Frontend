@@ -25,7 +25,7 @@ export function intersect(
 }
 
 export function start_drawing(){
-  console.log("start_drawing called!");
+  // console.log("start_drawing called!");
   return {
     type: 'START_DRAWING',
   };
