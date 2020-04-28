@@ -60,7 +60,7 @@ export function unlock(){
   };
 }
 
-export function drawRegion(canvas, coordinates, bbox=[[373, 350, 384, 420], [710, 353, 722, 409], [938, 357, 951, 413]]){
+export function drawRegion(canvas, coordinates, bbox){
   const ctx = canvas.getContext("2d");
   ctx.beginPath();
   ctx.moveTo(coordinates[0], coordinates[1]);
