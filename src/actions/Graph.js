@@ -64,8 +64,9 @@ export const fetchData = () => {
       eventSource.onmessage = e => {
         // console.log("message received at: ", new Date())
         // console.log('message received is', e);
-        const message = e.data.data;
-        console.log(message)
+        // const message = e.data.data;
+        console.log('e.data is', e.data)
+        console.log('e.data.data is', e.data.data)
         const data_list = JSON.parse(message);
         // const data_list = e.data.data; if the e is entirely json format throughout
 
