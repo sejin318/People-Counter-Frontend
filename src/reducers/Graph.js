@@ -49,11 +49,13 @@ export default (state = initialState, action) => {
         return i;
       }
 
+      console.log('graph storage is: ', state.data[location]); 
+
       const index = find_index(state.data[location], data);
       if(duplicate(state.data[location], data)){
         console.log('duplicate found!');
       } else {
-        console.log('no duplicate found!'); 
+        // console.log('no duplicate found!');
       }
       if (action.payload.error || index === -1){
         return {
