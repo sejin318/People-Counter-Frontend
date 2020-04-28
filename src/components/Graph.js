@@ -32,7 +32,7 @@ export default class Graph extends React.Component {
           labels: data.map((item) => (
             item.time == null ?
             null :
-            item.time.getHours() + ':' + item.time.getMinutes())
+            item.time.getHours() + ':' + item.time.getMinutes() + ':' + item.time.getSeconds()) 
           ),
           datasets: [
             {
