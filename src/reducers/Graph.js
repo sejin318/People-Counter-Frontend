@@ -11,9 +11,9 @@ const initialState = {
     "north-gate": null
   },
   bbox: {
-    "barn-b": [],
-    "south-gate": [],
-    "north-gate": []
+    "barn-b": [...Array(60).keys()].map(() => ([])),
+    "south-gate": [...Array(60).keys()].map(() => ([])),
+    "north-gate": [...Array(60).keys()].map(() => ([])),
   },
   error: false
 };
