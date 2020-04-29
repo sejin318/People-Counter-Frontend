@@ -86,7 +86,9 @@ export default class Image extends React.Component {
     for(let i = 0; i < bbox.length; i++){
       let cross_count = 0;
       let bbox_x = (bbox[i][0]+bbox[i][2])/2;
+      bbox_x *= (1024/3840);
       let bbox_y = (bbox[i][1]+bbox[i][3])/2;
+      bbox_y *= (768/2160);
       for(let j = 0; j < lines.length-2; j+=2){
         if(intersect(lines[j], lines[j+1], lines[j+2], lines[j+3], 0, 0, bbox_x, bbox_y)){
           cross_count++;

@@ -33,12 +33,7 @@ export const fetchData = () => {
       const init_url = API_URL[location].replace('realtime', 'init');
       axios.get(init_url)
       .then( (e) => {
-        // console.log("response", e);
-        // console.log(e.data);
-        // console.log(e.data.data);
         const data_list = e.data.data;
-
-        // console.log(data_list);
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
           const img = data.img_data;
@@ -62,28 +57,13 @@ export const fetchData = () => {
       const location = location_list[i];
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
-        // console.log("message received at: ", new Date())
-        // console.log('message received is', e);
-        // const message = e.data.data;
-        // console.log('e.data is', e.data)
-        // console.log('e.data.data is', e.data.data)
-        // const data_list = JSON.parse(message);
-        // const data_list = e.data.data; if the e is entirely json format throughout
-
-        // const data_list = JSON.parse({"data": message}).data;
-        // const message = `{ "data": ${e.data} }`;
-        // console.log(message);
-        // const data_list = JSON.parse(`{ "data": ${e.data} }`).data; // why not ${e.data}? or e.data
-        // const data_list = message.data;
         const data_list = JSON.parse(e.data);
         for(let i = 0; i < data_list.length; i++){
           const data = data_list[i];
-          // console.log('data is', data);
           const img = data.img_data;
           const time = toDate(data.datetime);
           const count = data.count;
           const bbox = data.bbox;
-          // console.log('bbox is', bbox); 
           if(time === undefined || count === undefined){
             dispatch(receiveData(null, location, true));
           } else {
