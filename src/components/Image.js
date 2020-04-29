@@ -56,11 +56,11 @@ export default class Image extends React.Component {
     ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
     ctx.lineWidth = 5;
     if(!openDrawing){
-      console.log("opendrawing false! ");
+      // console.log("opendrawing false! ");
       dispatch(start_drawing());
       dispatch(add_line(x, y));
     } else {
-      console.log("opendrawing true!");
+      // console.log("opendrawing true!");
       dispatch(add_line(x, y));
       ctx.beginPath();
       ctx.moveTo(lines[lines.length-2], lines[lines.length-1]);
