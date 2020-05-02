@@ -11,6 +11,10 @@ const initialState = {
     {
       id: 'barn-b',
       name: 'Computer Barn B'
+    },
+    {
+      id: 'query & download',
+      name: 'Query & Download'
     }
   ],
   buttons: {

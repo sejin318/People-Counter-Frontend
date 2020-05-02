@@ -39,6 +39,12 @@ class App extends Component {
                           <Image location={match.params.location} />
                         </div>
                       )
+                    } else if (match.params.location == 'query & download'){
+                      return (
+                        <div>
+                          <Query />
+                        </div>
+                      )
                     } else {
                       return (
                         <div>
