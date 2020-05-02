@@ -13,8 +13,8 @@ export default class Query extends React.Component {
   render() {
     const { start_date, end_date, locations, location_list } = this.props;
 
-    handleChange(){
-
+    handleChange(e){
+      
     }
 
     return (
