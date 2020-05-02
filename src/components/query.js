@@ -6,11 +6,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+// import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
   formControl: {
-    margin: theme.spacing(1),
+    margin: 1,
     minWidth: 120,
     maxWidth: 300,
   },
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   // noLabel: {
   //   marginTop: theme.spacing(3),
   // },
-}));
+};
 
 export default class Query extends React.Component {
 
@@ -49,7 +49,7 @@ export default class Query extends React.Component {
 
     return (
       <div>
-        <FormControl className={classes.formControl}>
+        <FormControl className={styles.formControl}>
           <InputLabel id="location">Location</InputLabel>
           <Select
             labelId="location"
