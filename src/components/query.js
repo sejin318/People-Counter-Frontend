@@ -34,7 +34,6 @@ export default class Query extends React.Component {
 
   render() {
     const { start_date, end_date, locations, location_list } = this.props;
-    const classes = useStyles();
 
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
