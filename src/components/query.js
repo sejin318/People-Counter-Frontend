@@ -9,13 +9,12 @@ import Input from '@material-ui/core/Input';
 
 export default class Query extends React.Component {
 
+  handleChange(e){
+
+  }
 
   render() {
     const { start_date, end_date, locations, location_list } = this.props;
-
-    handleChange(e){
-      
-    }
 
     return (
       <div>
