@@ -24,10 +24,9 @@ export default class Query extends React.Component {
             labelId="location"
             id="location"
             multiple
-            value={selected_location}
-            onChange={handleChange}
+            value={locations}
+            onChange={this.handleChange}
             input={<Input />}
-            MenuProps={MenuProps}
           >
             {locations.map((loc) => (
               <MenuItem key={loc} value={loc}>
