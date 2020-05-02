@@ -48,7 +48,7 @@ export default class Query extends React.Component {
 
     return (
       <div>
-        <FormControl className={styles.formControl}>
+        <FormControl style={styles.formControl}>
           <InputLabel id="location">Location</InputLabel>
           <Select
             labelId="location"
@@ -60,7 +60,7 @@ export default class Query extends React.Component {
             MenuProps={MenuProps}
           >
             {locations.map((loc) => (
-              <MenuItem key={loc} value={loc}>
+              <MenuItem key={loc} value={loc} style={styles.formControl}>
               {loc}
               </MenuItem>
             ))}
