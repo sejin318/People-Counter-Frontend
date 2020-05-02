@@ -6,6 +6,25 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+    maxWidth: 300,
+  },
+  // chips: {
+  //   display: 'flex',
+  //   flexWrap: 'wrap',
+  // },
+  // chip: {
+  //   margin: 2,
+  // },
+  // noLabel: {
+  //   marginTop: theme.spacing(3),
+  // },
+}));
 
 export default class Query extends React.Component {
 
@@ -15,6 +34,7 @@ export default class Query extends React.Component {
 
   render() {
     const { start_date, end_date, locations, location_list } = this.props;
+    const classes = useStyles();
 
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
@@ -29,7 +49,7 @@ export default class Query extends React.Component {
 
     return (
       <div>
-        <FormControl>
+        <FormControl className={classes.formControl}>
           <InputLabel id="location">Location</InputLabel>
           <Select
             labelId="location"
