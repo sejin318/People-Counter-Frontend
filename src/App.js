@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Buttons from './containers/Buttons';
 import Image from './containers/Image';
 import Divider from '@material-ui/core/Divider';
-import Query from './containers/Query'
+import Query from './containers/query'
 
 class App extends Component {
   render() {
