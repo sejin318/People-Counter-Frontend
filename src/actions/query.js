@@ -1,4 +1,6 @@
-export const set_locations = (location) => ({
-  type: 'RECEIVE_LOCATION',
-  payload: { location },
-});
+export function set_locations(location){
+  return {
+    type: 'RECEIVE_LOCATION',
+    payload: { location },
+  }
+}

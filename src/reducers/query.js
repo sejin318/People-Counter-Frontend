@@ -6,6 +6,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log(action); 
   switch (action.type) {
     case 'RECEIVE_LOCATION':
     const loc = action.payload.location;
