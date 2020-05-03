@@ -29,8 +29,8 @@ const styles = {
 
 export default class Query extends React.Component {
 
-  handleChange(e){
-    const { dispatch } = this.props; 
+  const handleChange = (e) => {
+    const { dispatch } = this.props;
     dispatch(set_locations(e.target.value[0]));
   }
 
