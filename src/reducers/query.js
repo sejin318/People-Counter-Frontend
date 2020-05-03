@@ -9,10 +9,10 @@ export default (state = initialState, action) => {
   console.log(action);
   switch (action.type) {
     case 'RECEIVE_LOCATION':
-    state.locations = action.type.location;
+    state.locations = action.payload.location;
     return {
       ...state
-    }; 
+    };
     default:
     return state;
   }

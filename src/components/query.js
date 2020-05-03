@@ -31,8 +31,8 @@ export default class Query extends React.Component {
 
   handleChange(e) {
     const { dispatch } = this.props;
-    console.log(e.target.value);
-    // dispatch(set_locations(e.target.value));
+    // console.log(e.target.value);
+    dispatch(set_locations(e.target.value));
   }
 
   render() {
