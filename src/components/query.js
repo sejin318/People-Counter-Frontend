@@ -13,6 +13,7 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
+import axios from 'axios';
 
 // import { makeStyles, useTheme } from '@material-ui/core/styles';
 
@@ -61,6 +62,24 @@ export default class Query extends React.Component {
     dispatch({
       type: 'SET_END_DATE',
       payload: date
+    });
+  }
+
+  handleQuerySubmit(){
+    var moment = require('moment');
+
+    axios({ method: 'POST', url: 'http://52.220.34.115:5000/records',
+    headers: {'Content-Type': 'application/json; charset=utf-8'},
+    data: { start_date: moment(this.props.start_date.setHours(0, 0, 0, 0)).format('MM/DD/YYYY, HH:mm:ss'),
+            end_date: moment(this.props.end_date.setHours(0, 0, 0, 0)).format('MM/DD/YYYY, HH:mm:ss'),
+            target_loc: this.props.locations,
+            num_loc: this.props.locations.length
+    }})
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
   }
 
@@ -130,7 +149,7 @@ export default class Query extends React.Component {
               style={styles.datePicker}
             />
           </MuiPickersUtilsProvider>
-          <Button variant="outlined" style={styles.button}>
+          <Button onClick={(e) => {handleQuerySubmit();}} variant="outlined" style={styles.button}>
               Submit Query
           </Button>
         </div>
