@@ -18,10 +18,13 @@ import DateFnsUtils from '@date-io/date-fns';
 
 const styles = {
   formControl: {
-    margin: 1,
     minWidth: 120,
     maxWidth: 300,
+    marginRight: 20
   },
+  datePicker: {
+    bottom: 20
+  }
   // chips: {
   //   display: 'flex',
   //   flexWrap: 'wrap',
@@ -90,6 +93,7 @@ export default class Query extends React.Component {
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
+              style={styles.datePicker}
             />
           </MuiPickersUtilsProvider>
         </div>
