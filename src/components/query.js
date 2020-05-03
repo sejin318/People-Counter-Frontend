@@ -67,6 +67,20 @@ export default class Query extends React.Component {
   }
 
   handleQuerySubmit(){
+
+    const saveData = (function () {
+    const a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    return function (data, fileName) {
+        const blob = new Blob([data], {type: "octet/stream"}),
+            url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };}());
+
     axios({ method: 'POST', url: 'http://52.220.34.115:5000/records',
     headers: {'Content-Type': 'application/json; charset=utf-8'},
     data: { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
@@ -75,6 +89,7 @@ export default class Query extends React.Component {
             num_loc: this.props.locations.length
     }})
     .then(function (response) {
+      saveData(response, 'query_result.csv');
       console.log(response);
     })
     .catch(function (error) {
