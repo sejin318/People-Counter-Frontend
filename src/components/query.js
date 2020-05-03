@@ -23,7 +23,7 @@ const styles = {
     marginRight: 20
   },
   datePicker: {
-    bottom: 20
+    bottom: 18
   }
   // chips: {
   //   display: 'flex',
@@ -85,10 +85,23 @@ export default class Query extends React.Component {
             <KeyboardDatePicker
               disableToolbar
               variant="inline"
-              format="MM/dd/yyyy"
+              format="yyyy/MM/dd"
               margin="normal"
               id="date-picker-inline"
-              label="Date picker inline"
+              label="Start Date"
+              value={new Date()}
+              KeyboardButtonProps={{
+                'aria-label': 'change date',
+              }}
+              style={styles.datePicker}
+            />
+            <KeyboardDatePicker
+              disableToolbar
+              variant="inline"
+              format="yyyy/MM/dd"
+              margin="normal"
+              id="date-picker-inline"
+              label="End Date"
               value={new Date()}
               KeyboardButtonProps={{
                 'aria-label': 'change date',
