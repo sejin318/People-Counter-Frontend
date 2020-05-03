@@ -31,6 +31,15 @@ const styles = {
   }
 };
 
+function map_to_short(str){
+  switch(str){
+    case 'South Gate': return 'south';
+    case 'North Gate': return 'north';
+    case 'Computer Barn B': return 'barnB1';
+    default: return '';
+  }
+}
+
 export default class Query extends React.Component {
 
   handleLocationSelection(e) {
@@ -55,6 +64,7 @@ export default class Query extends React.Component {
   }
 
   handleQuerySubmit(){
+    const target_loc = this.props.locations.map((data) => (map_to_short(data)));
     const saveData = (function () {
     const a = document.createElement("a");
     document.body.appendChild(a);
@@ -67,6 +77,14 @@ export default class Query extends React.Component {
         a.click();
         window.URL.revokeObjectURL(url);
     };}());
+
+    // remove later
+    console.log('request is: ', { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
+            end_date: moment(this.props.end_date).format('MM/DD/YYYY, HH:mm:ss'),
+            target_loc: this.props.locations,
+            num_loc: this.props.locations.length
+    }); 
+
 
     axios({ method: 'POST', url: 'http://52.220.34.115:5000/records',
     headers: {'Content-Type': 'application/json; charset=utf-8'},
