@@ -67,8 +67,6 @@ export default class Query extends React.Component {
   }
 
   handleQuerySubmit(){
-    var moment = require('moment');
-
     axios({ method: 'POST', url: 'http://52.220.34.115:5000/records',
     headers: {'Content-Type': 'application/json; charset=utf-8'},
     data: { start_date: moment(this.props.start_date.setHours(0, 0, 0, 0)).format('MM/DD/YYYY, HH:mm:ss'),
