@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log(state); 
+  console.log(state);
   console.log(action);
   switch (action.type) {
     case 'RECEIVE_LOCATION':
@@ -17,14 +17,14 @@ export default (state = initialState, action) => {
     case 'SET_START_DATE':
     console.log('hello1', action.payload);
     return {
+      ...state,
       start_date: action.payload,
-      ...state
     }
     case 'SET_END_DATE':
     console.log('hello1');
     return {
+      ...state, 
       end_date: action.payload,
-      ...state
     }
     default:
     return state;
