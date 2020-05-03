@@ -149,7 +149,7 @@ export default class Query extends React.Component {
               style={styles.datePicker}
             />
           </MuiPickersUtilsProvider>
-          <Button onClick={(e) => {handleQuerySubmit();}} variant="outlined" style={styles.button}>
+          <Button onClick={(e) => {this.handleQuerySubmit();}} variant="outlined" style={styles.button}>
               Submit Query
           </Button>
         </div>
