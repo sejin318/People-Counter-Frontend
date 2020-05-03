@@ -81,6 +81,14 @@ export default class Query extends React.Component {
         window.URL.revokeObjectURL(url);
     };}());
 
+    console.log('sending request is: ', { method: 'POST', url: 'http://52.220.34.115:5000/records',
+    headers: {'Content-Type': 'application/json; charset=utf-8'},
+    data: { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
+            end_date: moment(this.props.end_date).format('MM/DD/YYYY, HH:mm:ss'),
+            target_loc: this.props.locations,
+            num_loc: this.props.locations.length
+    }}); 
+
     axios({ method: 'POST', url: 'http://52.220.34.115:5000/records',
     headers: {'Content-Type': 'application/json; charset=utf-8'},
     data: { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
