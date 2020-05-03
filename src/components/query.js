@@ -6,6 +6,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
+import { set_locations } from  '../actions.query';
 // import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const styles = {
@@ -29,8 +30,7 @@ const styles = {
 export default class Query extends React.Component {
 
   handleChange(e){
-    const { options } = e.target;
-    console.log('e.target is', e.target, 'options is ', options)
+    handleChange(e.target.value[0]);
   }
 
   render() {
