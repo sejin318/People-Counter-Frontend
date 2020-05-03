@@ -127,7 +127,7 @@ export default class Query extends React.Component {
               style={styles.datePicker}
             />
           </MuiPickersUtilsProvider>
-          <Button variant="contained" raised color="white">
+          <Button variant="outlined" raised >
               Submit Query
           </Button>
         </div>
