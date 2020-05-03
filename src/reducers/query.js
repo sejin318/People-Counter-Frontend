@@ -13,12 +13,14 @@ export default (state = initialState, action) => {
       if(state.locations[i] === loc){
         state.locations.splice(i, 1);
         return {
+          locations: state.locations,
           ...state
         };
       }
     }
     state.locations.push(loc);
     return {
+      locations: state.locations, 
       ...state
     };
     default:
