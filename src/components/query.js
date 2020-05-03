@@ -47,26 +47,28 @@ export default class Query extends React.Component {
     };
 
     return (
-      <h1>Query & Download From the Database<h1/>
       <div>
-        <FormControl style={styles.formControl}>
-          <InputLabel id="location">Location</InputLabel>
-          <Select
-            labelId="location"
-            id="location"
-            multiple
-            value={locations}
-            onChange={this.handleChange}
-            input={<Input />}
-            MenuProps={MenuProps}
-          >
-            {locations.map((loc) => (
-              <MenuItem key={location_list} value={location_list} style={styles.formControl}>
-              {loc}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <h1>Query & Download From the Database</h1>
+        <div>
+          <FormControl style={styles.formControl}>
+            <InputLabel id="location">Location</InputLabel>
+            <Select
+              labelId="location"
+              id="location"
+              multiple
+              value={locations}
+              onChange={this.handleChange}
+              input={<Input />}
+              MenuProps={MenuProps}
+            >
+              {locations.map((loc) => (
+                <MenuItem key={location_list} value={location_list} style={styles.formControl}>
+                {loc}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
       </div>
     );
   }
