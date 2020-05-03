@@ -45,19 +45,19 @@ export default class Query extends React.Component {
     dispatch(set_locations(e.target.value));
   }
 
-  setStartDate(e){
+  setStartDate(date){
     const { dispatch } = this.props;
     dispatch({
       type: 'SET_START_DATE',
-      payload: e.target.value
+      payload: date
     });
   }
 
-  setEndDate(e){
+  setEndDate(date){
     const { dispatch } = this.props;
     dispatch({
       type: 'SET_END_DATE',
-      payload: e.target.value
+      payload: date
     });
   }
 
