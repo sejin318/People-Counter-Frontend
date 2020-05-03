@@ -61,8 +61,8 @@ export default class Query extends React.Component {
               input={<Input />}
               MenuProps={MenuProps}
             >
-              {locations.map((loc) => (
-                <MenuItem key={location_list} value={location_list} style={styles.formControl}>
+              {location_list.map((loc) => (
+                <MenuItem key={loc} value={loc} style={styles.formControl}>
                 {loc}
                 </MenuItem>
               ))}
