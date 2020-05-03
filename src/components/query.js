@@ -30,7 +30,7 @@ const styles = {
 export default class Query extends React.Component {
 
   handleChange(e){
-    handleChange(e.target.value[0]);
+    set_locations(e.target.value[0]);
   }
 
   render() {
