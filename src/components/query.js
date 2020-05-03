@@ -89,7 +89,8 @@ export default class Query extends React.Component {
             num_loc: this.props.locations.length
     }})
     .then(function (response) {
-      saveData(response, 'query_result.csv');
+      console.log('response is', response)
+      saveData(response.data, 'query_result.csv');
       console.log(response);
     })
     .catch(function (error) {
