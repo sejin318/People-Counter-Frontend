@@ -30,12 +30,12 @@ const styles = {
 export default class Query extends React.Component {
 
   handleChange(e){
-    console.log('query handlechange'); 
-    set_locations(e.target.value[0]);
+    console.log('query handlechange');
+    dispatch(set_locations(e.target.value[0]));
   }
 
   render() {
-    const { start_date, end_date, locations, location_list } = this.props;
+    const { start_date, end_date, locations, location_list, dispatch } = this.props;
 
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
