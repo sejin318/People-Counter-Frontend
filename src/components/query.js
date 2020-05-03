@@ -7,6 +7,11 @@ import FormControl from '@material-ui/core/FormControl';
 import MenuItem from '@material-ui/core/MenuItem';
 import Input from '@material-ui/core/Input';
 import { set_locations } from  '../actions/query';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 // import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 const styles = {
@@ -71,6 +76,19 @@ export default class Query extends React.Component {
               ))}
             </Select>
           </FormControl>
+          <KeyboardDatePicker
+            disableToolbar
+            variant="inline"
+            format="MM/dd/yyyy"
+            margin="normal"
+            id="date-picker-inline"
+            label="Date picker inline"
+            value={new Date()}
+            onChange={}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+          />
         </div>
       </div>
     );
