@@ -1,6 +1,9 @@
+var initDate = new Date();
+initDate.setHours(0, 0, 0, 0);
+
 const initialState = {
-  start_date: new Date(),
-  end_date: new Date(),
+  start_date: initDate,
+  end_date: initDate,
   locations: [],
   location_list: ['South Gate', 'North Gate', 'Computer Barn B']
 };
