@@ -84,7 +84,6 @@ export default class Query extends React.Component {
             id="date-picker-inline"
             label="Date picker inline"
             value={new Date()}
-            onChange={}
             KeyboardButtonProps={{
               'aria-label': 'change date',
             }}
