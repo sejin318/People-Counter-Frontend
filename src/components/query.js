@@ -23,7 +23,8 @@ const styles = {
     marginRight: 20
   },
   datePicker: {
-    bottom: 18
+    bottom: 16,
+    marginRight: 20
   }
   // chips: {
   //   display: 'flex',
@@ -39,10 +40,25 @@ const styles = {
 
 export default class Query extends React.Component {
 
-  handleChange(e) {
+  handleLocationSelection(e) {
     const { dispatch } = this.props;
-    // console.log(e.target.value);
     dispatch(set_locations(e.target.value));
+  }
+
+  setStartDate(e){
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'SET_START_DATE',
+      payload: e.target.value
+    });
+  }
+
+  setEndDate(e){
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'SET_END_DATE',
+      payload: e.target.value
+    });
   }
 
   render() {
@@ -70,7 +86,7 @@ export default class Query extends React.Component {
               id="location"
               multiple
               value={locations}
-              onChange={(e) => {this.handleChange(e)}}
+              onChange={(e) => {this.handleLocationSelection(e)}}
               input={<Input />}
               MenuProps={MenuProps}
             >
@@ -89,7 +105,8 @@ export default class Query extends React.Component {
               margin="normal"
               id="date-picker-inline"
               label="Start Date"
-              value={new Date()}
+              value={start_date}
+              onChange={(e) => {this.setStartDate(e)}}
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
@@ -102,7 +119,8 @@ export default class Query extends React.Component {
               margin="normal"
               id="date-picker-inline"
               label="End Date"
-              value={new Date()}
+              value={end_date}
+              onChange={(e) => {this.setEndDate(e)}}
               KeyboardButtonProps={{
                 'aria-label': 'change date',
               }}
