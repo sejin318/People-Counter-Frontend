@@ -6,26 +6,13 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log(action); 
+  console.log(action);
   switch (action.type) {
     case 'RECEIVE_LOCATION':
-    const loc = action.payload.location;
-    for(let i = 0; i < state.locations.length; i++){
-      if(state.locations[i] === loc){
-        state.locations.splice(i, 1);
-        console.log(state);
-        return {
-          locations: state.locations,
-          ...state
-        };
-      }
-    }
-    state.locations.push(loc);
-    console.log(state);
+    state.locations = action.type.location;
     return {
-      locations: state.locations,
       ...state
-    };
+    }; 
     default:
     return state;
   }
