@@ -30,6 +30,7 @@ const styles = {
 export default class Query extends React.Component {
 
   handleChange(e){
+    console.log('query handlechange'); 
     set_locations(e.target.value[0]);
   }
 
