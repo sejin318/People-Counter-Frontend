@@ -16,8 +16,6 @@ import DateFnsUtils from '@date-io/date-fns';
 import axios from 'axios';
 import * as moment from 'moment/moment';
 
-// import { makeStyles, useTheme } from '@material-ui/core/styles';
-
 const styles = {
   formControl: {
     minWidth: 120,
@@ -31,16 +29,6 @@ const styles = {
   button: {
     top: 10,
   }
-  // chips: {
-  //   display: 'flex',
-  //   flexWrap: 'wrap',
-  // },
-  // chip: {
-  //   margin: 2,
-  // },
-  // noLabel: {
-  //   marginTop: theme.spacing(3),
-  // },
 };
 
 export default class Query extends React.Component {
@@ -67,7 +55,6 @@ export default class Query extends React.Component {
   }
 
   handleQuerySubmit(){
-
     const saveData = (function () {
     const a = document.createElement("a");
     document.body.appendChild(a);
@@ -81,14 +68,6 @@ export default class Query extends React.Component {
         window.URL.revokeObjectURL(url);
     };}());
 
-    console.log('sending request is: ', { method: 'POST', url: 'http://52.220.34.115:5000/records',
-    headers: {'Content-Type': 'application/json; charset=utf-8'},
-    data: { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
-            end_date: moment(this.props.end_date).format('MM/DD/YYYY, HH:mm:ss'),
-            target_loc: this.props.locations,
-            num_loc: this.props.locations.length
-    }}); 
-
     axios({ method: 'POST', url: 'http://52.220.34.115:5000/records',
     headers: {'Content-Type': 'application/json; charset=utf-8'},
     data: { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
@@ -98,7 +77,7 @@ export default class Query extends React.Component {
     }})
     .then(function (response) {
       console.log('response is', response)
-      saveData(response.data, 'query_result.csv');
+      saveData(response.data, 'counting_records.csv');
       console.log(response);
     })
     .catch(function (error) {
