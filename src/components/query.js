@@ -29,7 +29,8 @@ const styles = {
 export default class Query extends React.Component {
 
   handleChange(e){
-
+    const { options } = e.target;
+    console.log('e.target is', e.target, 'options is ', options)
   }
 
   render() {
