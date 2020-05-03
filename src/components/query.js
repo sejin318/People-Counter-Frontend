@@ -14,7 +14,7 @@ import {
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import axios from 'axios';
-import * as moment from 'moment';
+import * as moment from 'moment/moment';
 
 // import { makeStyles, useTheme } from '@material-ui/core/styles';
 
