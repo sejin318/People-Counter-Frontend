@@ -29,7 +29,7 @@ const styles = {
 
 export default class Query extends React.Component {
 
-  const handleChange = (e) => {
+  handleChange(e) {
     const { dispatch } = this.props;
     dispatch(set_locations(e.target.value[0]));
   }
@@ -59,7 +59,7 @@ export default class Query extends React.Component {
               id="location"
               multiple
               value={locations}
-              onChange={this.handleChange}
+              onChange={(e) => {this.handleChange(e)}}
               input={<Input />}
               MenuProps={MenuProps}
             >
