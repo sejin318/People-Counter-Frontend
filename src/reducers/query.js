@@ -14,11 +14,13 @@ export default (state = initialState, action) => {
       ...state
     };
     case 'SET_START_DATE':
+    console.log('hello1');
     return {
       start_date: action.payload,
       ...state
     }
     case 'SET_END_DATE':
+    console.log('hello1');
     return {
       end_date: action.payload,
       ...state
