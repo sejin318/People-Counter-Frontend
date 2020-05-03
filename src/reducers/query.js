@@ -8,7 +8,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'RECEIVE_LOCATION':
-    loc = action.payload.location;
+    const loc = action.payload.location;
     for(let i = 0; i < state.locations.length; i++){
       if(state.locations[i] === loc){
         state.locations.splice(i, 1);
