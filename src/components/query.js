@@ -25,6 +25,9 @@ const styles = {
   datePicker: {
     bottom: 16,
     marginRight: 20
+  },
+  button: {
+    top: 10,
   }
   // chips: {
   //   display: 'flex',
@@ -127,7 +130,7 @@ export default class Query extends React.Component {
               style={styles.datePicker}
             />
           </MuiPickersUtilsProvider>
-          <Button variant="outlined" raised >
+          <Button variant="outlined" style={styles.button}>
               Submit Query
           </Button>
         </div>
