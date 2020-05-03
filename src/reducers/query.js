@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
       ...state
     };
     case 'SET_START_DATE':
-    console.log('hello1');
+    console.log('hello1', action.payload);
     return {
       start_date: action.payload,
       ...state
