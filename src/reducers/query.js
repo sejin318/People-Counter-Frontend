@@ -12,6 +12,7 @@ export default (state = initialState, action) => {
     for(let i = 0; i < state.locations.length; i++){
       if(state.locations[i] === loc){
         state.locations.splice(i, 1);
+        console.log(state);
         return {
           locations: state.locations,
           ...state
@@ -19,8 +20,9 @@ export default (state = initialState, action) => {
       }
     }
     state.locations.push(loc);
+    console.log(state);
     return {
-      locations: state.locations, 
+      locations: state.locations,
       ...state
     };
     default:
