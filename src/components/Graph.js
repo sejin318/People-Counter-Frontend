@@ -10,14 +10,6 @@ export default class Graph extends React.Component {
     this.props.onMount();
   }
 
-  componentWillUpdate() {
-    // console.log("component will update at: ", new Date());
-  }
-
-  componentDidUpdate(prevProp, prevState){
-    // console.log("component updated at: ", new Date());
-  }
-
   render() {
     const { location, data } = this.props;
     return (
@@ -32,7 +24,7 @@ export default class Graph extends React.Component {
           labels: data.map((item) => (
             item.time == null ?
             null :
-            item.time.getHours() + ':' + item.time.getMinutes() + ':' + item.time.getSeconds()) 
+            item.time.getHours() + ':' + item.time.getMinutes() + ':' + item.time.getSeconds())
           ),
           datasets: [
             {

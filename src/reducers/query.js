@@ -4,6 +4,8 @@ initDate.setHours(0, 0, 0, 0);
 const initialState = {
   start_date: initDate,
   end_date: initDate,
+  // start_time: initDate, 
+  // end_time: initDate,
   locations: [],
   location_list: ['South Gate', 'North Gate', 'Computer Barn B']
 };

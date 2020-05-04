@@ -26,6 +26,10 @@ const styles = {
     bottom: 16,
     marginRight: 20
   },
+  timePicker: {
+    bottom: 16,
+    marginRight: 20
+  },
   button: {
     top: 10,
   }
@@ -78,12 +82,12 @@ export default class Query extends React.Component {
         window.URL.revokeObjectURL(url);
     };}());
 
-    // remove later
-    console.log('request is: ', { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
-            end_date: moment(this.props.end_date).format('MM/DD/YYYY, HH:mm:ss'),
-            target_loc: target_loc, 
-            num_loc: this.props.locations.length
-    });
+    // // remove later
+    // console.log('request is: ', { start_date: moment(this.props.start_date).format('MM/DD/YYYY, HH:mm:ss'),
+    //         end_date: moment(this.props.end_date).format('MM/DD/YYYY, HH:mm:ss'),
+    //         target_loc: target_loc,
+    //         num_loc: this.props.locations.length
+    // });
 
 
     axios({ method: 'POST', url: 'http://52.220.34.115:5000/records',
@@ -154,6 +158,17 @@ export default class Query extends React.Component {
               }}
               style={styles.datePicker}
             />
+            <KeyboardTimePicker
+              margin="normal"
+              id="time-picker"
+              label="Start Time"
+              value={start_date}
+              onChange={(e) => {this.setStartDate(e)}}
+              KeyboardButtonProps={{
+                'aria-label': 'change time',
+              }}
+              style={styles.timePicker}
+            />
             <KeyboardDatePicker
               disableToolbar
               variant="inline"
@@ -167,6 +182,17 @@ export default class Query extends React.Component {
                 'aria-label': 'change date',
               }}
               style={styles.datePicker}
+            />
+            <KeyboardTimePicker
+              margin="normal"
+              id="time-picker"
+              label="End Time"
+              value={end_date}
+              onChange={(e) => {this.setEndDate(e)}}
+              KeyboardButtonProps={{
+                'aria-label': 'change time',
+              }}
+              style={styles.timePicker}
             />
           </MuiPickersUtilsProvider>
           <Button onClick={(e) => {this.handleQuerySubmit();}} variant="outlined" style={styles.button}>

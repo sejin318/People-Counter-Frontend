@@ -5,8 +5,6 @@ import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, 
 import { ButtonGroup } from '@material-ui/core';
 export default class Image extends React.Component {
 
-
-
   componentDidMount() {
     const { dispatch } = this.props;
     const canvas = this.refs.canvas;
