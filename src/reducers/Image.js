@@ -4,8 +4,8 @@ const initialState = {
   ],
   lock: true,
   anchorEl: null,
-  which_region: -1,
-
+  which_region: '',
+  data_count: 0
 };
 
 export default (state = initialState, action) => {
@@ -44,7 +44,8 @@ export default (state = initialState, action) => {
     return {
       ...state,
       openDrawing: false,
-      lock: true
+      lock: true,
+      which_region: ''
     };
     case 'SET_ANCHOR':
     console.log('set_anchor', action.payload);
@@ -57,8 +58,17 @@ export default (state = initialState, action) => {
       ...state,
       has_region: true,
     }
+    case 'CHANGE_REGION':
+    return {
+      ...state,
+      which_region: action.payload
+    };
+    case 'RECEIVE_DATA':
+    return {
+      ...state,
+      data_count: state.data_count+1
+    }; 
     default:
     return state;
-
   }
 }

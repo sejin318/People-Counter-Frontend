@@ -61,6 +61,13 @@ export function unlock(){
   };
 }
 
+export function change_region(region_name){
+  return {
+    type: 'CHANGE_REGION',
+    payload: region_name
+  }
+}
+
 export function drawRegion(props, index_name, img){
   let coordinates;
   let fill_color;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, unlock } from '../actions/Image';
+import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, unlock, change_region } from '../actions/Image';
 import { ButtonGroup } from '@material-ui/core';
 import MouseOverPopover from './popover';
 
@@ -20,7 +20,7 @@ export default class Image extends React.Component {
 
   componentDidMount() {
     console.log('Image component mounted');
-    const { dispatch } = this.props;
+    const { dispatch,  } = this.props;
     const canvas = this.refs.canvas;
     const img = this.refs.image
     dispatch(setCanvas(canvas));
@@ -30,21 +30,21 @@ export default class Image extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    const canvas = this.refs.canvas;
-    const img = this.refs.image
-    const ctx = canvas.getContext("2d");
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0);
+  componentDidUpdate(nextProps) {
+    //update if some prop has changed!
+    if(this.props.data_count != nextProps.data_count){
+      updateCanvas(this.props.which_region).bind(this);
     }
   }
 
   updateCanvas(index_name){
+    this.props.dispatch(change_region(index_name));
     const img = this.refs.image
     drawRegion(this.props, index_name, img);
   }
 
   resetCanvas(){
+    this.props.dispatch(change_region(''));
     const canvas = this.refs.canvas;
     const img = this.refs.image
     const ctx = canvas.getContext("2d");
@@ -79,12 +79,13 @@ export default class Image extends React.Component {
   }
 
   finishDrawing(){
+    this.props.dispatch(change_region('define'));
     drawRegion(this.props, 'define', this.refs.image);
-    this.props.dispatch(reset_line()); 
+    this.props.dispatch(reset_line());
   }
 
   render() {
-    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox, anchorEl } = this.props;
+    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox, anchorEl, which_region, data_count } = this.props;
     var define_start = false;
     var button;
     if(lock){
