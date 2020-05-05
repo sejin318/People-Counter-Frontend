@@ -79,7 +79,7 @@ export default class Query extends React.Component {
     if(this.props.start_date > this.props.end_date){
       this.props.dispatch({
         type: 'SET_OPEN',
-        payload: 'The starting datetime should not be after the ending datetime. Please correct the input and try again.';
+        payload: 'The starting datetime should not be after the ending datetime. Please correct the input and try again.'
       });
       return;
     }
