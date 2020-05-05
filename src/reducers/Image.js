@@ -15,6 +15,7 @@ export default (state = initialState, action) => {
     console.log('unlock reducer');
     return {
       ...state,
+      lines: [],
       lock: false
     }
     case 'START_DRAWING':
@@ -43,7 +44,6 @@ export default (state = initialState, action) => {
     return {
       ...state,
       openDrawing: false,
-      lines: [],
       lock: true
     };
     case 'SET_ANCHOR':
