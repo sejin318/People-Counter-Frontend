@@ -3,7 +3,6 @@ const initialState = {
   lines: [
   ],
   lock: true,
-  open: false,
   anchorEL: null
 };
 
@@ -44,7 +43,11 @@ export default (state = initialState, action) => {
       lines: [],
       lock: true
     };
-
+    case 'SET_ANCHOR':
+    return{
+      ...state,
+      anchorEL: action.payload
+    }
     default:
     return state;
 
