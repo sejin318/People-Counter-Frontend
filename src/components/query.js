@@ -15,7 +15,7 @@ import {
 import DateFnsUtils from '@date-io/date-fns';
 import axios from 'axios';
 import * as moment from 'moment/moment';
-import AlertDialog from 'dialog'
+import AlertDialog from './dialog'
 
 const styles = {
   formControl: {
