@@ -27,12 +27,8 @@ export default function MouseOverPopover(props) {
       </Typography>
       <Popover
         id="mouse-over-popover"
-        className={classes.popover}
-        classes={{
-          paper: classes.paper,
-        }}
         open={open}
-        anchorEl={anchorEl}
+        anchorEl={props.anchorEl}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
