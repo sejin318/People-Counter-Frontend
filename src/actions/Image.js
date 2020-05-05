@@ -64,7 +64,7 @@ export function unlock(){
 export function drawRegion(props, index_name){
   let coordinates;
   let fill_color;
-  { regions, bbox } = props;
+  const { regions, bbox } = props;
   if(regions.hasOwnProperty(index_name)){
     coordinates = props.regions[index_name];
     fill_color = 'rgba(255, 0, 0, 0.3)';
