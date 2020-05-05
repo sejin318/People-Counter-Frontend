@@ -44,6 +44,7 @@ export default (state = initialState, action) => {
       lock: true
     };
     case 'SET_ANCHOR':
+    console.log('set_anchor'); 
     return{
       ...state,
       anchorEL: action.payload
