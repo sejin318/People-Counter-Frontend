@@ -40,7 +40,8 @@ export default class Image extends React.Component {
   }
 
   updateCanvas(index_name){
-    drawRegion(this.props, index_name);
+    const img = this.refs.image
+    drawRegion(this.props, index_name, img);
   }
 
   resetCanvas(){

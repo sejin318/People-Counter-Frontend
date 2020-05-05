@@ -61,7 +61,7 @@ export function unlock(){
   };
 }
 
-export function drawRegion(props, index_name){
+export function drawRegion(props, index_name, img){
   let coordinates;
   let fill_color;
   const { regions, bbox } = props;
@@ -69,12 +69,16 @@ export function drawRegion(props, index_name){
     coordinates = props.regions[index_name];
     fill_color = 'rgba(255, 0, 0, 0.3)';
   } else if(index_name == 'define'){
-    coordinates = props.coordinates;
+    coordinates = props.lines;
     fill_color = 'rgba(0, 0, 255, 0.3)';
   } else {
     return; // also handles when no region is selected
   }
+  if(coordinates.length == 0){
+    return;
+  }
   const ctx = props.canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0);
   ctx.beginPath();
   ctx.moveTo(coordinates[0], coordinates[1]);
   for(let i = 2; i < coordinates.length; i+=2){
