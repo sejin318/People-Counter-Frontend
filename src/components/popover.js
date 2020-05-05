@@ -32,6 +32,7 @@ export default function MouseOverPopover(props) {
         aria-haspopup="true"
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
+        display='inline'
       >
       <b>Privacy Info</b>
       </Typography>
