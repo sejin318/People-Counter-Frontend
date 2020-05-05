@@ -33,6 +33,7 @@ export default class Image extends React.Component {
   componentWillUpdate(nextProps) {
     //update if some prop has changed!
     if(this.props.data_count != nextProps.data_count){
+      console.log('data updated, updating the canvas!');
       this.updateCanvas(this.props.which_region).bind(this);
     }
   }
