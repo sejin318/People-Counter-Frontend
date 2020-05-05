@@ -44,7 +44,9 @@ export default class Image extends React.Component {
     const img = this.refs.image
     const ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0);
-    drawRegion(canvas, data, bbox);
+    const drawRegionWithBind = drawRegion.bind(this);
+    drawRegionWithBind(canvas, data, bbox);
+    // drawRegion(canvas, data, bbox).bind(this);
   }
 
   resetCanvas(){
@@ -94,32 +96,6 @@ export default class Image extends React.Component {
     ctx.fill();
     ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
     ctx.stroke();
-    let total = 0;
-    for(let i = 0; i < bbox.length; i++){
-      let cross_count = 0;
-      let bbox_x = (bbox[i][0]+bbox[i][2])/2;
-      bbox_x *= (1024/3840);
-      let bbox_y = (bbox[i][1]+bbox[i][3])/2;
-      bbox_y *= (768/2160);
-      for(let j = 0; j < lines.length-2; j+=2){
-        if(intersect(lines[j], lines[j+1], lines[j+2], lines[j+3], 0, 0, bbox_x, bbox_y)){
-          cross_count++;
-        }
-      }
-      if(intersect(lines[0], lines[1], lines[lines.length-2], lines[lines.length-1], 0, 0, bbox_x, bbox_y)){
-        cross_count++;
-      }
-      if(cross_count & 1){
-        total++;
-      }
-    }
-    dispatch(reset_line());
-    ctx.font = "20px Arial";
-    ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-    ctx.fillText("People Count: "+total, 850, 40);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 1)';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(840, 15, 170, 40);
   }
 
   render() {

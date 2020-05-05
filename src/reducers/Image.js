@@ -3,7 +3,8 @@ const initialState = {
   lines: [
   ],
   lock: true,
-  anchorEl: null
+  anchorEl: null,
+  has_region: false,
 };
 
 export default (state = initialState, action) => {
@@ -49,6 +50,11 @@ export default (state = initialState, action) => {
     return{
       ...state,
       anchorEl: action.payload
+    }
+    case 'HAS_REGION':
+    return {
+      ...state,
+      has_region: true, 
     }
     default:
     return state;
