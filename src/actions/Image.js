@@ -92,7 +92,7 @@ export function unlock(){
 }
 
 export function drawRegion(canvas, coordinates, bbox){
-  { dispatch } = this.props;
+  const { dispatch } = this.props;
   dispatch(reset_line());
   const ctx = canvas.getContext("2d");
   ctx.beginPath();
