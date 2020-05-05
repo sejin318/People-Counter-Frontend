@@ -36,7 +36,7 @@ export default function MouseOverPopover(props) {
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
       >
-        Privacy Info
+      <b>Privacy Info</b>
       </Typography>
       <Popover
         id="mouse-over-popover"
