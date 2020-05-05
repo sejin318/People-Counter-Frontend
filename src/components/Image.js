@@ -79,7 +79,7 @@ export default class Image extends React.Component {
   }
 
   finishDrawing(){
-    drawRegion(this.props, 'define');
+    drawRegion(this.props, 'define', this.refs.image);
   }
 
   render() {
