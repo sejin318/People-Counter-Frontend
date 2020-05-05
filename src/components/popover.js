@@ -23,7 +23,7 @@ export default function MouseOverPopover(props) {
         onMouseEnter={handlePopoverOpen}
         onMouseLeave={handlePopoverClose}
       >
-        Hover with a Popover.
+        Privacy Info
       </Typography>
       <Popover
         id="mouse-over-popover"
@@ -34,7 +34,8 @@ export default function MouseOverPopover(props) {
           horizontal: 'left',
         }}
         style={{
-          pointerEvents: 'none'
+          pointerEvents: 'none',
+          padding: 1
         }}
         transformOrigin={{
           vertical: 'top',
@@ -43,7 +44,7 @@ export default function MouseOverPopover(props) {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <Typography>I use Popover.</Typography>
+        <Typography>For privacy protection of the subject of the camera view, we only display the picture without people.</Typography>
       </Popover>
     </div>
   );
