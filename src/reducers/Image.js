@@ -39,6 +39,7 @@ export default (state = initialState, action) => {
     case 'RESET':
     // console.log('reducer says reset');
     return {
+      ...state,
       openDrawing: false,
       lines: [],
       lock: true
