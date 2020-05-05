@@ -25,7 +25,7 @@ export function intersect(
 }
 
 export function draw_count(lines){
-  { dispatch, canvas, bbox } = this.props;
+  const { dispatch, canvas, bbox } = this.props;
   const ctx = canvas.getContext("2d");
   let total = 0;
   for(let i = 0; i < bbox.length; i++){
