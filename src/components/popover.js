@@ -1,6 +1,7 @@
 import React from 'react';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
 export default function MouseOverPopover(props) {
   // const [anchorEl, setAnchorEl] = React.useState(null);
@@ -14,7 +15,9 @@ export default function MouseOverPopover(props) {
   };
 
   const open = Boolean(props.anchorEl);
+  const theme = createMuiTheme();
 
+  theme.spacing(2) // = 8 * 2
   return (
     <div>
       <Typography
@@ -35,7 +38,7 @@ export default function MouseOverPopover(props) {
         }}
         style={{
           pointerEvents: 'none',
-          margin: 10
+          margin: theme.spacing(2)
         }}
         transformOrigin={{
           vertical: 'top',
