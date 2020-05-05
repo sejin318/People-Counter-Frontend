@@ -15,6 +15,7 @@ import {
 import DateFnsUtils from '@date-io/date-fns';
 import axios from 'axios';
 import * as moment from 'moment/moment';
+import AlertDialog from 'dialog'
 
 const styles = {
   formControl: {
@@ -46,6 +47,13 @@ function map_to_short(str){
 
 export default class Query extends React.Component {
 
+  handleClose(){
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'SET_CLOSE'
+    })
+  }
+
   handleLocationSelection(e) {
     const { dispatch } = this.props;
     dispatch(set_locations(e.target.value));
@@ -68,6 +76,13 @@ export default class Query extends React.Component {
   }
 
   handleQuerySubmit(){
+    if(this.props.start_date > this.props.end_date){
+      this.props.dispatch({
+        type: 'SET_OPEN',
+        payload: 'The starting datetime should not be after the ending datetime. Please correct the input and try again.';
+      });
+      return;
+    }
     const target_loc = this.props.locations.map((data) => (map_to_short(data)));
     const saveData = (function () {
     const a = document.createElement("a");
@@ -108,7 +123,7 @@ export default class Query extends React.Component {
   }
 
   render() {
-    const { start_date, end_date, locations, location_list } = this.props;
+    const { start_date, end_date, locations, location_list, open, openContent } = this.props;
 
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
@@ -196,9 +211,10 @@ export default class Query extends React.Component {
             />
           </MuiPickersUtilsProvider>
           <Button onClick={(e) => {this.handleQuerySubmit();}} variant="outlined" style={styles.button}>
-              Submit Query
+              Export to CSV
           </Button>
         </div>
+        <AlertDialog open={open} openContent={openContent} handleClose={this.handleClose.bind(this)}/>
       </div>
     );
   }

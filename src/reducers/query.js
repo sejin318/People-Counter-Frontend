@@ -4,10 +4,10 @@ initDate.setHours(0, 0, 0, 0);
 const initialState = {
   start_date: initDate,
   end_date: initDate,
-  // start_time: initDate,
-  // end_time: initDate,
   locations: [],
-  location_list: ['South Gate', 'North Gate', 'Computer Barn B']
+  location_list: ['South Gate', 'North Gate', 'Computer Barn B'],
+  open: false,
+  openContent: ''
 };
 
 export default (state = initialState, action) => {
@@ -25,14 +25,26 @@ export default (state = initialState, action) => {
     return {
       ...state,
       start_date: action.payload,
-    }
+    };
     case 'SET_END_DATE':
     // console.log('hello1');
     // action.payload.setHours(0, 0, 0, 0);
     return {
       ...state,
       end_date: action.payload,
-    }
+    };
+    case 'SET_OPEN':
+    return {
+      ...state,
+      open: true,
+      openContent: action.payload
+    };
+    case 'SET_CLOSE':
+    return {
+      ...state,
+      open: false
+    };
+
     default:
     return state;
   }
