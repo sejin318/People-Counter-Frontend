@@ -123,7 +123,7 @@ export default class Image extends React.Component {
   }
 
   render() {
-    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox, anchorEL } = this.props;
+    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox, anchorEl } = this.props;
     var define_start = false;
     var button;
     if(lock){
@@ -141,7 +141,7 @@ export default class Image extends React.Component {
     }
     return (
       <div style={{position:"relative"}}>
-        <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()} <MouseOverPopover anchorEL={anchorEL} setAnchorEl={this.setAnchorEl.bind(this)}/></h1>
+        <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()} <MouseOverPopover anchorEl={anchorEl} setAnchorEl={this.setAnchorEl.bind(this)}/></h1>
         <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={require('./south gate img downsampled.jpg')} className="hidden" />
         <ButtonGroup

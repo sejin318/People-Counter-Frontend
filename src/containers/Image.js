@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
   lines: state.Image.lines,
   lock: state.Image.lock,
   bbox: state.Graph.bbox[ownProps.location][state.Graph.bbox[ownProps.location].length-1],
-  anchorEL: state.Image.anchorEL, 
+  anchorEl: state.Image.anchorEl, 
 });
 
 export default connect(mapStateToProps)(Image);
