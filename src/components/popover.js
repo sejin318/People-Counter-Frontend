@@ -40,6 +40,11 @@ export default function MouseOverPopover(props) {
           pointerEvents: 'none',
           padding: theme.spacing(2)
         }}
+        classes={{
+          paper: {
+            padding: theme.spacing(2)
+          }
+        }}
         transformOrigin={{
           vertical: 'top',
           horizontal: 'left',
