@@ -4,7 +4,8 @@ const initialState = {
   ],
   lock: true,
   anchorEl: null,
-  has_region: false,
+  which_region: -1,
+
 };
 
 export default (state = initialState, action) => {
@@ -54,7 +55,7 @@ export default (state = initialState, action) => {
     case 'HAS_REGION':
     return {
       ...state,
-      has_region: true, 
+      has_region: true,
     }
     default:
     return state;

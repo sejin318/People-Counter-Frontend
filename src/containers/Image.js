@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
   lock: state.Image.lock,
   bbox: state.Graph.bbox[ownProps.location][state.Graph.bbox[ownProps.location].length-1],
   anchorEl: state.Image.anchorEl,
+  which_region: state.Image.which_region, 
 });
 
 export default connect(mapStateToProps)(Image);

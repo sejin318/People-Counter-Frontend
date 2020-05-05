@@ -39,14 +39,8 @@ export default class Image extends React.Component {
     }
   }
 
-  updateCanvas(data, bbox){
-    const canvas = this.refs.canvas;
-    const img = this.refs.image
-    const ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
-    const drawRegionWithBind = drawRegion.bind(this);
-    drawRegionWithBind(canvas, data, bbox);
-    // drawRegion(canvas, data, bbox).bind(this);
+  updateCanvas(index_name){
+    drawRegion(this.props, index_name);
   }
 
   resetCanvas(){
@@ -83,19 +77,8 @@ export default class Image extends React.Component {
     }
   }
 
-  finishDrawing(canvas, lines, bbox){
-    this.resetCanvas();
-    const { dispatch } = this.props;
-    const ctx = canvas.getContext("2d");
-    ctx.beginPath();
-    ctx.moveTo(lines[0], lines[1]);
-    for(let i = 2; i < lines.length; i+=2){
-      ctx.lineTo(lines[i], lines[i+1]);
-    }
-    ctx.fillStyle = 'rgba(0, 0, 255, 0.3)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
-    ctx.stroke();
+  finishDrawing(){
+    drawRegion(this.props, 'define');
   }
 
   render() {
@@ -110,7 +93,7 @@ export default class Image extends React.Component {
       );
     } else {
       button = (
-        <Button onClick={() => {this.finishDrawing(canvas, lines, bbox); }} variant="contained" color="tertiary">
+        <Button onClick={() => {this.finishDrawing(); }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
@@ -131,7 +114,7 @@ export default class Image extends React.Component {
           style={{position:"absolute", bottom:0}}
         >
           {buttons.map((data) => (
-            <Button onClick={() => this.updateCanvas(regions[data], bbox)} variant="contained" color="tertiary">
+            <Button onClick={() => this.updateCanvas(data)} variant="contained" color="tertiary">
             {data}
             </Button>
           ))}
