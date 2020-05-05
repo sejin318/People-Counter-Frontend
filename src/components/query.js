@@ -46,6 +46,9 @@ function map_to_short(str){
 }
 
 export default class Query extends React.Component {
+  componentDidMount(){
+    console.log('Query component mounted');
+  }
 
   handleClose(){
     const { dispatch } = this.props;
@@ -77,7 +80,7 @@ export default class Query extends React.Component {
 
   handleQuerySubmit(){
     if(this.props.start_date > this.props.end_date){
-      console.log('start date greater than enddate!');
+      // console.log('start date greater than enddate!');
       this.props.dispatch({
         type: 'SET_OPEN',
         payload: 'The starting datetime should not be after the ending datetime. Please correct the input and try again.'
@@ -121,9 +124,9 @@ export default class Query extends React.Component {
             num_loc: this.props.locations.length
     }})
     .then(function (response) {
-      console.log('response is', response)
+      // console.log('response is', response)
       saveData(response.data, 'counting_records.csv');
-      console.log(response);
+      // console.log(response);
     })
     .catch(function (error) {
       console.log(error);
