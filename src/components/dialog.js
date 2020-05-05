@@ -16,10 +16,10 @@ export default function AlertDialog(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{"Warning: Invalid Input Value"}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{"Warning: Invalid Input Value!"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {props.alertContent}
+            {props.openContent}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
