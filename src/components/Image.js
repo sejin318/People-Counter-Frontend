@@ -3,7 +3,16 @@ import './Image.css';
 import Button from '@material-ui/core/Button';
 import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, unlock } from '../actions/Image';
 import { ButtonGroup } from '@material-ui/core';
+import MouseOverPopover from './popover';
+
 export default class Image extends React.Component {
+
+  setAnchorEl(target){
+    this.props.dispatch({
+      type: SET_ANCHOR,
+      payload: targets
+    });
+  }
 
   componentWillUnmount(){
     console.log('Image component will unmount');
@@ -114,7 +123,7 @@ export default class Image extends React.Component {
   }
 
   render() {
-    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox } = this.props;
+    const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox, anchorEL } = this.props;
     var define_start = false;
     var button;
     if(lock){
@@ -132,7 +141,7 @@ export default class Image extends React.Component {
     }
     return (
       <div style={{position:"relative"}}>
-        <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
+        <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()} <MouseOverPopover anchorEL={anchorEL} setAnchorEl={this.setAnchorEl.bind(this)}/></h1>
         <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={require('./south gate img downsampled.jpg')} className="hidden" />
         <ButtonGroup

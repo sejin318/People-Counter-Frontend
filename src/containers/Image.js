@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => ({
   openDrawing: state.Image.openDrawing,
   lines: state.Image.lines,
   lock: state.Image.lock,
-  bbox: state.Graph.bbox[ownProps.location][state.Graph.bbox[ownProps.location].length-1]
+  bbox: state.Graph.bbox[ownProps.location][state.Graph.bbox[ownProps.location].length-1],
+  anchorEL: state.Image.anchorEL, 
 });
 
 export default connect(mapStateToProps)(Image);

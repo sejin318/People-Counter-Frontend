@@ -2,7 +2,9 @@ const initialState = {
   openDrawing: false,
   lines: [
   ],
-  lock: true
+  lock: true,
+  open: false,
+  anchorEL: null
 };
 
 export default (state = initialState, action) => {

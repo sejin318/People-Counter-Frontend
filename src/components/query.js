@@ -50,6 +50,10 @@ export default class Query extends React.Component {
     console.log('Query component mounted');
   }
 
+  componentWillUnmount(){
+    console.log('Query component will unmount');
+  }
+
   handleClose(){
     const { dispatch } = this.props;
     dispatch({
