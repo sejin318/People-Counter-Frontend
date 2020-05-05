@@ -35,7 +35,7 @@ export default function MouseOverPopover(props) {
         }}
         style={{
           pointerEvents: 'none',
-          padding: 1
+          padding: 10
         }}
         transformOrigin={{
           vertical: 'top',
