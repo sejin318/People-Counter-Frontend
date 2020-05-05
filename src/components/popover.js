@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function MouseOverPopover(props) {
-  // const [anchorEl, setAnchorEl] = React.useState(null);
   const classes = useStyles();
   const handlePopoverOpen = (event) => {
     props.setAnchorEl(event.currentTarget);
@@ -25,9 +24,7 @@ export default function MouseOverPopover(props) {
   };
 
   const open = Boolean(props.anchorEl);
-  // const theme = createMuiTheme();
 
-  // theme.spacing(2) // = 8 * 2
   return (
     <div>
       <Typography
@@ -40,15 +37,15 @@ export default function MouseOverPopover(props) {
       </Typography>
       <Popover
         id="mouse-over-popover"
+        className={classes.popover}
+        classes={{
+          paper: classes.paper,
+        }}
         open={open}
         anchorEl={props.anchorEl}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left',
-        }}
-        className={classes.popover}
-        classes={{
-          paper: classes.paper,
         }}
         transformOrigin={{
           vertical: 'top',

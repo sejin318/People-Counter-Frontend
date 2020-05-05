@@ -142,7 +142,9 @@ export default class Image extends React.Component {
     return (
       <div style={{position:"relative"}}>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
-        <MouseOverPopover anchorEl={anchorEl} setAnchorEl={this.setAnchorEl.bind(this)}/>
+        <div>
+          <MouseOverPopover anchorEl={anchorEl} setAnchorEl={this.setAnchorEl.bind(this)}/>
+        </div>
         <canvas onClick={(e) => this.customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={require('./south gate img downsampled.jpg')} className="hidden" />
         <ButtonGroup
