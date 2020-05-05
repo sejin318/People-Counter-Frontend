@@ -9,7 +9,7 @@ export default class Image extends React.Component {
 
   setAnchorEl(target){
     this.props.dispatch({
-      type: SET_ANCHOR,
+      type: 'SET_ANCHOR',
       payload: target
     });
   }
