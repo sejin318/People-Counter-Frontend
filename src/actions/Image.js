@@ -24,8 +24,8 @@ export function intersect(
     return true;
 }
 
-export function draw_count(lines){
-  const { dispatch, canvas, bbox } = this.props;
+export function draw_count(lines, props){
+  const { dispatch, canvas, bbox } = props;
   const ctx = canvas.getContext("2d");
   let total = 0;
   for(let i = 0; i < bbox.length; i++){
@@ -104,5 +104,5 @@ export function drawRegion(canvas, coordinates, bbox){
   ctx.fill();
   ctx.strokeStyle = 'rgba(0, 0, 0, 0)';
   ctx.stroke();
-  draw_count(coordinates);
+  draw_count(coordinates, this.props);
 }
