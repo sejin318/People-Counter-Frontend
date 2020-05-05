@@ -5,7 +5,12 @@ import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, 
 import { ButtonGroup } from '@material-ui/core';
 export default class Image extends React.Component {
 
+  componentWillUnmount(){
+    console.log('Image component will unmount');
+  }
+
   componentDidMount() {
+    console.log('Image component mounted');
     const { dispatch } = this.props;
     const canvas = this.refs.canvas;
     const img = this.refs.image

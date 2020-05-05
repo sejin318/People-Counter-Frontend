@@ -6,6 +6,14 @@ import { styled } from '@material-ui/core/styles';
 import WindowSize, { useWindowSize } from "@reach/window-size";
 
 export default class Graph extends React.Component {
+  componentDidMount(){
+    console.log('Graph component mounted');
+  }
+
+  componentWillUnmount(){
+    console.log('Graph component will unmount');
+  }
+
   componentWillMount() {
     this.props.onMount();
   }
