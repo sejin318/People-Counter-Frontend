@@ -63,11 +63,11 @@ export default (state = initialState, action) => {
       ...state,
       which_region: action.payload
     };
-    case 'RECEIVE_DATA':
+    case 'UPDATE':
     return {
       ...state,
       data_count: state.data_count+1
-    }; 
+    };
     default:
     return state;
   }

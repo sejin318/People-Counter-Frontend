@@ -44,6 +44,9 @@ export const fetchData = () => {
             dispatch(receiveData(null, location, true));
           } else {
             dispatch(receiveData({ time: time, count: count, img: img, bbox: bbox }, location, false));
+            dispatch({
+              type:'UPDATE',
+            }); 
           }
         }
       })
