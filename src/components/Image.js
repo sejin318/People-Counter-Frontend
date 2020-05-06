@@ -36,7 +36,8 @@ export default class Image extends React.Component {
     console.log('current data count: ', this.props.data_count, 'next data count: ', nextProps.data_count);
     if(this.props.data_count != nextProps.data_count){
       console.log('data updated, updating the canvas!');
-      () => (this.updateCanvas(this.props.which_region))();
+      const update = () => this.updateCanvas(this.props.which_region); 
+      update();
     }
   }
 
