@@ -19,14 +19,10 @@ export default (state = initialState, action) => {
       lock: false
     }
     case 'START_DRAWING':
-    // console.log('reducer says start drawing');
-    // state.openDrawing = true;
     return {
       ...state,
       openDrawing: true,
-      lines: [...state.lines]
     };
-
     case 'ADD_LINE':
     // console.log('reducer says add line');
     let arr = [...state.lines];
@@ -38,7 +34,12 @@ export default (state = initialState, action) => {
       ...state,
       lines: arr
     };
-
+    case 'FINISH_DRAWING':
+    return {
+      ...state,
+      openDrawing: false,
+      lock: true
+    };
     case 'RESET':
     // console.log('reducer says reset');
     return {
@@ -52,19 +53,14 @@ export default (state = initialState, action) => {
     return{
       ...state,
       anchorEl: action.payload
-    }
-    case 'HAS_REGION':
-    return {
-      ...state,
-      has_region: true,
-    }
+    }; 
     case 'CHANGE_REGION':
     return {
       ...state,
       which_region: action.payload
     };
     case 'UPDATE':
-    console.log('UPDATE called!'); 
+    console.log('UPDATE called!');
     return {
       ...state,
       data_count: state.data_count+1

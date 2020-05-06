@@ -1,7 +1,7 @@
 import React from 'react';
 import './Image.css';
 import Button from '@material-ui/core/Button';
-import { setCanvas, drawRegion, start_drawing, add_line, intersect, reset_line, unlock, change_region } from '../actions/Image';
+import { setCanvas, drawRegion, start_drawing, add_line, reset_line, unlock, change_region } from '../actions/Image';
 import { ButtonGroup } from '@material-ui/core';
 import MouseOverPopover from './popover';
 
@@ -32,11 +32,11 @@ export default class Image extends React.Component {
 
   componentWillUpdate(nextProps) {
     //update if some prop has changed!
-    console.log('component will update!');
-    console.log('current data count: ', this.props.data_count, 'next data count: ', nextProps.data_count);
+    // console.log('component will update!');
+    // console.log('current data count: ', this.props.data_count, 'next data count: ', nextProps.data_count);
     if(this.props.data_count != nextProps.data_count){
-      console.log('data updated, updating the canvas!');
-      const update = () => this.updateCanvas(this.props.which_region); 
+      // console.log('data updated, updating the canvas!');
+      const update = () => {console.log('update called!', 'region is: ', this.props.which_region); this.updateCanvas(this.props.which_region); }
       update();
     }
   }
@@ -48,7 +48,9 @@ export default class Image extends React.Component {
   }
 
   resetCanvas(){
-    this.props.dispatch(change_region(''));
+    this.props.dispatch({
+      type: 'RESET'
+    });
     const canvas = this.refs.canvas;
     const img = this.refs.image
     const ctx = canvas.getContext("2d");
@@ -84,8 +86,11 @@ export default class Image extends React.Component {
 
   finishDrawing(){
     this.props.dispatch(change_region('define'));
+    this.props.dispatch({
+      type: 'FINISH_DRAWING'
+    });
     drawRegion(this.props, 'define', this.refs.image);
-    this.props.dispatch(reset_line());
+    // this.props.dispatch(reset_line());
   }
 
   render() {
