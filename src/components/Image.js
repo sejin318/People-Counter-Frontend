@@ -15,11 +15,9 @@ export default class Image extends React.Component {
   }
 
   componentWillUnmount(){
-    console.log('Image component will unmount');
   }
 
   componentDidMount() {
-    console.log('Image component mounted');
     const { dispatch,  } = this.props;
     const canvas = this.refs.canvas;
     const img = this.refs.image
@@ -31,12 +29,8 @@ export default class Image extends React.Component {
   }
 
   componentWillUpdate(nextProps) {
-    //update if some prop has changed!
-    // console.log('component will update!');
-    // console.log('current data count: ', this.props.data_count, 'next data count: ', nextProps.data_count);
     if(this.props.data_count != nextProps.data_count){
-      // console.log('data updated, updating the canvas!');
-      const update = () => {console.log('update called!', 'region is: ', this.props.which_region); this.updateCanvas(this.props.which_region); }
+      const update = () => { this.updateCanvas(this.props.which_region); }
       update();
     }
   }
@@ -62,20 +56,16 @@ export default class Image extends React.Component {
       return;
     }
     const { dispatch } = this.props;
-    // console.log('custom drawing called', openDrawing);
     const rect = canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    // console.log('x and y are: ', x, y);
     const ctx = canvas.getContext("2d");
     ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
     ctx.lineWidth = 5;
     if(!openDrawing){
-      // console.log("opendrawing false! ");
       dispatch(start_drawing());
       dispatch(add_line(x, y));
     } else {
-      // console.log("opendrawing true!");
       dispatch(add_line(x, y));
       ctx.beginPath();
       ctx.moveTo(lines[lines.length-2], lines[lines.length-1]);

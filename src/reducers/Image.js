@@ -9,10 +9,8 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  // console.log("Image reducer called??");
   switch (action.type) {
     case 'UNLOCK':
-    console.log('unlock reducer');
     return {
       ...state,
       lines: [],
@@ -24,7 +22,6 @@ export default (state = initialState, action) => {
       openDrawing: true,
     };
     case 'ADD_LINE':
-    // console.log('reducer says add line');
     let arr = [...state.lines];
     const x = action.payload.x;
     const y = action.payload.y;
@@ -41,7 +38,6 @@ export default (state = initialState, action) => {
       lock: true
     };
     case 'RESET':
-    // console.log('reducer says reset');
     return {
       ...state,
       openDrawing: false,
@@ -49,18 +45,16 @@ export default (state = initialState, action) => {
       which_region: ''
     };
     case 'SET_ANCHOR':
-    console.log('set_anchor', action.payload);
     return{
       ...state,
       anchorEl: action.payload
-    }; 
+    };
     case 'CHANGE_REGION':
     return {
       ...state,
       which_region: action.payload
     };
     case 'UPDATE':
-    console.log('UPDATE called!');
     return {
       ...state,
       data_count: state.data_count+1
