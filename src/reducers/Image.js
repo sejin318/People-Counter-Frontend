@@ -64,6 +64,7 @@ export default (state = initialState, action) => {
       which_region: action.payload
     };
     case 'UPDATE':
+    console.log('UPDATE called!'); 
     return {
       ...state,
       data_count: state.data_count+1
