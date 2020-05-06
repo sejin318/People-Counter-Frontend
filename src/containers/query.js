@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
   locations: state.query.locations,
   location_list: state.query.location_list,
   open: state.query.open,
-  openContent: state.query.openContent
+  openContent: state.query.openContent,
 });
 
 
