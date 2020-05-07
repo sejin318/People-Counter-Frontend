@@ -25,7 +25,7 @@ export default class Image extends React.Component {
     if(this.props.data_count != nextProps.data_count){
       const update = updateCanvas.bind(this);
       // const update = (() => { updateCanvas(this.props.which_region); }).bind(this);
-      update(update(this.props.which_region));
+      update(this.props.which_region);
     }
   }
 
