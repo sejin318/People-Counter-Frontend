@@ -98,6 +98,7 @@ export default class Query extends React.Component {
       });
       return;
     }
+    console.log('query being sent...'); 
     const target_loc = this.props.locations.map((data) => (map_to_short(data)));
     const saveData = (function () {
     const a = document.createElement("a");
