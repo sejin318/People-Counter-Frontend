@@ -23,13 +23,12 @@ export default class Image extends React.Component {
 
   componentWillUpdate(nextProps) {
     if(this.props.data_count != nextProps.data_count){
-      const update = () => { updateCanvas(this.props.which_region); }
-      update = update.bind(this);
+      const update = (() => { updateCanvas(this.props.which_region); }).bind(this);
       update();
     }
   }
 
-
+// this binds to the object where the function is created!
 
   render() {
     const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox, anchorEl, which_region, data_count } = this.props;
