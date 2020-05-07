@@ -121,3 +121,57 @@ export function drawRegion(props, index_name, img){
   ctx.lineWidth = 2;
   ctx.strokeRect(840, 15, 170, 40);
 }
+
+export function customDrawing(e) {
+  const { dispatch, canvas, openDrawing, lines, lock } = this.props;
+  if(lock){
+    return;
+  }
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  const ctx = canvas.getContext("2d");
+  ctx.strokeStyle = 'rgba(0, 0, 0, 1)';
+  ctx.lineWidth = 5;
+  if(!openDrawing){
+    dispatch(start_drawing());
+    dispatch(add_line(x, y));
+  } else {
+    dispatch(add_line(x, y));
+    ctx.beginPath();
+    ctx.moveTo(lines[lines.length-2], lines[lines.length-1]);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+}
+
+export function setAnchorEl(target){
+  this.props.dispatch({
+    type: 'SET_ANCHOR',
+    payload: target
+  });
+}
+
+export function updateCanvas(index_name){
+  this.props.dispatch(change_region(index_name));
+  const img = this.refs.image
+  drawRegion(this.props, index_name, img);
+}
+
+export function resetCanvas(){
+  this.props.dispatch({
+    type: 'RESET'
+  });
+  const canvas = this.refs.canvas;
+  const img = this.refs.image
+  const ctx = canvas.getContext("2d");
+  ctx.drawImage(img, 0, 0);
+}
+
+export function finishDrawing(){
+  this.props.dispatch(change_region('define'));
+  this.props.dispatch({
+    type: 'FINISH_DRAWING'
+  });
+  drawRegion(this.props, 'define', this.refs.image);
+}
