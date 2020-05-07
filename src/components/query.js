@@ -98,7 +98,7 @@ export default class Query extends React.Component {
       });
       return;
     }
-    console.log('query being sent...'); 
+    console.log('query being sent...');
     const target_loc = this.props.locations.map((data) => (map_to_short(data)));
     const saveData = (function () {
     const a = document.createElement("a");
@@ -129,7 +129,7 @@ export default class Query extends React.Component {
             num_loc: this.props.locations.length
     }})
     .then(function (response) {
-      // console.log('response is', response)
+      console.log('response is', response)
       saveData(response.data, 'counting_records.csv');
       // console.log(response);
     })
