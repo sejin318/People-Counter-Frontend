@@ -29,7 +29,8 @@ export default class Image extends React.Component {
     }
   }
 
-// this binds to the object where the function is created!
+// arrow function forces "bind" to bind to where the function was declared!
+// normal function "bind" to where it is called!
 
   render() {
     const { location, img, buttons, canvas, regions, openDrawing, lines, lock, dispatch, bbox, anchorEl, which_region, data_count } = this.props;
@@ -37,13 +38,13 @@ export default class Image extends React.Component {
     var button;
     if(lock){
       button = (
-        <Button onClick={(e) => {resetCanvas(); dispatch(unlock());}} variant="contained" color="tertiary">
+        <Button onClick={(e) => {resetCanvas.bind(this)(); dispatch(unlock());}} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
     } else {
       button = (
-        <Button onClick={() => {finishDrawing(); }} variant="contained" color="tertiary">
+        <Button onClick={() => {finishDrawing.bind(this)(); }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
@@ -52,9 +53,9 @@ export default class Image extends React.Component {
       <div style={{position:"relative"}}>
         <h1 className="mt-5">CAMERA VIEW AT {location.toUpperCase()}</h1>
         <div>
-          <MouseOverPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl}/>
+          <MouseOverPopover anchorEl={anchorEl} setAnchorEl={setAnchorEl.bind(this)}/>
         </div>
-        <canvas onClick={(e) => customDrawing(e, canvas, openDrawing, lines, lock)} width="1024" height="768" ref="canvas" className="canvas" />
+        <canvas onClick={(e) => customDrawing.bind(this)(e)} width="1024" height="768" ref="canvas" className="canvas" />
         <img ref="image" src={require('./south gate img downsampled.jpg')} className="hidden" />
         <ButtonGroup
           orientation="vertical"
@@ -64,12 +65,12 @@ export default class Image extends React.Component {
           style={{position:"absolute", bottom:0}}
         >
           {buttons.map((data) => (
-            <Button onClick={() => updateCanvas(data)} variant="contained" color="tertiary">
+            <Button onClick={() => updateCanvas.bind(this)(data)} variant="contained" color="tertiary">
             {data}
             </Button>
           ))}
           {button}
-          <Button onClick={() => resetCanvas()} variant="contained" color="tertiary">
+          <Button onClick={() => resetCanvas.bind(this)()} variant="contained" color="tertiary">
           Reset
           </Button>
         </ButtonGroup>
