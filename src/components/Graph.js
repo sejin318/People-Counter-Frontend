@@ -29,11 +29,11 @@ export default class Graph extends React.Component {
     return (
       <div>
         <MDBContainer>
-        <h1 className="mt-5">People Count at {location.toUpperCase()}</h1>
+        <h1 className="mt-5" style={{fontSize: isBrowser ? 28 : 20}}>People Count at {location.toUpperCase()}</h1>
         <h4>Current Count: {data[data.length-1].count}</h4>
         <Line
         width={200}
-        height={isBrowser == true ? 30 : 100}
+        height={isBrowser == true ? 30 : 200}
         top={isBrowser == true ? 0 : 70}
         data={{
           labels: data.map((item) => (

@@ -15,7 +15,7 @@ export default function Buttons({ categories }) {
   return (
     <div>
       {button_list.map(item => (
-        <Button component={Link} style={{ marginLeft : isBrowser ? 20 : 0, fontSize: isBrowser ? 15 : 10}} variant="contained" raised color="tertiary" to={to(item)}>
+        <Button component={Link} style={{ marginLeft : isBrowser ? 20 : 0, fontSize: isBrowser ? 15 : 10,  borderRadius: 0}} variant="contained" raised color="tertiary" to={to(item)}>
             {item.name}
         </Button>
       ))}

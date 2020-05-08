@@ -38,13 +38,13 @@ export default class Image extends React.Component {
     var button;
     if(lock){
       button = (
-        <Button onClick={(e) => {resetCanvas.bind(this)(); dispatch(unlock());}} variant="contained" color="tertiary">
+        <Button style={{borderRadius: 0}}  onClick={(e) => {resetCanvas.bind(this)(); dispatch(unlock());}} variant="contained" color="tertiary">
         Define Region
         </Button>
       );
     } else {
       button = (
-        <Button onClick={() => {finishDrawing.bind(this)(); }} variant="contained" color="tertiary">
+        <Button style={{borderRadius: 0}}  onClick={() => {finishDrawing.bind(this)(); }} variant="contained" color="tertiary">
         End Region
         </Button>
       )
@@ -65,12 +65,12 @@ export default class Image extends React.Component {
           style={{position:"absolute", bottom:0}}
         >
           {buttons.map((data) => (
-            <Button onClick={() => updateCanvas.bind(this)(data)} variant="contained" color="tertiary">
+            <Button style={{borderRadius: 0}} onClick={() => updateCanvas.bind(this)(data)} variant="contained" color="tertiary">
             {data}
             </Button>
           ))}
           {button}
-          <Button onClick={() => resetCanvas.bind(this)()} variant="contained" color="tertiary">
+          <Button style={{borderRadius: 0}} onClick={() => resetCanvas.bind(this)()} variant="contained" color="tertiary">
           Reset
           </Button>
         </ButtonGroup>
