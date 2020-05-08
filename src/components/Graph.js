@@ -31,7 +31,7 @@ export default class Graph extends React.Component {
         <MDBContainer>
         <h1 className="mt-5" style={{fontSize: isBrowser ? 28 : 20}}>People Count at {location.toUpperCase()}</h1>
         <h4>Current Count: {data[data.length-1].count}</h4>
-        <h5>{location == "barn-b" ? "Computer Barn B is closed due to the COVID-19." : "Data is updated every 5 seconds."}</h5>
+        <h5>{location == "barn-b" ? "*Computer Barn B is closed due to the COVID-19." : "*Data is updated every 5 seconds."}</h5>
         <Line
         width={200}
         height={isBrowser == true ? 30 : 170}
