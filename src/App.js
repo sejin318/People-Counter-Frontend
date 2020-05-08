@@ -74,14 +74,20 @@ class App extends Component {
               />
             </Switch>
             <MobileView>
-              <ButtonGroup
-                orientation="horizontal"
-                color="primary"
-                variant="contained"
-                style={{position:"absolute", bottom:0, borderRadius: 0}}
-              >
-                <Buttons />
-              </ButtonGroup>
+              <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+              }}>
+                <ButtonGroup
+                  orientation="horizontal"
+                  color="primary"
+                  variant="contained"
+                >
+                  <Buttons />
+                </ButtonGroup>
+              </div>
             </MobileView>
           </div>
       </div>
