@@ -18,6 +18,7 @@ import Query from './containers/query'
 
 let style = isMobile ? {
   height: window.innerHeight * 0.2,
+  top: 50,
 } : {};
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
               HKUST People Counting Application
               </h2>
               </Typography>
+              <MobileView><br></MobileView>
               <Buttons />
             </Toolbar>
           </AppBar>
