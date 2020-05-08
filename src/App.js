@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         <CssBaseline />
           <AppBar style={style}>
-            <Toolbar>
+            <Toolbar style={{width: window.innerWidth}}>
               <Typography type="title" color="inherit">
               <h2 style={{flexDirection: 'row'}}>
               HKUST People Counting Application
