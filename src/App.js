@@ -78,7 +78,8 @@ class App extends Component {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center", 
+                bottom: 0
               }}>
                 <ButtonGroup
                   orientation="horizontal"
