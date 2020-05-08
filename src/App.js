@@ -34,7 +34,9 @@ class App extends Component {
               </h2>
               </Typography>
               <MobileView><br /></MobileView>
-              <Buttons />
+              <BrowserView>
+                <Buttons />
+              </BrowserView>
             </Toolbar>
           </AppBar>
           <div style={{ marginTop: 60, padding: 20}}>
