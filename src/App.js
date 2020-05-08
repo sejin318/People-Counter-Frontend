@@ -18,7 +18,7 @@ import Divider from '@material-ui/core/Divider';
 import Query from './containers/query'
 
 let style = isMobile ? {
-  height: window.innerHeight * 0.15,
+  height: window.innerHeight * 0.13,
 } : {};
 
 class App extends Component {
@@ -29,7 +29,7 @@ class App extends Component {
           <AppBar style={style}>
             <Toolbar style={{width: window.innerWidth}}>
               <Typography type="title" color="inherit">
-              <h2 style={{flexDirection: 'row', fontSize: isBrowser ? 24 : 18}}>
+              <h2 style={{flexDirection: 'row', fontSize: isBrowser ? 24 : 19}}>
                 HKUST People Counting Application
               </h2>
               </Typography>
