@@ -78,6 +78,7 @@ class App extends Component {
                 orientation="horizontal"
                 color="primary"
                 variant="contained"
+                bottom: 0
               >
                 <Buttons />
               </ButtonGroup>
