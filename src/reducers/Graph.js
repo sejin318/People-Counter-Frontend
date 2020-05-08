@@ -54,10 +54,6 @@ export default (state = initialState, action) => {
       }
       return {
         ...state,
-        data: {
-          ...state.data,
-          [location]: [...state.data[location]] // why not simply return {...state} ?
-        }
       };
 
     default:
