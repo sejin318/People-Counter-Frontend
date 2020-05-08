@@ -33,7 +33,7 @@ class App extends Component {
               HKUST People Counting Application
               </h2>
               </Typography>
-              <MobileView><br></MobileView>
+              <MobileView><br /></MobileView>
               <Buttons />
             </Toolbar>
           </AppBar>
