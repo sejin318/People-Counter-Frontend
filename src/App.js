@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 import Graph from './containers/Graph';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -9,6 +15,7 @@ import Buttons from './containers/Buttons';
 import Image from './containers/Image';
 import Divider from '@material-ui/core/Divider';
 import Query from './containers/query'
+
 
 class App extends Component {
   render() {
@@ -37,7 +44,9 @@ class App extends Component {
                         <div>
                           <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
                           <Divider style={{marginTop:50}}/>
-                          <Image location={match.params.location} />
+                          <BrowserView>
+                            <Image location={match.params.location} />
+                          </BrowserView>
                         </div>
                       )
                     } else if (match.params.location == 'query & download'){

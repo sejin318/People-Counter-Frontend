@@ -4,6 +4,12 @@ import { MDBContainer } from "mdbreact";
 import { compose, sizing, spacing, positions } from '@material-ui/system';
 import { styled } from '@material-ui/core/styles';
 import WindowSize, { useWindowSize } from "@reach/window-size";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 export default class Graph extends React.Component {
   componentDidMount(){
@@ -27,7 +33,7 @@ export default class Graph extends React.Component {
         <h4>Current Count: {data[data.length-1].count}</h4>
         <Line
         width={200}
-        height={30}
+        height={isBrowser == true ? 30 : 100}
         data={{
           labels: data.map((item) => (
             item.time == null ?
