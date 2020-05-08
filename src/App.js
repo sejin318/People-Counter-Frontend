@@ -65,7 +65,9 @@ class App extends Component {
                       return (
                         <div>
                           <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
-                          <Divider style={{marginTop:50}}/>
+                          <BrowserView>
+                            <Divider style={{marginTop:50}}/>
+                          </BrowserView>
                         </div>
                       )
                     }
@@ -78,7 +80,7 @@ class App extends Component {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                alignItems: "center", 
+                alignItems: "center",
                 bottom: 0
               }}>
                 <ButtonGroup
