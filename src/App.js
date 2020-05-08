@@ -18,9 +18,7 @@ import Query from './containers/query'
 
 let style = isMobile ? {
   height: window.innerHeight * 0.2,
-} : {
-  {}
-};
+} : {}; 
 
 class App extends Component {
   render() {
