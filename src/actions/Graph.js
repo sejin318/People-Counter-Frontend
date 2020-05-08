@@ -34,6 +34,7 @@ export const fetchData = () => {
       axios.get(init_url)
       .then( (e) => {
         const data_list = e.data.data;
+        console.log(location_list[i], 'data length is: ', data_list.length);
         for(let j = 0; j < data_list.length; j++){
           const data = data_list[j];
           const img = data.img_data;
