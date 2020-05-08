@@ -19,14 +19,11 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  // console.log('graph reducer called!');
   switch (action.type) {
 
     case 'RECEIVE_DATA':
       const location = action.payload.location;
       const data = action.payload.data;
-
-      // console.log('bbox is', data.bbox, ':', state.bbox[location]);
 
       function find_index(list, item){
         const time = item.time;
@@ -41,17 +38,7 @@ export default (state = initialState, action) => {
         return i;
       }
 
-      // console.log('graph storage is: ', state.data[location]);
-
       const index = find_index(state.data[location], data);
-      // if(duplicate(state.data[location], data)){
-      //   console.log('duplicate found!');
-      //   return {
-      //     ...state
-      //   }
-      // } else {
-      //   // console.log('no duplicate found!');
-      // }
       if (action.payload.error || index === -1){
         return {
           ...state
@@ -67,10 +54,6 @@ export default (state = initialState, action) => {
       }
       return {
         ...state,
-        data: {
-          ...state.data,
-          [location]: [...state.data[location]] // why not simply return {...state} ?
-        }
       };
 
     default:
