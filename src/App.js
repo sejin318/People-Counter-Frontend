@@ -29,8 +29,8 @@ class App extends Component {
           <AppBar style={style}>
             <Toolbar style={{width: window.innerWidth}}>
               <Typography type="title" color="inherit">
-              <h2 style={{flexDirection: 'row'}}>
-              HKUST People Counting Application
+              <h2 style={{flexDirection: 'row', fontSize: isBrowser ? 24 : 15}}>
+                HKUST People Counting Application
               </h2>
               </Typography>
               <BrowserView>
