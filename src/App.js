@@ -18,7 +18,7 @@ import Query from './containers/query'
 
 let style = isMobile ? {
   height: window.innerHeight * 0.2,
-} : {}; 
+} : {};
 
 class App extends Component {
   render() {
@@ -28,7 +28,7 @@ class App extends Component {
           <AppBar style={style}>
             <Toolbar>
               <Typography type="title" color="inherit">
-              <h2>
+              <h2 style={{flexDirection: 'row'}}>
               HKUST People Counting Application
               </h2>
               </Typography>
