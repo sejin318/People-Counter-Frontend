@@ -33,8 +33,7 @@ export default class Graph extends React.Component {
         <h4>Current Count: {data[data.length-1].count}</h4>
         <Line
         width={200}
-        height={isBrowser == true ? 30 : 200}
-        bottom={isBrowser == true ? 0 : 70}
+        height={isBrowser == true ? 30 : 170}
         data={{
           labels: data.map((item) => (
             item.time == null ?
