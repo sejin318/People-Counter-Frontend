@@ -6,6 +6,7 @@ import {
   isBrowser,
   isMobile
 } from "react-device-detect";
+import { ButtonGroup } from '@material-ui/core';
 import Graph from './containers/Graph';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -18,7 +19,6 @@ import Query from './containers/query'
 
 let style = isMobile ? {
   height: window.innerHeight * 0.2,
-  top: 50,
 } : {};
 
 class App extends Component {
@@ -74,7 +74,13 @@ class App extends Component {
               />
             </Switch>
             <MobileView>
-              <Buttons />
+              <ButtonGroup
+                orientation="horizontal"
+                color="primary"
+                variant="contained"
+              >
+                <Buttons />
+              </ButtonGroup>
             </MobileView>
           </div>
       </div>
