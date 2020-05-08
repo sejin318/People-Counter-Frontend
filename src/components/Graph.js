@@ -34,6 +34,7 @@ export default class Graph extends React.Component {
         <Line
         width={200}
         height={isBrowser == true ? 30 : 100}
+        top={isBrowser == true ? 0 : 70}
         data={{
           labels: data.map((item) => (
             item.time == null ?

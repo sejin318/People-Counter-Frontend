@@ -16,13 +16,18 @@ import Image from './containers/Image';
 import Divider from '@material-ui/core/Divider';
 import Query from './containers/query'
 
+let style = isMobile ? {
+  height: window.innerHeight * 0.2,
+} : {
+  {}
+};
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <CssBaseline />
-          <AppBar style={{  }}>
+          <AppBar style={style}>
             <Toolbar>
               <Typography type="title" color="inherit">
               <h2>
@@ -43,8 +48,8 @@ class App extends Component {
                       return (
                         <div>
                           <Graph style={{ width:"100", height:"100" }} location={match.params.location} />
-                          <Divider style={{marginTop:50}}/>
                           <BrowserView>
+                            <Divider style={{marginTop:50}}/>
                             <Image location={match.params.location} />
                           </BrowserView>
                         </div>
