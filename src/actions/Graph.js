@@ -34,8 +34,8 @@ export const fetchData = () => {
       axios.get(init_url)
       .then( (e) => {
         const data_list = e.data.data;
-        for(let j = 0; j < data_list.length; j++){
-          const data = data_list[j];
+        for(let i = 0; i < data_list.length; i++){
+          const data = data_list[i];
           const img = data.img_data;
           const time = toDate(data.datetime);
           const count = data.count;
@@ -58,8 +58,8 @@ export const fetchData = () => {
       const eventSource = new EventSource(API_URL[location]);
       eventSource.onmessage = e => {
         const data_list = JSON.parse(e.data);
-        for(let j = 0; j < data_list.length; j++){
-          const data = data_list[j];
+        for(let i = 0; i < data_list.length; i++){
+          const data = data_list[i];
           const img = data.img_data;
           const time = toDate(data.datetime);
           const count = data.count;
